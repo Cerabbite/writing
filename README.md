@@ -1,2 +1,2 @@
 # writing
-A converter from markdown files to a pdf for novels or screenplay
+A converter for markdown files to a pdf for novels or screenplay
