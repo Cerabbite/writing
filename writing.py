@@ -16,6 +16,8 @@ https://stackoverflow.com/questions/4899885/how-to-set-any-font-in-reportlab-can
 https://stackoverflow.com/questions/3755851/python-reportlab-pdf-centering-text-on-page
 """
 
+__VERSION__ = "1.0.0-Alpha"
+
 filename = "test.md" #input(">>")
 
 def Settings(file):
@@ -76,6 +78,10 @@ def Create_PDF(settings, chapters):
 
 def Commands(command):
     pass
+
+def VERSION():
+    # Check if new version is available
+    return __VERSION__
 
 file = open(filename)
 file_read = file.readlines()
