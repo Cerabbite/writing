@@ -8,6 +8,10 @@ import requests
 
 __VERSION__ = "1.0.0-Alpha"
 
+"""
+A single empty line means a new line and double empty line means new paragraph
+"""
+
 app = typer.Typer()
 
 @app.command()
