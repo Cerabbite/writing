@@ -60,9 +60,8 @@ def WRITING(input_file: str, output_file: str):
 
         pdf = Canvas(output_file, pagesize=LETTER)
         pdf.setFont("Courier", font_size*5)
-        pdf.drawString(1 * inch, LETTER, "Document Title")
-        pdf.setFont("Courier", font_size*3)
         pdf.drawString(1 * inch, 10 * inch, "Document Title")
+        pdf.setFont("Courier", font_size*3)
         #pdf.drawString(1 * inch, 9.5 * inch, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis vel eros donec ac odio tempor orci dapibus ultrices. Non nisi est sit amet facilisis magna etiam tempor orci. Turpis egestas pretium aenean pharetra magna ac placerat. Orci nulla pellentesque dignissim enim sit amet venenatis. Arcu felis bibendum ut tristique et egestas quis ipsum suspendisse. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Nec nam aliquam sem et tortor consequat. Nec ultrices dui sapien eget mi proin. Morbi non arcu risus quis varius quam.<br />\nMassa eget egestas purus viverra. Urna molestie at elementum eu facilisis sed odio. Volutpat maecenas volutpat blandit aliquam etiam. Neque convallis a cras semper auctor neque. Aliquet lectus proin nibh nisl condimentum. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Nisl rhoncus mattis rhoncus urna neque. Diam vel quam elementum pulvinar etiam non quam. In hac habitasse platea dictumst quisque sagittis purus. Dolor morbi non arcu risus. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam.")
         pdf.save()
 
