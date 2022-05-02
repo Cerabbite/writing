@@ -17,8 +17,14 @@ def addTitle(doc):
     return doc
 
 def addParagraphs(doc):
+    with open("text.txt") as txt:
+        for line in txt.read().split("\n"):
+            doc.append(Paragraph(line))
+            doc.append(Spacer(1, 20))
     return doc
+
+document = addTitle(document)
 
 SimpleDocTemplate('test.pdf', pagesize=letter,
                 rightMargin=12, leftMargin=12,
-                topMargin=12, bottomMargin=6).build(addTitle(document))
+                topMargin=12, bottomMargin=6).build(addParagraphs(document))
