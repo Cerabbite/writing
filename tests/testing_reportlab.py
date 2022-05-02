@@ -20,7 +20,7 @@ def addParagraphs(doc):
     with open("text.txt") as txt:
         for line in txt.read().split("\n"):
             doc.append(Paragraph(line))
-            doc.append(Spacer(1, 20))
+            doc.append(Spacer(1, 12))
     return doc
 
 document = addTitle(document)
