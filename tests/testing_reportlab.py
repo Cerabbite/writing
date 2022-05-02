@@ -14,7 +14,10 @@ def addTitle(doc):
                                                         fontSize=36,
                                                         alignment=TA_CENTER)))
     doc.append(Spacer(1, 50))
-    return document
+    return doc
+
+def addParagraphs(doc):
+    return doc
 
 SimpleDocTemplate('test.pdf', pagesize=letter,
                 rightMargin=12, leftMargin=12,
