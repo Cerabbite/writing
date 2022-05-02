@@ -36,6 +36,7 @@ def NEW_VERSION(version):
     print(f"Do you want to download v{version}?")
     inp = input("[Y/N] ")
     if inp.lower() == "y":
+        UPDATE()
         # Download the new version
         pass
 
@@ -66,7 +67,7 @@ def VERSION(check: bool=False):
 
 @app.command()
 def UPDATE():
-    print("You  are currently unable to download the latest version via you command line go to 'https://github.com/Cerabbite/writing/releases' to download the latest version")
+    print("You are currently unable to download the latest version via you command line go to 'https://github.com/Cerabbite/writing/releases' to download the latest version.")
     # refer to VERSION() to check if update is available
 
 if __name__ == "__main__":
