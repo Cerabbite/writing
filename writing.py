@@ -5,8 +5,10 @@ from reportlab.lib.pagesizes import A1, A2, A3, A4, A5, A6
 import os
 import typer
 import requests
+import platform
 
 __VERSION__ = "1.0.0-Alpha"
+__LICENSE__ = "MIT License"
 
 """
 A single empty line means a new line and double empty line means new paragraph
@@ -146,6 +148,15 @@ def VERSION(check: bool=False):
 def UPDATE():
     print("You are currently unable to download the latest version via you command line go to 'https://github.com/Cerabbite/writing/releases' to download the latest version.")
     # refer to VERSION() to check if update is available
+
+@app.command()
+def INFO():
+    print(platform.system())
+    print(__VERSION__)
+    print()
+    with open("LICENSE_TEXT.txt") as txt:
+        txt_read = txt.read()
+        print(txt_read)
 
 if __name__ == "__main__":
     app()
