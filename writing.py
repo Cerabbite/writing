@@ -1,3 +1,7 @@
+from reportlab.pdfgen.canvas import Canvas
+from reportlab.lib.units import inch, cm
+from reportlab.lib.pagesizes import LETTER, LEGAL, TABLOID
+from reportlab.lib.pagesizes import A1, A2, A3, A4, A5, A6
 import typer
 import requests
 
@@ -71,7 +75,7 @@ def WRITING(input_file: str, output_file: str):
         #https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION
         return __VERSION__
 
-    file = open(filename)
+    file = open(input_file)
     file_read = file.readlines()
     f_read = []
     for i in file_read:
