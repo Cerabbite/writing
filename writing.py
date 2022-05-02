@@ -38,7 +38,16 @@ def VERSION(check: bool=False):
     if check:
         url = 'https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION'
         page = requests.get(url)
-        print(LIST_OF_VERSION(page.text))
+        latest_version = LIST_OF_VERSION(page.text)
+        current_version = LIST_OF_VERSION(__VERSION__)
+        print(latest_version)
+        print(current_version)
+        if latest_version[0] > current_version[0]:
+            print(f"New version available {page.text}")
+        elif latest_version[1] > current_version[1]:
+            print(f"New version available {page.text}")
+        elif latest_version[2] > current_version[2]:
+            print(f"New version available {page.text}")
         #print("No update available")
 
 @app.command()
