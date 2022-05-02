@@ -61,7 +61,8 @@ def VERSION(check: bool=False):
         elif len(latest_version) == 4 and len(current_version) == 4:
             if latest_version[3] == 'Beta' and current_version[3] == 'Alpha':
                 NEW_VERSION(v)
-        #print("No update available")
+        else:
+            print("No update available")
 
 @app.command()
 def DOWNLOAD():
