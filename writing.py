@@ -14,20 +14,21 @@ def LIST_OF_VERSION(version):
     release_list = release.split(".")
     try:
         thing = release_list[2].split("-")[0]
-        print(1)
+        #print(1)
         thing2 = release_list[2].split("-")[1]
-        print(2)
+        #print(2)
         release_list[2] = thing
-        print(3)
+        #print(3)
         release_list.append(thing2)
-        print(4)
+        #print(4)
     except Exception as e:
-        print(e)
-    print(release_list)
+        #print(e)
+        pass
+    #print(release_list)
     release = []
     for i in release_list:
         release.append(i.split('\n')[0])
-    print(release)
+    #print(release)
     return release
 
 
