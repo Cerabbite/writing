@@ -7,6 +7,15 @@ from reportlab.lib.units import inch, cm
 document = []
 document.append(Image('image.jpg', 2.2*inch, 2.2*inch))
 
+def addTitle(doc):
+    doc.append(Spacer(1, 20))
+    doc.append(Paragraph('Sample Title', ParagraphStyle(name='Title',
+                                                        fontFamily='Helvetica',
+                                                        fontSize=36,
+                                                        alignment=TA_CENTER)))
+    doc.append(Spacer(1, 50))
+    return document
+
 SimpleDocTemplate('test.pdf', pagesize=letter,
                 rightMargin=12, leftMargin=12,
-                topMargin=12, bottomMargin=6).build(document)
+                topMargin=12, bottomMargin=6).build(addTitle(document))
