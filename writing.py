@@ -52,16 +52,12 @@ def VERSION(check: bool=False):
         #print(len(latest_version))
         #print(len(current_version))
         if latest_version[0] > current_version[0]:
-            print(1)
             NEW_VERSION(v)
         elif latest_version[1] > current_version[1]:
-            print(2)
             NEW_VERSION(v)
         elif latest_version[2] > current_version[2]:
-            print(3)
             NEW_VERSION(v)
-        elif len(latest_version) < len(current_version):
-            print(4)
+        elif len(latest_version) < len(current_version) and latest_version[0] == current_version[0] and latest_version[1] == current_version[1] and latest_version[2] == current_version[2]:
             NEW_VERSION(v)
         elif len(latest_version) == 4 and len(current_version) == 4:
             #print(latest_version[0], current_version[0], latest_version[1], current_version[1], latest_version[2], current_version[2])
