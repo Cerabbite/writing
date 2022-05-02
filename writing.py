@@ -65,8 +65,8 @@ def VERSION(check: bool=False):
             print("No update available")
 
 @app.command()
-def DOWNLOAD():
-    print("You  are currently unable to download the latest version via you command line go to .... to download the latest version")
+def UPDATE():
+    print("You  are currently unable to download the latest version via you command line go to 'https://github.com/Cerabbite/writing/releases' to download the latest version")
     # refer to VERSION() to check if update is available
 
 if __name__ == "__main__":
