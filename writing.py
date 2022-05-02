@@ -15,9 +15,17 @@ def VERSION(check: bool=False):
     if check:
         url = 'https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION'
         page = requests.get(url)
+        print(page.text)
         latest_release = page.text
         latest_release_list = latest_release.split(".")
-        print(page.text)
+        try:
+            thing = latest_release[2].split("-")[0]
+            thing2 = latest_release[2].split("-")[1]
+            latest_release_list[3] = thing
+            latest_release_list.append(thing2)
+        except:
+            pass
+        print(latest_release_list)
         latest_release = []
         for i in latest_release_list:
             latest_release.append(i.split('\n')[0])
