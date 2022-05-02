@@ -40,8 +40,8 @@ def VERSION(check: bool=False):
         page = requests.get(url)
         latest_version = LIST_OF_VERSION(page.text)
         current_version = LIST_OF_VERSION(__VERSION__)
-        print(latest_version)
-        print(current_version)
+        #print(len(latest_version))
+        #print(len(current_version))
         if latest_version[0] > current_version[0]:
             print(f"New version available {page.text}")
         elif latest_version[1] > current_version[1]:
@@ -51,7 +51,7 @@ def VERSION(check: bool=False):
         elif len(latest_version) < len(current_version):
             print(f"New version available {page.text}")
         elif len(latest_version) == 4 and len(current_version) == 4:
-            if latest_version[3] == 'Beta' and latest_version[3] == 'Alpha':
+            if latest_version[3] == 'Beta' and current_version[3] == 'Alpha':
                 print(f"New version available {page.text}")
         #print("No update available")
 
