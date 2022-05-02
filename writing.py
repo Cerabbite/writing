@@ -48,6 +48,10 @@ def VERSION(check: bool=False):
             print(f"New version available {page.text}")
         elif latest_version[2] > current_version[2]:
             print(f"New version available {page.text}")
+        elif len(latest_version) < len(current_version):
+            print(f"New version available {page.text}")
+        elif len(latest_version) == 4 and len(current_version) == 4:
+            pass
         #print("No update available")
 
 @app.command()
