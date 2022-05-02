@@ -17,8 +17,11 @@ def VERSION(check: bool=False):
         page = requests.get(url)
         latest_release = page.text
         latest_release_list = latest_release.split(".")
-        print9
         print(page.text)
+        latest_release = []
+        for i in latest_release_list:
+            latest_release.append(i.split('\n')[0])
+        print(latest_release)
         #print("No update available")
 
 @app.command()
