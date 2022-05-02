@@ -51,7 +51,8 @@ def VERSION(check: bool=False):
         elif len(latest_version) < len(current_version):
             print(f"New version available {page.text}")
         elif len(latest_version) == 4 and len(current_version) == 4:
-            pass
+            if latest_version[3] == 'Beta' and latest_version[3] == 'Alpha':
+                print(f"New version available {page.text}")
         #print("No update available")
 
 @app.command()
