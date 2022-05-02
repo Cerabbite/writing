@@ -9,8 +9,10 @@ def hello():
     print("Hello")
 
 @app.command()
-def VERSION():
-    print("Your current version is v1.0.0-Alpha")
+def VERSION(check: bool):
+    print(f"Your current version is v{__VERSION__}")
+    if check:
+        print("No update available")
 
 if __name__ == "__main__":
     app()
