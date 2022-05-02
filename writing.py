@@ -34,7 +34,7 @@ def LIST_OF_VERSION(version):
 def NEW_VERSION(version):
     print(f"New version available v{version}")
     print(f"Do you want to download v{version}?")
-    inp = input("[Y/N]")
+    inp = input("[Y/N] ")
     if inp.lower() == "y":
         # Download the new version
         pass
