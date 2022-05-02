@@ -9,7 +9,7 @@ def hello():
     print("Hello")
 
 @app.command()
-def VERSION(check: bool):
+def VERSION(check: bool=False):
     print(f"Your current version is v{__VERSION__}")
     if check:
         print("No update available")
