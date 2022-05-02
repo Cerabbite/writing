@@ -19,12 +19,16 @@ def VERSION(check: bool=False):
         latest_release = page.text
         latest_release_list = latest_release.split(".")
         try:
-            thing = latest_release[2].split("-")[0]
-            thing2 = latest_release[2].split("-")[1]
-            latest_release_list[3] = thing
+            thing = latest_release_list[2].split("-")[0]
+            print(1)
+            thing2 = latest_release_list[2].split("-")[1]
+            print(2)
+            latest_release_list[2] = thing
+            print(3)
             latest_release_list.append(thing2)
-        except:
-            pass
+            print(4)
+        except Exception as e:
+            print(e)
         print(latest_release_list)
         latest_release = []
         for i in latest_release_list:
