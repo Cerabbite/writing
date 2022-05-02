@@ -81,6 +81,7 @@ def Commands(command):
 
 def VERSION():
     # Check if new version is available
+    #https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION
     return __VERSION__
 
 file = open(filename)
