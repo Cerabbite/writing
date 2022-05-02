@@ -70,11 +70,6 @@ def WRITING(input_file: str, output_file: str):
     def Commands(command):
         pass
 
-    def VERSION():
-        # Check if new version is available
-        #https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION
-        return __VERSION__
-
     file = open(input_file)
     file_read = file.readlines()
     f_read = []
