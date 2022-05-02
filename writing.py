@@ -31,6 +31,13 @@ def LIST_OF_VERSION(version):
     #print(release)
     return release
 
+def NEW_VERSION(version):
+    print(f"New version available v{version}")
+    print(f"Do you want to download v{version}?")
+    inp = input("[Y/N]")
+    if inp.lower() == "y":
+        # Download the new version
+        pass
 
 @app.command()
 def VERSION(check: bool=False):
@@ -38,21 +45,22 @@ def VERSION(check: bool=False):
     if check:
         url = 'https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION'
         page = requests.get(url)
-        latest_version = LIST_OF_VERSION(page.text)
+        v = page.text.split("\n")[0]
+        latest_version = LIST_OF_VERSION(v)
         current_version = LIST_OF_VERSION(__VERSION__)
         #print(len(latest_version))
         #print(len(current_version))
         if latest_version[0] > current_version[0]:
-            print(f"New version available {page.text}")
+            NEW_VERSION(v)
         elif latest_version[1] > current_version[1]:
-            print(f"New version available {page.text}")
+            NEW_VERSION(vt)
         elif latest_version[2] > current_version[2]:
-            print(f"New version available {page.text}")
+            NEW_VERSION(v)
         elif len(latest_version) < len(current_version):
-            print(f"New version available {page.text}")
+            NEW_VERSION(v)
         elif len(latest_version) == 4 and len(current_version) == 4:
             if latest_version[3] == 'Beta' and current_version[3] == 'Alpha':
-                print(f"New version available {page.text}")
+                NEW_VERSION(v)
         #print("No update available")
 
 @app.command()
