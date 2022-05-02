@@ -1,4 +1,8 @@
 from reportlab.pdfgen.canvas import Canvas
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import registerFont
+
+#https://www.youtube.com/playlist?list=PLOGAj7tCqHx-IDg2x6cWzqN0um8Z4plQT
 
 def RULER(pdf):
     pdf.drawString(100, 810, 'x100')
@@ -19,7 +23,16 @@ def RULER(pdf):
 pdf = Canvas("test.pdf")
 pdf.setTitle("Title")
 
-#pdf.drawString(0, 0, text="Title", mode=None, charSpace=0, direction=None, wordSpace=None)
 RULER(pdf)
+
+for font in pdf.getAvailableFonts():
+    print(font)
+
+registerFont(
+    TTFont('Comic-Mono', 'ComicMono.ttf')
+)
+
+pdf.setFont('Comic-Mono', 36)
+pdf.drawString(270, 770, text="Sample Title")
 
 pdf.save()
