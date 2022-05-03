@@ -6,6 +6,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import cm, mm, inch
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import registerFont
 import os
 
 
@@ -49,9 +51,11 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         rightMargin=2*cm,leftMargin=2*cm,
                         topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
+registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
+
 styles = getSampleStyleSheet()
 my_style = ParagraphStyle('yourtitle',
-                           fontName="C:\Windows\Fonts\Baskerville Old Face Regular.ttf",
+                           fontName="Baskerville",
                            fontSize=12,
                            parent=styles['Normal'],
                            alignment=1,
