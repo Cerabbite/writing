@@ -2,6 +2,10 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.units import inch, cm
 from reportlab.lib.pagesizes import LETTER, LEGAL, TABLOID
 from reportlab.lib.pagesizes import A1, A2, A3, A4, A5, A6
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import registerFont
 import os
 import typer
 import requests
