@@ -96,7 +96,7 @@ def WRITING(input_file: str, output_file: str):
             content = ""
             for z in all_nums:
                 content += f"{file[int(z-1)]}\n"
-            print(start_line, end_line, all_nums)
+            #print(start_line, end_line, all_nums)
             chapt.append(i[0])
             chapt.append(content)
             chapts.append(chapt)
@@ -168,10 +168,6 @@ def WRITING(input_file: str, output_file: str):
             print(f"Unkown style: {settings[2]}")
 
         doc.build(story)
-
-
-    def Commands(command):
-        pass
 
     file = open(input_file)
     file_read = file.readlines()
