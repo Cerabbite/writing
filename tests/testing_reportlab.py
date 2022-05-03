@@ -20,19 +20,28 @@ c.drawText(textobject)
 c.save()
 
 """
+
+def Chapter_Title(story):
+    pass
+
+def Chapter_Content(story):
+    pass
+
 story = []
 doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         rightMargin=2*cm,leftMargin=2*cm,
                         topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
 styles = getSampleStyleSheet()
+print(styles)
 title_style = styles['Heading1']
 title_style.alignment = 1
 title = Paragraph("Hello Reportlab", title_style)
 story.append(title)
 
 paragraph_style = styles['Normal']
-paragraph = Paragraph(my_text.replace("\n", "<br />"))
+#paragraph_style.alignment = 1
+paragraph = Paragraph(my_text.replace("\n", "<br />"), paragraph_style)
 story.append(paragraph)
 
 doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
