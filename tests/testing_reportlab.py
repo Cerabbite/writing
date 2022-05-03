@@ -1,8 +1,12 @@
 from reportlab.pdfgen import canvas
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import registerFont
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.lib.units import cm
+from reportlab.lib.units import cm, mm, inch
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+
 
 #my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
 my_text = open("../test.md", 'r').read()
@@ -16,11 +20,22 @@ c.drawText(textobject)
 c.save()
 
 """
+story = []
 doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         rightMargin=2*cm,leftMargin=2*cm,
                         topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
-doc.build([Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
+styles = getSampleStyleSheet()
+title_style = styles['Heading1']
+title_style.alignment = 1
+title = Paragraph("Hello Reportlab", title_style)
+story.append(title)
+
+paragraph_style = styles['Normal']
+paragraph = Paragraph(my_text.replace("\n", "<br />"))
+story.append(paragraph)
+
+doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
 
 
 """
