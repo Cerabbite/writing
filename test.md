@@ -7,7 +7,7 @@ left-margin: 10
 right-margin: 10
 top-margin:10
 bottom-margin: 10
-style: test-style
+style: screenplay
 font: Baskerville
 font-size: 12
 heading-height: 20

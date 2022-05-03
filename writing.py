@@ -23,12 +23,26 @@ app = typer.Typer()
 @app.command()
 def WRITING(input_file: str, output_file: str):
     def Settings(file):
+        title = "Title"
+        author = "Author"
+        style = ""
         start_settings = False
         for i in file:
+            if start_settings == True:
+                setting = i.split(":")
+                if setting[0] == "title":
+                    title = setting[1].replace(" ", "")
+                elif setting[0] == "author":
+                    author = setting[1].replace(" ", "")
+                elif setting[0] == "style":
+                    style = setting[1].replace(" ", "")
             if i == "---" and start_settings == False:
                 start_settings = True
             elif i == "---" and start_settings == True:
                 break
+
+        settings = [title, author, style]
+        return settings
 
     def Find_Chapters(file):
         chapters = []
@@ -118,19 +132,19 @@ def WRITING(input_file: str, output_file: str):
         fonts = os.listdir(r'C:\Windows\fonts')
 
         #print(chapters)
-        settings = ["screenplay"]
-        if settings[0].lower() == "novel":
+        #settings = ["screenplay"]
+        if settings[2].lower() == "novel":
             for x in chapters:
                 story = Chapter_Content(x[0], story, novelchap_style)
                 story = Chapter_Content(x[1], story, novelpar_style)
                 story = Page_Break(story)
-        elif settings[0].lower() == "screenplay":
+        elif settings[2].lower() == "screenplay":
             for x in chapters:
                 story = Chapter_Content(x[0], story, screenplay_style)
                 story = Chapter_Content(x[1], story, screenplay_style)
                 story = Page_Break(story)
         else:
-            print(f"Unkown style: {settings[0]}")
+            print(f"Unkown style: {settings[2]}")
 
         doc.build(story)
 
@@ -144,10 +158,10 @@ def WRITING(input_file: str, output_file: str):
     for i in file_read:
         f_read.append(i.split("\n")[0])
 
-    Settings(f_read)
+    settings = Settings(f_read)
     chapters = Find_Chapters(f_read)
     chapters_and_content = Get_Content(f_read, chapters)
-    Create_PDF(None, chapters_and_content, output_file)
+    Create_PDF(settings, chapters_and_content, output_file)
     #print(chapters)
     #print(chapters_and_content)
     file.close()
