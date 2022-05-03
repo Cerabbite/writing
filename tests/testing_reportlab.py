@@ -58,6 +58,13 @@ novelpar_style = ParagraphStyle('novel-paragraph',
                            fontName="Baskerville",
                            fontSize=12,
                            parent=styles['Normal'],
+                           alignment=0,
+                           spaceAfter=14)
+
+screenplay_style = ParagraphStyle('novel-paragraph',
+                           fontName="Courier",
+                           fontSize=12,
+                           parent=styles['Normal'],
                            alignment=1,
                            spaceAfter=14)
 
