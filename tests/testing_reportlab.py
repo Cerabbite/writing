@@ -47,7 +47,10 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
 
 styles = getSampleStyleSheet()
 
-
+paragraph_style = styles['Normal']
+paragraph_style.alignment = 0
+paragraph = Paragraph(my_text.replace("\n", "<br />"), paragraph_style, fontName="Courier", fontSize=12)
+story.append(paragraph)
 
 doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
 
