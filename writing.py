@@ -112,7 +112,7 @@ def WRITING(input_file: str, output_file: str):
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
-        print(chapters)
+        #print(chapters)
         for x in chapters:
             story = Chapter_Content(x[0], story, novelchap_style)
             story = Chapter_Content(x[1], story, novelpar_style)
