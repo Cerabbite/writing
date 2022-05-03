@@ -6,6 +6,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import cm, mm, inch
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph
+import os
 
 
 #my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
@@ -50,11 +51,13 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
 
 styles = getSampleStyleSheet()
 my_style = ParagraphStyle('yourtitle',
-                           fontName="Courier",
+                           fontName="C:\Windows\Fonts\Baskerville Old Face Regular.ttf",
                            fontSize=12,
                            parent=styles['Normal'],
                            alignment=1,
                            spaceAfter=14)
+
+fonts = os.listdir(r'C:\Windows\fonts')
 paragraph_style = styles['Normal']
 paragraph_style.alignment = 0
 paragraph = Paragraph(my_text.replace("\n", "<br />"), my_style)
