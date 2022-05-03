@@ -52,9 +52,13 @@ def WRITING(input_file: str, output_file: str):
             if start_settings == True:
                 setting = i.split(":")
                 if setting[0] == "title":
-                    title = setting[1].replace(" ", "")
+                    if setting[1][0] == " ":
+                        setting[1] = setting[1][1:]
+                    title = setting[1]
                 elif setting[0] == "author":
-                    author = setting[1].replace(" ", "")
+                    if setting[1][0] == " ":
+                        setting[1] = setting[1][1:]
+                    author = setting[1]
                 elif setting[0] == "style":
                     style = setting[1].replace(" ", "")
             if i == "---" and start_settings == False:
@@ -123,7 +127,7 @@ def WRITING(input_file: str, output_file: str):
         story = []
         doc = SimpleDocTemplate(output_file,pagesize=A4,
                                 rightMargin=2*cm,leftMargin=2*cm,
-                                topMargin=2*cm,bottomMargin=2*cm, title="Test")
+                                topMargin=2*cm,bottomMargin=2*cm, title=f"{setting[0]} by {setting[1]}")
 
         registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
