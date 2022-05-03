@@ -32,14 +32,14 @@ c.save()
 #   1 = Middle
 #   2 = Right
 
-def Chapter_Title(title, story, alignment, styles, doc):
+def Chapter_Title(title, story, style):
     title_style = styles['Heading1']
     title_style.alignment = 1
     title = Paragraph(title, title_style)
     story.append(title)
     return story
 
-def Chapter_Content(content, story, alignment, styles, doc):
+def Chapter_Content(content, story, style):
     paragraph_style = styles['Normal']
     paragraph_style.alignment = 0
     paragraph = Paragraph(content.replace("\n", "<br />"), paragraph_style)
@@ -54,7 +54,7 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
 registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
 styles = getSampleStyleSheet()
-my_style = ParagraphStyle('yourtitle',
+novelpar_style = ParagraphStyle('novel-paragraph',
                            fontName="Baskerville",
                            fontSize=12,
                            parent=styles['Normal'],
