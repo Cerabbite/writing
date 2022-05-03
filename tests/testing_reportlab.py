@@ -33,7 +33,7 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
 styles = getSampleStyleSheet()
-print(styles)
+print(styles['Heading1'])
 title_style = styles['Heading1']
 title_style.alignment = 1
 title = Paragraph("Hello Reportlab", title_style)
