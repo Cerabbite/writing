@@ -2,8 +2,6 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
 
-#https://www.youtube.com/playlist?list=PLOGAj7tCqHx-IDg2x6cWzqN0um8Z4plQT
-
 def RULER(pdf):
     pdf.drawString(100, 810, 'x100')
     pdf.drawString(200, 810, 'x200')
