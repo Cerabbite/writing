@@ -20,6 +20,9 @@ c.drawText(textobject)
 c.save()
 
 """
+# Make 2 styles (for now)
+#   1. novel_style -> Will be selected when style:novel is
+#   2. screenplay_style -> Will be selected when style:screenplay is
 
 # Alignment:
 #   0 = Left
