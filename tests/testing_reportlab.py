@@ -4,7 +4,7 @@ from reportlab.pdfbase.pdfmetrics import registerFont
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import cm, mm, inch
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 
 
@@ -46,10 +46,15 @@ doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
 styles = getSampleStyleSheet()
-
+my_style = ParagraphStyle('yourtitle',
+                           fontName="Courier",
+                           fontSize=12,
+                           parent=styles['Normal'],
+                           alignment=1,
+                           spaceAfter=14)
 paragraph_style = styles['Normal']
 paragraph_style.alignment = 0
-paragraph = Paragraph(my_text.replace("\n", "<br />"), paragraph_style, fontName="Courier", fontSize=12)
+paragraph = Paragraph(my_text.replace("\n", "<br />"), my_style)
 story.append(paragraph)
 
 doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
