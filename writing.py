@@ -2,7 +2,7 @@ from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.units import inch, cm
 from reportlab.lib.pagesizes import LETTER, LEGAL, TABLOID
 from reportlab.lib.pagesizes import A1, A2, A3, A4, A5, A6
-from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
@@ -112,6 +112,7 @@ def WRITING(input_file: str, output_file: str):
         for x in chapters:
             story = Chapter_Content(x[0], story, novelchap_style)
             story = Chapter_Content(x[1], story, novelpar_style)
+            story.append(PageBreak())
 
         doc.build(story)
 
