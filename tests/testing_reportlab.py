@@ -7,6 +7,7 @@ from reportlab.lib.units import cm
 #my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
 my_text = open("../test.md", 'r').read()
 
+"""
 c = canvas.Canvas("test.pdf")
 textobject = c.beginText(2*cm, 29.7 * cm - 2 * cm)
 for line in my_text.splitlines(False):
@@ -17,10 +18,10 @@ c.save()
 """
 doc = SimpleDocTemplate("test.pdf",pagesize=A4,
                         rightMargin=2*cm,leftMargin=2*cm,
-                        topMargin=2*cm,bottomMargin=2*cm)
+                        topMargin=2*cm,bottomMargin=2*cm, title="Test")
 
 doc.build([Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
-"""
+
 
 """
 from reportlab.lib.pagesizes import A4
