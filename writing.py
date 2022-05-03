@@ -127,7 +127,7 @@ def WRITING(input_file: str, output_file: str):
         story = []
         doc = SimpleDocTemplate(output_file,pagesize=A4,
                                 rightMargin=2*cm,leftMargin=2*cm,
-                                topMargin=2*cm,bottomMargin=2*cm, title=f"{setting[0]} by {setting[1]}")
+                                topMargin=2*cm,bottomMargin=2*cm, title=f"{settings[0]} by {settings[1]}")
 
         registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
