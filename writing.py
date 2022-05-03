@@ -23,7 +23,12 @@ app = typer.Typer()
 @app.command()
 def WRITING(input_file: str, output_file: str):
     def Settings(file):
-        pass
+        start_settings = False
+        for i in file:
+            if i == "---" and start_settings == False:
+                start_settings = True
+            elif i == "---" and start_settings == True:
+                break
 
     def Find_Chapters(file):
         chapters = []
@@ -113,10 +118,19 @@ def WRITING(input_file: str, output_file: str):
         fonts = os.listdir(r'C:\Windows\fonts')
 
         #print(chapters)
-        for x in chapters:
-            story = Chapter_Content(x[0], story, novelchap_style)
-            story = Chapter_Content(x[1], story, novelpar_style)
-            story = Page_Break(story)
+        settings = ["screenplay"]
+        if settings[0].lower() == "novel":
+            for x in chapters:
+                story = Chapter_Content(x[0], story, novelchap_style)
+                story = Chapter_Content(x[1], story, novelpar_style)
+                story = Page_Break(story)
+        elif settings[0].lower() == "screenplay":
+            for x in chapters:
+                story = Chapter_Content(x[0], story, screenplay_style)
+                story = Chapter_Content(x[1], story, screenplay_style)
+                story = Page_Break(story)
+        else:
+            print(f"Unkown style: {settings[0]}")
 
         doc.build(story)
 
@@ -130,11 +144,12 @@ def WRITING(input_file: str, output_file: str):
     for i in file_read:
         f_read.append(i.split("\n")[0])
 
+    Settings(f_read)
     chapters = Find_Chapters(f_read)
     chapters_and_content = Get_Content(f_read, chapters)
     Create_PDF(None, chapters_and_content, output_file)
-    print(chapters)
-    print(chapters_and_content)
+    #print(chapters)
+    #print(chapters_and_content)
     file.close()
 
 def LIST_OF_VERSION(version):
