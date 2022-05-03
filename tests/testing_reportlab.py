@@ -40,9 +40,7 @@ def Chapter_Title(title, story, style):
     return story
 
 def Chapter_Content(content, story, style):
-    paragraph_style = styles['Normal']
-    paragraph_style.alignment = 0
-    paragraph = Paragraph(content.replace("\n", "<br />"), paragraph_style)
+    paragraph = Paragraph(content.replace("\n", "<br />"), style)
     story.append(paragraph)
     return story
 
@@ -69,10 +67,8 @@ screenplay_style = ParagraphStyle('novel-paragraph',
                            spaceAfter=14)
 
 fonts = os.listdir(r'C:\Windows\fonts')
-paragraph_style = styles['Normal']
-paragraph_style.alignment = 0
-paragraph = Paragraph(my_text.replace("\n", "<br />"), my_style)
-story.append(paragraph)
+
+story = Chapter_Content(my_text, story, novelpar_style)
 
 doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
 
