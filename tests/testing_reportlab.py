@@ -4,7 +4,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import cm
 
-my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
+#my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
+my_text = open("..\test.md", 'r').read()
 
 c = canvas.Canvas("test.pdf")
 textobject = c.beginText(2*cm, 29.7 * cm - 2 * cm)
