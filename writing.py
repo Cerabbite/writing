@@ -76,6 +76,10 @@ def WRITING(input_file: str, output_file: str):
             story.append(paragraph)
             return story
 
+        def Page_Break(story):
+            story.append(PageBreak())
+            return story
+
         story = []
         doc = SimpleDocTemplate(output_file,pagesize=A4,
                                 rightMargin=2*cm,leftMargin=2*cm,
@@ -112,7 +116,7 @@ def WRITING(input_file: str, output_file: str):
         for x in chapters:
             story = Chapter_Content(x[0], story, novelchap_style)
             story = Chapter_Content(x[1], story, novelpar_style)
-            story.append(PageBreak())
+            story = Page_Break(story)
 
         doc.build(story)
 
