@@ -60,16 +60,55 @@ def WRITING(input_file: str, output_file: str):
         return chapts
 
     def Create_PDF(settings, chapters, output_file):
-        font = "Baskerville"
-        font_size = 12
-        font_location = f'C:\Windows\fonts\{font}.tff'
+        def Chapter_Title(title, story, style):
+            title_style = styles['Heading1']
+            title_style.alignment = 1
+            title = Paragraph(title, title_style)
+            story.append(title)
+            return story
 
-        pdf = Canvas(output_file, pagesize=LETTER)
-        pdf.setFont("Courier", font_size*5)
-        pdf.drawString(1 * inch, 10 * inch, "Document Title")
-        pdf.setFont("Courier", font_size*3)
-        #pdf.drawString(1 * inch, 9.5 * inch, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis vel eros donec ac odio tempor orci dapibus ultrices. Non nisi est sit amet facilisis magna etiam tempor orci. Turpis egestas pretium aenean pharetra magna ac placerat. Orci nulla pellentesque dignissim enim sit amet venenatis. Arcu felis bibendum ut tristique et egestas quis ipsum suspendisse. Mattis molestie a iaculis at erat pellentesque adipiscing commodo. Feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Nec nam aliquam sem et tortor consequat. Nec ultrices dui sapien eget mi proin. Morbi non arcu risus quis varius quam.<br />\nMassa eget egestas purus viverra. Urna molestie at elementum eu facilisis sed odio. Volutpat maecenas volutpat blandit aliquam etiam. Neque convallis a cras semper auctor neque. Aliquet lectus proin nibh nisl condimentum. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Nisl rhoncus mattis rhoncus urna neque. Diam vel quam elementum pulvinar etiam non quam. In hac habitasse platea dictumst quisque sagittis purus. Dolor morbi non arcu risus. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam.")
-        pdf.save()
+        def Chapter_Content(content, story, style):
+            paragraph = Paragraph(content.replace("\n", "<br />"), style)
+            story.append(paragraph)
+            return story
+
+        story = []
+        doc = SimpleDocTemplate(output_file,pagesize=A4,
+                                rightMargin=2*cm,leftMargin=2*cm,
+                                topMargin=2*cm,bottomMargin=2*cm, title="Test")
+
+        registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
+
+        styles = getSampleStyleSheet()
+
+        novelchap_style = ParagraphStyle('novel-chapter',
+                                   fontName="Baskerville",
+                                   fontSize=24,
+                                   parent=styles['Heading2'],
+                                   alignment=0,
+                                   spaceAfter=14)
+
+        novelpar_style = ParagraphStyle('novel-paragraph',
+                                   fontName="Baskerville",
+                                   fontSize=12,
+                                   parent=styles['Normal'],
+                                   alignment=0,
+                                   spaceAfter=14)
+
+        screenplay_style = ParagraphStyle('novel-paragraph',
+                                   fontName="Courier",
+                                   fontSize=12,
+                                   parent=styles['Normal'],
+                                   alignment=1,
+                                   spaceAfter=14)
+
+        fonts = os.listdir(r'C:\Windows\fonts')
+
+        print(chapters)
+        #story = Chapter_Content(my_text, story, novelpar_style)
+
+        #doc.build(story)
+
 
     def Commands(command):
         pass
