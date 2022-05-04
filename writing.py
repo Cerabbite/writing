@@ -47,6 +47,13 @@ def WRITING(input_file: str, output_file: str):
         title = "Title"
         author = "Author"
         style = ""
+        paperSize = None
+        font = None
+        top_margin = None
+        bottom_margin = None
+        left_margin = None
+        right_margin = None
+
         start_settings = False
         for i in file:
             if start_settings == True:
