@@ -345,6 +345,8 @@ def VERSION(check: bool=False):
             #print(latest_version[0], current_version[0], latest_version[1], current_version[1], latest_version[2], current_version[2])
             if latest_version[3] == 'Beta' and current_version[3] == 'Alpha':
                 NEW_VERSION(v)
+            else:
+                print("No update available")
         else:
             print("No update available")
 
