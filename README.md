@@ -5,6 +5,11 @@
 # Why use writing?
 
 # Documentation
+## Running the program
+```
+writing writing "Input File.md" Outputfile.pdf
+```
+
 ## Settings
 The settings section is where you put all information about your document. The information you put here includes style, author and title.<br>
 You can start and end the settings section by putting three dashes in a row.
