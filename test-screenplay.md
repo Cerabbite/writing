@@ -12,4 +12,6 @@ author: Screenplay Author
 Dialogue
 
 #INT. Sample Scene - Night
-
+>> Some sample action
+<Sample character
+Some sample dialogue
