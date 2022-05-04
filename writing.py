@@ -349,6 +349,7 @@ def VERSION(check: bool=False):
                 print("No update available")
         else:
             print("No update available")
+    return
 
 @app.command()
 def UPDATE():
@@ -357,10 +358,14 @@ def UPDATE():
 
 @app.command()
 def INFO():
-    print(platform.system())
-    print(__VERSION__)
+    print("This project is licensed under the MIT License")
+    print("Copyright (c) 2022 Kevin")
+    print("For more information visit https://github.com/Cerabbite/writing/blob/main/LICENSE")
+    #print(f"Your system: {platform.system()}")
     print()
-    print(__LICENSETEXT__)
+    VERSION(True)
+    #print()
+    #print(__LICENSETEXT__)
     #with open("LICENSE_TEXT.txt") as txt:
     #    txt_read = txt.read()
     #    print(txt_read)
