@@ -67,7 +67,7 @@ def WRITING(input_file: str, output_file: str):
                     author = setting[1]
                 elif setting[0] == "style":
                     style = setting[1].replace(" ", "")
-                elif setting[0] == "paper-size":
+                elif setting[0] == "paper-size" or setting[0] == "page-size":
                     paper_size = setting[1].replace(" ", "")
                 elif setting[0] == "font":
                     font = setting[1].replace(" ", "")
@@ -134,6 +134,7 @@ def WRITING(input_file: str, output_file: str):
             return story
 
         def Chapter_Content(content, story, style):
+            print(1)
             paragraph = Paragraph(content.replace("\n", "<br />"), style)
             story.append(paragraph)
             return story
@@ -144,6 +145,7 @@ def WRITING(input_file: str, output_file: str):
 
         def Get_PAGESIZE(page_size):
             if not page_size:
+                print(1)
                 return A4
             elif page_size == "A0":
                 return A0
@@ -220,8 +222,11 @@ def WRITING(input_file: str, output_file: str):
             elif page_size == "ELEVENSEVENTEEN":
                 return ELEVENSEVENTEEN
 
+        page_size = Get_PAGESIZE(settings[3])
+        print(page_size)
+
         story = []
-        doc = SimpleDocTemplate(output_file,pagesize=A4,
+        doc = SimpleDocTemplate(output_file,pagesize=page_size,
                                 rightMargin=2*cm,leftMargin=2*cm,
                                 topMargin=2*cm,bottomMargin=2*cm, title=f"{settings[0]} by {settings[1]}")
 
@@ -229,36 +234,32 @@ def WRITING(input_file: str, output_file: str):
 
         styles = getSampleStyleSheet()
 
-        page_size = Get_PAGESIZE(settings[3])
-
         novelchap_style = ParagraphStyle('novel-chapter',
                                    fontName="Baskerville",
                                    fontSize=24,
                                    parent=styles['Heading2'],
                                    alignment=0,
-                                   spaceAfter=14,
-                                   paperSize=page_size)
+                                   spaceAfter=14)
 
         novelpar_style = ParagraphStyle('novel-paragraph',
                                    fontName="Baskerville",
                                    fontSize=12,
                                    parent=styles['Normal'],
                                    alignment=0,
-                                   spaceAfter=14,
-                                   paperSize=page_size)
+                                   spaceAfter=14)
 
         screenplay_style = ParagraphStyle('novel-paragraph',
                                    fontName="Courier",
                                    fontSize=12,
                                    parent=styles['Normal'],
                                    alignment=1,
-                                   spaceAfter=14,
-                                   paperSize=page_size)
+                                   spaceAfter=14)
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
         #print(chapters)
         #settings = ["screenplay"]
+
         if settings[2].lower() == "novel":
             for x in chapters:
                 story = Chapter_Content(x[0], story, novelchap_style)
