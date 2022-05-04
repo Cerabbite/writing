@@ -14,6 +14,9 @@ import os
 #my_text = "Hello\nThis is a multiline text\nHere we do not have to handle the positioning of each line manually"
 my_text = open("../test.md", 'r').read()
 
+def Margins_Ruler():
+    pass
+
 """
 c = canvas.Canvas("test.pdf")
 textobject = c.beginText(2*cm, 29.7 * cm - 2 * cm)
@@ -22,6 +25,7 @@ for line in my_text.splitlines(False):
 c.drawText(textobject)
 c.save()
 
+"""
 """
 # Make 2 styles (for now)
 #   1. novel_style -> Will be selected when style:novel is
@@ -71,6 +75,7 @@ fonts = os.listdir(r'C:\Windows\fonts')
 story = Chapter_Content(my_text, story, novelpar_style)
 
 doc.build(story) #[Paragraph(my_text.replace("\n", "<br />"), getSampleStyleSheet()['Normal']),])
+"""
 
 
 """
