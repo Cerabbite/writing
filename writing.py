@@ -324,7 +324,7 @@ def NEW_VERSION(version):
 
 @app.command()
 def VERSION(check: bool=False):
-    print(f"Your current version is v{__VERSION__}")
+    print(f"writing v{__VERSION__}")
     if check:
         url = 'https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION'
         page = requests.get(url)
