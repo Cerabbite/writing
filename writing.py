@@ -282,6 +282,12 @@ def WRITING(input_file: str, output_file: str):
 
         doc.build(story)
 
+    def novel(settings, f_read, input_file, output_file):
+        pass
+
+    def screenplay(settings, f_read, input_file, output_file):
+        pass
+
     file = open(input_file)
     file_read = file.readlines()
     f_read = []
@@ -367,7 +373,7 @@ def UPDATE():
 
 @app.command()
 def INFO():
-    print("This project is licensed under the MIT License")
+    print("writing is licensed under the MIT License")
     print("Copyright (c) 2022 Kevin")
     print("For more information visit https://github.com/Cerabbite/writing/blob/main/LICENSE")
     #print(f"Your system: {platform.system()}")
