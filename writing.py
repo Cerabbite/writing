@@ -35,7 +35,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
 """
-A single empty line means a new line and double empty line means new paragraph
+Possible: A single empty line means a new line and double empty line means new paragraph
 """
 
 app = typer.Typer()
@@ -48,10 +48,10 @@ def WRITING(input_file: str, output_file: str):
         style = ""
         paper_size = None
         font = None
-        top_margin = None
-        bottom_margin = None
-        left_margin = None
-        right_margin = None
+        top_margin = 2
+        bottom_margin = 2
+        left_margin = 2
+        right_margin = 2
 
         start_settings = False
         for i in file:
@@ -72,13 +72,13 @@ def WRITING(input_file: str, output_file: str):
                 elif setting[0] == "font":
                     font = setting[1].replace(" ", "")
                 elif setting[0] == "top-margin":
-                    top_margin = setting[1].replace(" ", "")
+                    top_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "bottom-margin":
-                    bottom_margin = setting[1].replace(" ", "")
+                    bottom_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "left-margin":
-                    left_margin = setting[1].replace(" ", "")
+                    left_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "right-margin":
-                    right_margin = setting[1].replace(" ", "")
+                    right_margin = float(setting[1].replace(" ", ""))
             if i == "---" and start_settings == False:
                 start_settings = True
             elif i == "---" and start_settings == True:
@@ -114,7 +114,6 @@ def WRITING(input_file: str, output_file: str):
             else:
                 end_line = len(file)+1
             all_nums = range(start_line+1, end_line)
-            print(end_line)
             all_nums = list(all_nums)
             content = ""
             for z in all_nums:
@@ -223,12 +222,11 @@ def WRITING(input_file: str, output_file: str):
                 return ELEVENSEVENTEEN
 
         page_size = Get_PAGESIZE(settings[3])
-        print(page_size)
 
         story = []
         doc = SimpleDocTemplate(output_file,pagesize=page_size,
-                                rightMargin=2*cm,leftMargin=2*cm,
-                                topMargin=2*cm,bottomMargin=2*cm, title=f"{settings[0]} by {settings[1]}")
+                                rightMargin=settings[8]*cm,leftMargin=settings[7]*cm,
+                                topMargin=settings[5]*cm,bottomMargin=settings[6]*cm, title=f"{settings[0]} by {settings[1]}")
 
         registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
