@@ -283,10 +283,18 @@ def WRITING(input_file: str, output_file: str):
         doc.build(story)
 
     def novel(settings, f_read, input_file, output_file):
-        pass
+        def Find_Chapters(file):
+            pass
+
+        def Get_Content(file, chapters):
+            pass
 
     def screenplay(settings, f_read, input_file, output_file):
-        pass
+        # Max of 55 lines per page
+        def Get_SceneHeading(f_read):
+            pass
+        def Get_FADE(f_read):
+            pass
 
     file = open(input_file)
     file_read = file.readlines()
