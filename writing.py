@@ -123,6 +123,8 @@ def WRITING(input_file: str, output_file: str):
             chapt.append(content)
             chapts.append(chapt)
 
+        print(chapts)
+
         return chapts
 
     def Create_PDF(settings, chapters, output_file):
@@ -134,7 +136,6 @@ def WRITING(input_file: str, output_file: str):
             return story
 
         def Chapter_Content(content, story, style):
-            print(1)
             paragraph = Paragraph(content.replace("\n", "<br />"), style)
             story.append(paragraph)
             return story
