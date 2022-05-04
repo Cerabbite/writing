@@ -112,8 +112,9 @@ def WRITING(input_file: str, output_file: str):
             if x + 1 <= len(chapters)-1:
                 end_line = chapters[int(x+1)][1] + 1
             else:
-                end_line = len(file)
+                end_line = len(file)+1
             all_nums = range(start_line+1, end_line)
+            print(end_line)
             all_nums = list(all_nums)
             content = ""
             for z in all_nums:

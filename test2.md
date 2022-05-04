@@ -2,7 +2,7 @@
 style: novel
 title: Page Test
 author: Test author
-page-size: LEGAL
+page-size: A5
 ---
 
 # Table of Contents
