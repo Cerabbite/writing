@@ -15,6 +15,9 @@ title: Sample Title
 author: Test Author
 ---
 ```
+style options:
+- novel
+- screenplay
 
 ## Chapters
 
