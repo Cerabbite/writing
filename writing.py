@@ -269,7 +269,7 @@ def WRITING(input_file: str, output_file: str):
                 story = Chapter_Content(x[1], story, screenplay_style)
                 story = Page_Break(story)
         else:
-            print(f"Unkown style: {settings[2]}")
+            print(f"Unkown style: '{settings[2]}'")
 
         doc.build(story)
 
