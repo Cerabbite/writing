@@ -38,6 +38,8 @@ SOFTWARE."""
 Possible: A single empty line means a new line and double empty line means new paragraph
 """
 
+# Screenplay styling: https://www.nfi.edu/screenplay-format/
+
 app = typer.Typer()
 
 @app.command()
@@ -84,6 +86,11 @@ def WRITING(input_file: str, output_file: str):
             elif i == "---" and start_settings == True:
                 break
 
+        if style == "screenplay":
+            top_margin = 2.54
+            bottom_margin = 2.54
+            left_margin = 3.81
+            right_margin = 2.54
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
         return settings
 
