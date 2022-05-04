@@ -20,6 +20,7 @@ Style options:
 - screenplay
 
 ## Chapters
+You need atleast 1 chapter for it to work even in screenplay mode
 
 ## Content
 
