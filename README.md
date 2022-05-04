@@ -6,6 +6,15 @@
 
 # Documentation
 ## Settings
+The settings section is where you put all information about your document. The information you put here includes style, author and title.<br>
+You can start and end the settings section by putting three dashes in a row.
+```
+---
+style: novel
+title: Sample Title
+author: Test Author
+---
+```
 
 ## Chapters
 
