@@ -116,14 +116,12 @@ def WRITING(input_file: str, output_file: str):
             all_nums = range(start_line+1, end_line)
             all_nums = list(all_nums)
             content = ""
-            #for z in all_nums:
-            #    content += f"{file[int(z-1)]}\n"
+            for z in all_nums:
+                content += f"{file[int(z-1)]}\n"
             #print(start_line, end_line, all_nums)
             chapt.append(i[0])
             chapt.append(content)
             chapts.append(chapt)
-
-        print(chapts)
 
         return chapts
 
@@ -282,8 +280,10 @@ def WRITING(input_file: str, output_file: str):
     for i in file_read:
         f_read.append(i.split("\n")[0])
 
+    #print(f_read)
     settings = Settings(f_read)
     chapters = Find_Chapters(f_read)
+    #print(chapters)
     chapters_and_content = Get_Content(f_read, chapters)
     Create_PDF(settings, chapters_and_content, output_file)
     #print(chapters)
