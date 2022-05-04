@@ -5,3 +5,10 @@
 # Why use writing?
 
 # Documentation
+## Settings
+
+## Chapters
+
+## Content
+
+## Good to know
