@@ -39,6 +39,8 @@ Possible: A single empty line means a new line and double empty line means new p
 """
 
 # Screenplay styling: https://www.nfi.edu/screenplay-format/
+# Screenplay example: http://www.dailyscript.com/scripts/inside-out-screenplay.pdf
+# Need to start writing different functions for screenplay and novel styling
 
 app = typer.Typer()
 
