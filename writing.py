@@ -47,7 +47,7 @@ def WRITING(input_file: str, output_file: str):
         title = "Title"
         author = "Author"
         style = ""
-        paperSize = None
+        paper_size = None
         font = None
         top_margin = None
         bottom_margin = None
@@ -68,12 +68,24 @@ def WRITING(input_file: str, output_file: str):
                     author = setting[1]
                 elif setting[0] == "style":
                     style = setting[1].replace(" ", "")
+                elif setting[0] == "paper-size":
+                    paper_size = setting[1].replace(" ", "")
+                elif setting[0] == "font":
+                    font = setting[1].replace(" ", "")
+                elif setting[0] == "top-margin":
+                    top_margin = setting[1].replace(" ", "")
+                elif setting[0] == "bottom-margin":
+                    bottom_margin = setting[1].replace(" ", "")
+                elif setting[0] == "left-margin":
+                    left_margin = setting[1].replace(" ", "")
+                elif setting[0] == "right-margin":
+                    right_margin = setting[1].replace(" ", "")
             if i == "---" and start_settings == False:
                 start_settings = True
             elif i == "---" and start_settings == True:
                 break
 
-        settings = [title, author, style]
+        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
         return settings
 
     def Find_Chapters(file):
