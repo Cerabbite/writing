@@ -4,9 +4,12 @@ title: Test Screenplay
 author: Screenplay Author
 ---
 
-# Scene heading
+# Scene heading/slug line
 ## Subheaders
 > Fade
 >> Action Lines
 < Speaking character
 Dialogue
+
+#INT. Sample Scene - Night
+

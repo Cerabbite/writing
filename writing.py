@@ -90,6 +90,10 @@ def WRITING(input_file: str, output_file: str):
                 break
 
         if style == "screenplay":
+            if not top_margin == 2 or not bottom_margin == 2 or not left_margin == 2 or not right_margin == 2:
+                print("Margin settings ignored, style set to screenplay")
+
+        if style == "screenplay":
             top_margin = 2.54
             bottom_margin = 2.54
             left_margin = 3.81
