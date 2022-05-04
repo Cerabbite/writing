@@ -98,8 +98,8 @@ def WRITING(input_file: str, output_file: str):
             all_nums = range(start_line+1, end_line)
             all_nums = list(all_nums)
             content = ""
-            for z in all_nums:
-                content += f"{file[int(z-1)]}\n"
+            #for z in all_nums:
+            #    content += f"{file[int(z-1)]}\n"
             #print(start_line, end_line, all_nums)
             chapt.append(i[0])
             chapt.append(content)
