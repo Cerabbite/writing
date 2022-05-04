@@ -10,7 +10,7 @@ import typer
 import requests
 import platform
 
-__VERSION__ = "1.0.0-Alpha"
+__VERSION__ = "1.0.0-Beta"
 __LICENSE__ = "MIT License"
 __LICENSETEXT__ = r"""MIT License
 
@@ -280,6 +280,8 @@ def WRITING(input_file: str, output_file: str):
         f_read.append(i.split("\n")[0])
 
     #print(f_read)
+    # Maybe if settings[3] == "screenplay" then do have another function that just finds all the content instead of trying to find chapters
+    # Because now you need to have a chapter with screenplay even though it doesnt do anything
     settings = Settings(f_read)
     chapters = Find_Chapters(f_read)
     #print(chapters)
