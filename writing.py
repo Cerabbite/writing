@@ -94,9 +94,6 @@ def WRITING(input_file: str, output_file: str):
             if not top_margin == 2 or not bottom_margin == 2 or not left_margin == 2 or not right_margin == 2:
                 print("Margin settings ignored, style set to screenplay")
 
-            if paper_size == None:
-                paper_size = LETTER
-
             top_margin = 1
             bottom_margin = 1
             left_margin = 1.5
@@ -275,7 +272,7 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceBefore=20,
+                                                    spaceBefore=23,
                                                     spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
@@ -369,6 +366,31 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("The baby gurgles and wiggles happily.", screenplay_actionline_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
         story.append(Paragraph("And there she was...", screenplay_dialogue_style))
+        story.append(Paragraph("INT. HEADQUARTERS - CONTINUOUS", screenplay_slugline_style))
+        story.append(Paragraph("ON THE CONSCIOUSNESS SCREEN:", screenplay_actionline_style))
+        story.append(Paragraph("MOM", screenplay_character_style))
+        story.append(Paragraph("Hello, Riley.", screenplay_dialogue_style))
+        story.append(Paragraph("DAD", screenplay_character_style))
+        story.append(Paragraph("Oh look at you. Aren't you a little bundle of joy?", screenplay_dialogue_style))
+        story.append(Paragraph("A GOLDEN GLOWING SPHERE rolls from behind the screen. It's a MEMORY of what we just saw: Mom and Dad cooing at Riley.", screenplay_actionline_style))
+        story.append(Paragraph("JOY", screenplay_character_style))
+        story.append(Paragraph("Whoa.", screenplay_dialogue_style))
+        story.append(Paragraph("Joy rolls the memory on its track, illuminating the room. She turns back to the button and pushes it again.", screenplay_actionline_style))
+        story.append(Paragraph("INT. HOSPITAL - CONTINUOUS", screenplay_slugline_style))
+        story.append(Paragraph("Baby Riley gurgles happily.", screenplay_actionline_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("It waas amazing. Just Riley and me, forever...", screenplay_dialogue_style))
+        story.append(Paragraph("INT. HEADQUARTERS - CONTINUOUS", screenplay_slugline_style))
+        story.append(Paragraph("Babu Riley CRIES.", screenplay_actionline_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("...for 33 seconds.", screenplay_dialogue_style))
+        story.append(Paragraph("Joy looks to her side. There's a new, droopy, blue character touching the button.", screenplay_actionline_style))
+        story.append(Paragraph("SADNESS", screenplay_character_style))
+        story.append(Paragraph("I'm Sadness", screenplay_dialogue_style))
+
+
+
+
 
 
         doc.build(story)
