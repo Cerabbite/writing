@@ -253,41 +253,53 @@ def WRITING(input_file: str, output_file: str):
         styles = getSampleStyleSheet()
 
         novelchap_style = ParagraphStyle('novel-chapter',
-                                   fontName="Baskerville",
-                                   fontSize=24,
-                                   parent=styles['Heading2'],
-                                   alignment=0,
-                                   spaceAfter=14)
+                                        fontName="Baskerville",
+                                        fontSize=24,
+                                        parent=styles['Heading2'],
+                                        alignment=0,
+                                        spaceAfter=14)
 
         novelpar_style = ParagraphStyle('novel-paragraph',
-                                   fontName="Baskerville",
-                                   fontSize=12,
-                                   parent=styles['Normal'],
-                                   alignment=0,
-                                   spaceAfter=14)
+                                        fontName="Baskerville",
+                                        fontSize=12,
+                                        parent=styles['Normal'],
+                                        alignment=0,
+                                        spaceAfter=14)
 
         screenplay_slugline_style = ParagraphStyle('novel-paragraph',
-                                   fontName="Courier",
-                                   fontSize=12,
-                                   parent=styles['Normal'],
-                                   alignment=1,
-                                   spaceAfter=14)
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=1,
+                                                    spaceAfter=14)
 
        screenplay_subheaders_style = ParagraphStyle('novel-paragraph',
-                                  fontName="Courier",
-                                  fontSize=12,
-                                  parent=styles['Normal'],
-                                  alignment=1,
-                                  spaceAfter=14,
-                                  leftIndent=)
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=1,
+                                                    spaceAfter=14)
 
-       screenplay_fade_style =
+       screenplay_transition_style = ParagraphStyle('novel-paragraph',
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=1,
+                                                    spaceAfter=14)
 
        screenplay_actionlines_style =
 
-       screenplay_character_style =
+       screenplay_character_style = ParagraphStyle('novel-paragraph',
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=1,
+                                                    spaceAfter=14,
+                                                    leftIndent=)
 
        screenplay_dialogue_style =
+
+       screenplay_wrylies_style =
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
