@@ -316,15 +316,17 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
+                                                    spaceAfter=15,
                                                     leftIndent=1*inch)
 
-        screenplay_dialogue_last_line_style = ParagraphStyle('screenplay-dialogue-style',
+        """screenplay_dialogue_last_line_style = ParagraphStyle('screenplay-dialogue-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     spaceAfter=15
                                                     leftIndent=1*inch)
+        """
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
