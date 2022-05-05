@@ -2,7 +2,6 @@
 style: screenplay
 title: Inside out test
 author: Test author
-paper-size: LETTER
 ---
 
 # Scene heading/slug line
