@@ -351,7 +351,7 @@ def WRITING(input_file: str, output_file: str):
         # Add different screenplay_x_style with different spacings before and after for different scenarios and write an algorithm to decide when to use which screenplay_x_style
         story.append(Paragraph("BLACK.", screenplay_transition_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
-        story.append(Paragraph("(sample parentheticals)", screenplay_parenthetical_style))
+        #story.append(Paragraph("(sample parentheticals)", screenplay_parenthetical_style))
         story.append(Paragraph("Do you ever look at someone and wonder, 'What is going on inside their head?' Well, I know. I know Riley's head.", screenplay_dialogue_style))
         story.append(Paragraph("WHITE. FADE IN...", screenplay_transition_style))
         story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
