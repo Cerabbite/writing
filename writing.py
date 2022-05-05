@@ -304,7 +304,6 @@ def WRITING(input_file: str, output_file: str):
                                                     spaceAfter=14,
                                                     leftIndent=2*inch)
 
-
         screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
                                                     fontName="Courier",
                                                     fontSize=12,
@@ -340,7 +339,9 @@ def WRITING(input_file: str, output_file: str):
         else:
             print(f"Unkown style: '{settings[2]}'")
         """
-        story.append()
+
+        story.append(Paragraph("", style))
+
         doc.build(story)
 
     def novel(settings, f_read, input_file, output_file):
