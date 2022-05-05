@@ -43,6 +43,7 @@ Possible: A single empty line means a new line and double empty line means new p
 # Screenplay example: http://www.dailyscript.com/scripts/inside-out-screenplay.pdf
 # Need to start writing different functions for screenplay and novel styling
 # To accomplish the different margins https://groups.google.com/g/reportlab-users/c/I1oOOTIARGw
+# Could possibly help with page numbers https://stackoverflow.com/questions/67702808/add-header-and-footer-to-a-page-using-reportlab
 
 app = typer.Typer()
 
