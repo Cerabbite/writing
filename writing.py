@@ -266,13 +266,28 @@ def WRITING(input_file: str, output_file: str):
                                    alignment=0,
                                    spaceAfter=14)
 
-        screenplay_style = ParagraphStyle('novel-paragraph',
+        screenplay_slugline_style = ParagraphStyle('novel-paragraph',
                                    fontName="Courier",
                                    fontSize=12,
                                    parent=styles['Normal'],
                                    alignment=1,
-                                   spaceAfter=14,
-                                   leftIndent=.5*inch)
+                                   spaceAfter=14)
+
+       screenplay_subheaders_style = ParagraphStyle('novel-paragraph',
+                                  fontName="Courier",
+                                  fontSize=12,
+                                  parent=styles['Normal'],
+                                  alignment=1,
+                                  spaceAfter=14,
+                                  leftIndent=)
+
+       screenplay_fade_style =
+
+       screenplay_actionlines_style =
+
+       screenplay_character_style =
+
+       screenplay_dialogue_style =
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
