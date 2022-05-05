@@ -94,10 +94,11 @@ def WRITING(input_file: str, output_file: str):
                 print("Margin settings ignored, style set to screenplay")
 
         if style == "screenplay":
-            top_margin = 2.54
-            bottom_margin = 2.54
-            left_margin = 3.81
-            right_margin = 2.54
+            top_margin = 1
+            bottom_margin = 1
+            left_margin = 1.5
+            right_margin = 1
+
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
         return settings
 
@@ -158,7 +159,6 @@ def WRITING(input_file: str, output_file: str):
 
         def Get_PAGESIZE(page_size):
             if not page_size:
-                print(1)
                 return A4
             elif page_size == "A0":
                 return A0
@@ -238,9 +238,15 @@ def WRITING(input_file: str, output_file: str):
         page_size = Get_PAGESIZE(settings[3])
 
         story = []
-        doc = SimpleDocTemplate(output_file,pagesize=page_size,
-                                rightMargin=settings[8]*cm,leftMargin=settings[7]*cm,
-                                topMargin=settings[5]*cm,bottomMargin=settings[6]*cm, title=f"{settings[0]} by {settings[1]}")
+
+        if settings[2] == "screenplay":
+            doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                    rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
+                                    topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
+        else:
+            doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                    rightMargin=settings[8]*cm,leftMargin=settings[7]*cm,
+                                    topMargin=settings[5]*cm,bottomMargin=settings[6]*cm, title=f"{settings[0]} by {settings[1]}")
 
         registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
@@ -265,7 +271,8 @@ def WRITING(input_file: str, output_file: str):
                                    fontSize=12,
                                    parent=styles['Normal'],
                                    alignment=1,
-                                   spaceAfter=14)
+                                   spaceAfter=14,
+                                   leftIndent=.5*inch)
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
