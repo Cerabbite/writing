@@ -266,36 +266,36 @@ def WRITING(input_file: str, output_file: str):
                                         alignment=0,
                                         spaceAfter=14)
 
-        screenplay_slugline_style = ParagraphStyle('novel-paragraph',
+        screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=1,
+                                                    alignment=0,
                                                     spaceAfter=14)
 
-       screenplay_subheaders_style = ParagraphStyle('novel-paragraph',
+       screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=1,
+                                                    alignment=0,
                                                     spaceAfter=14)
 
-       screenplay_transition_style = ParagraphStyle('novel-paragraph',
+       screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=1,
+                                                    alignment=0,
                                                     spaceAfter=14)
 
        screenplay_actionlines_style =
 
-       screenplay_character_style = ParagraphStyle('novel-paragraph',
+       screenplay_character_style = ParagraphStyle('screenplay-character-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=1,
+                                                    alignment=0,
                                                     spaceAfter=14,
-                                                    leftIndent=)
+                                                    leftIndent=2*inch)
 
        screenplay_dialogue_style =
 
