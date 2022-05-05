@@ -340,7 +340,13 @@ def WRITING(input_file: str, output_file: str):
             print(f"Unkown style: '{settings[2]}'")
         """
 
-        story.append(Paragraph("", style))
+        story.append(Paragraph("BLACK.", screenplay_transition_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("(sample parentheticals)", screenplay_parenthetical_style))
+        story.append(Paragraph("Do you ever look at someone and wonder, 'What is going on inside their head?' Well, I know. I know Riley's head.", screenplay_dialogue_style))
+        story.append(Paragraph("WHITE. FADE IN...", screenplay_transition_style))
+        story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
+        story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_dialogue_style))
 
         doc.build(story)
 
