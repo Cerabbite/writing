@@ -271,37 +271,32 @@ def WRITING(input_file: str, output_file: str):
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceAfter=14)
+                                                    alignment=0)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceAfter=14)
+                                                    alignment=0)
 
         screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceAfter=14,
                                                     leftIndent=4.5*inch)
 
         screenplay_actionlines_style = ParagraphStyle('screenplay-actionlines-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceAfter=14)
+                                                    alignment=0)
 
         screenplay_character_style = ParagraphStyle('screenplay-character-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceAfter=14,
                                                     leftIndent=2*inch)
 
         screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
@@ -309,7 +304,6 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceAfter=14,
                                                     leftIndent=1.5*inch)
 
         screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
@@ -317,7 +311,6 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceAfter=14,
                                                     leftIndent=1*inch)
 
         fonts = os.listdir(r'C:\Windows\fonts')
