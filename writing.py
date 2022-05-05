@@ -272,8 +272,8 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceBefore=16,
-                                                    spaceAfter=14)
+                                                    spaceBefore=20,
+                                                    spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
                                                     fontName="Courier",
@@ -285,10 +285,12 @@ def WRITING(input_file: str, output_file: str):
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
-                                                    alignment=0)#,
+                                                    alignment=0,
+                                                    spaceBefore=16,
+                                                    spaceAfter=14)#,
                                                     #leftIndent=4.5*inch)
 
-        screenplay_actionlines_style = ParagraphStyle('screenplay-actionlines-style',
+        screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
@@ -341,7 +343,8 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("Do you ever look at someone and wonder, 'What is going on inside their head?' Well, I know. I know Riley's head.", screenplay_dialogue_style))
         story.append(Paragraph("WHITE. FADE IN...", screenplay_transition_style))
         story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
-        story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_slugline_style))
+        story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_actionline_style))
+        story.append(Paragraph("Push in... and ZOOM IN TO HER HEAD.", screenplay_actionline_style))
 
         doc.build(story)
 
