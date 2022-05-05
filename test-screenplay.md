@@ -9,7 +9,7 @@ author: Screenplay Author
 > Fade
 >> Action Lines
 < Speaking character
-<< wrylies
+<< parenthetical
 Dialogue
 
 #INT. Sample Scene - Night

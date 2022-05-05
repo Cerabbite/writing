@@ -141,6 +141,7 @@ def WRITING(input_file: str, output_file: str):
         return chapts
 
     def Create_PDF(settings, chapters, output_file):
+
         def Chapter_Title(title, story, style):
             title_style = styles['Heading1']
             title_style.alignment = 1
@@ -273,23 +274,29 @@ def WRITING(input_file: str, output_file: str):
                                                     alignment=0,
                                                     spaceAfter=14)
 
-       screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
+        screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     spaceAfter=14)
 
-       screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
+        screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceAfter=14,
+                                                    leftIndent=4.5*inch)
+
+        screenplay_actionlines_style = ParagraphStyle('screenplay-actionlines-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     spaceAfter=14)
 
-       screenplay_actionlines_style =
-
-       screenplay_character_style = ParagraphStyle('screenplay-character-style',
+        screenplay_character_style = ParagraphStyle('screenplay-character-style',
                                                     fontName="Courier",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
@@ -297,15 +304,29 @@ def WRITING(input_file: str, output_file: str):
                                                     spaceAfter=14,
                                                     leftIndent=2*inch)
 
-       screenplay_dialogue_style =
 
-       screenplay_wrylies_style =
+        screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceAfter=14,
+                                                    leftIndent=1.5*inch)
+
+        screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
+                                                    fontName="Courier",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceAfter=14,
+                                                    leftIndent=1*inch)
 
         fonts = os.listdir(r'C:\Windows\fonts')
 
         #print(chapters)
         #settings = ["screenplay"]
 
+        """
         if settings[2].lower() == "novel":
             for x in chapters:
                 story = Chapter_Content(x[0], story, novelchap_style)
@@ -318,7 +339,8 @@ def WRITING(input_file: str, output_file: str):
                 story = Page_Break(story)
         else:
             print(f"Unkown style: '{settings[2]}'")
-
+        """
+        story.append()
         doc.build(story)
 
     def novel(settings, f_read, input_file, output_file):
