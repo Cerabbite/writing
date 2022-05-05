@@ -272,7 +272,7 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceBefore=23,
+                                                    spaceBefore=25,
                                                     spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
