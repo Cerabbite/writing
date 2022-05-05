@@ -94,7 +94,9 @@ def WRITING(input_file: str, output_file: str):
             if not top_margin == 2 or not bottom_margin == 2 or not left_margin == 2 or not right_margin == 2:
                 print("Margin settings ignored, style set to screenplay")
 
-        if style == "screenplay":
+            if paper_size == None:
+                paper_size = LETTER
+
             top_margin = 1
             bottom_margin = 1
             left_margin = 1.5
@@ -356,7 +358,7 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("Do you ever look at someone and wonder, 'What is going on inside their head?' Well, I know. I know Riley's head.", screenplay_dialogue_style))
         story.append(Paragraph("WHITE. FADE IN...", screenplay_transition_style))
         story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
-        story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_actionline_style))
+        story.append(Paragraph("A new born baby swaddled in a blanket, held by her parents.", screenplay_actionline_style))
         story.append(Paragraph("Push in... and ZOOM IN TO HER HEAD.", screenplay_actionline_style))
         story.append(Paragraph("INT. HEADQUARTERS", screenplay_slugline_style))
         story.append(Paragraph("Out of the blackness steps a glowing figure. This is JOY. The room is black except for a bright CONSCIOUSNESS SCREEN.", screenplay_actionline_style))
