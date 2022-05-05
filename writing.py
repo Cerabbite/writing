@@ -345,6 +345,8 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
         story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_actionline_style))
         story.append(Paragraph("Push in... and ZOOM IN TO HER HEAD.", screenplay_actionline_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("Hmm?", screenplay_dialogue_style))
 
         doc.build(story)
 
