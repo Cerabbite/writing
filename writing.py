@@ -346,8 +346,16 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("INT. HOSPITAL - DAY", screenplay_slugline_style))
         story.append(Paragraph("A new born baby swaddled in a blanket held, by her parents.", screenplay_actionline_style))
         story.append(Paragraph("Push in... and ZOOM IN TO HER HEAD.", screenplay_actionline_style))
-        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("INT. HEADQUARTERS", screenplay_slugline_style))
+        story.append(Paragraph("Out of the blackness steps a glowing figure. This is JOY. The room is black except for a bright CONSCIOUSNESS SCREEN.", screenplay_actionline_style))
+        story.append(Paragraph("JOY", screenplay_character_style))
         story.append(Paragraph("Hmm?", screenplay_dialogue_style))
+        story.append(Paragraph("In front of Joy is a single large BUTTON. She pushes it.", screenplay_actionline_style))
+        story.append(Paragraph("INT. HOSPITAL - CONTINUOUS", screenplay_slugline_style))
+        story.append(Paragraph("The baby gurgles and wiggles happily.", screenplay_actionline_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("And there she was...", screenplay_dialogue_style))
+
 
         doc.build(story)
 
