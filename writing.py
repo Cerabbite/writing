@@ -301,6 +301,7 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
+                                                    spaceBefore=15,
                                                     leftIndent=2*inch)
 
         screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
