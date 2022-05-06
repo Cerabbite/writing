@@ -58,34 +58,36 @@ class FooterCanvas(canvas.Canvas):
 
 
 #if __name__ == '__main__':
-registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
+def Test():
+    registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
 
-# Content
-styles = getSampleStyleSheet()
-elements = []
-#elements.append(Paragraph("Title", style_underline))
-#elements.append(Paragraph("Page", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 1", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 2", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 3", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 4", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 5", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 6", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 7", styles["Normal"]))
-elements.append(PageBreak())
-elements.append(Paragraph("You are in page 8", styles["Normal"]))
+    # Content
+    styles = getSampleStyleSheet()
+    elements = []
+    #elements.append(Paragraph("Title", style_underline))
+    #elements.append(Paragraph("Page", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 1", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 2", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 3", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 4", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 5", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 6", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 7", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 8", styles["Normal"]))
 
-# Build
-doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
-doc.multiBuild(elements, canvasmaker=FooterCanvas)
+    # Build
+    doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
+    doc.multiBuild(elements, canvasmaker=FooterCanvas)
 
+Test()
 
 """
 from reportlab.pdfgen import canvas
