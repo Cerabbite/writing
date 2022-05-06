@@ -3,6 +3,7 @@ from reportlab.platypus import (SimpleDocTemplate, Paragraph, PageBreak)
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.units import inch, cm
+from repoortlab.pdfbase.pdfmetrics import stringWidth
 
 
 class FooterCanvas(canvas.Canvas):
@@ -34,10 +35,11 @@ class FooterCanvas(canvas.Canvas):
             self.line(66, 78, LETTER[0] - 66, 78)
             self.setFont('Courier', 12)
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
+            self.restoreState()
+        if page_number >= 1:
             self.setFont('Courier', 36)
             self.rotate(45)
-            self.drawcenteredString(LETTER[0]/2, LETTER[1]/2, "Confidential")
-            self.restoreState()
+            self.drawString(100, LETTER[1]-LETTER[1]/2, "Confidential")
 
 
 if __name__ == '__main__':
