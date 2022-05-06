@@ -2,6 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, PageBreak)
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import LETTER
+from reportlab.lib.units import inch, cm
 
 
 class FooterCanvas(canvas.Canvas):
@@ -23,14 +24,14 @@ class FooterCanvas(canvas.Canvas):
         canvas.Canvas.save(self)
 
     def draw_canvas(self, page_count):
-        page = "Page %s of %s" % (self._pageNumber, page_count)
+        page = f"{self._pageNumber}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 128
         self.saveState()
         self.setStrokeColorRGB(0, 0, 0)
         self.setLineWidth(0.5)
         self.line(66, 78, LETTER[0] - 66, 78)
-        self.setFont('Times-Roman', 10)
-        self.drawString(LETTER[0]-x, 65, page)
+        self.setFont('Courier', 12)
+        self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
         self.restoreState()
 
 
