@@ -37,8 +37,8 @@ class FooterCanvas(canvas.Canvas):
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
             self.restoreState()
         if page_number >= 1:
-            self.setFont('Courier', 36)
-            self.rotate(45)
+            self.setFont('Courier', 12)
+            #self.rotate(45)
             txt = "Confidential"
             txt_width = stringWidth(txt, "Courier", 36)
             self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, "Confidential")
