@@ -35,7 +35,8 @@ class FooterCanvas(canvas.Canvas):
             self.setFont('Courier', 12)
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
             self.setFont('Courier', 36)
-            self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, "Confidential")
+            self.rotate(45)
+            self.drawcenteredString(LETTER[0]/2, LETTER[1]/2, "Confidential")
             self.restoreState()
 
 
