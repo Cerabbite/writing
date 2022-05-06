@@ -5,6 +5,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
+from reportlab.pdfbase.pdfmetrics import stringWidth
 import os
 import typer
 import requests
@@ -46,6 +47,55 @@ Possible: A single empty line means a new line and double empty line means new p
 # Could possibly help with page numbers https://stackoverflow.com/questions/67702808/add-header-and-footer-to-a-page-using-reportlab
 
 app = typer.Typer()
+
+class FooterCanvas(canvas.Canvas):
+
+    def __init__(self, *args, **kwargs):
+        canvas.Canvas.__init__(self, *args, **kwargs)
+        self.pages = []
+
+    def showPage(self):
+        self.pages.append(dict(self.__dict__))
+        self._startPage()
+
+    def save(self):
+        page_count = len(self.pages)
+        for page in self.pages:
+            self.__dict__.update(page)
+            self.draw_canvas(page_count)
+            canvas.Canvas.showPage(self)
+        canvas.Canvas.save(self)
+
+    def draw_canvas(self, page_count):
+        registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
+        page_number = self._pageNumber-1
+        page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
+        x = 1*inch
+        if page_number >= 2:
+            self.saveState()
+            self.setStrokeColorRGB(0, 0, 0)
+            self.setLineWidth(0.5)
+            self.line(66, 78, LETTER[0] - 66, 78)
+            self.setFont('Courier-Prime', 12)
+            self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
+            self.restoreState()
+        if page_number == 0:
+            self.setFont('Courier-Prime', 12)
+            #self.rotate(45)
+            txt = "Test Script"
+            txt2 = "screenplay by"
+            txt3 = "Test Author"
+            txt_width = stringWidth(txt, "Courier-Prime", 12)
+            txt2_width = stringWidth(txt2, "Courier-Prime", 12)
+            txt3_width = stringWidth(txt3, "Courier-Prime", 12)
+            height_ = 7
+            under_ = .05
+            self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
+            self.drawString((LETTER[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
+            self.drawString((LETTER[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
+            self.setLineWidth(0.5)
+            self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+
 
 @app.command()
 def WRITING(input_file: str, output_file: str):
