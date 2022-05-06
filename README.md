@@ -25,7 +25,7 @@ Style options:
 - screenplay
 
 ## Chapters
-You can start a new chapter with a ```#```
+You can start a new chapter with a ```#``` and then put the name of the chapter after it like so ```# Sample Title```. This will create a new chapter on a new page.
 
 ## Content
 
