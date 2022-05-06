@@ -6,6 +6,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
+from reportlab.pdfgen import canvas
 import os
 import typer
 import requests
@@ -67,7 +68,7 @@ class FooterCanvas(canvas.Canvas):
         canvas.Canvas.save(self)
 
     def draw_canvas(self, page_count):
-        registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
+        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
@@ -399,6 +400,9 @@ def WRITING(input_file: str, output_file: str):
             print(f"Unkown style: '{settings[2]}'")
         """
 
+        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+        self.setFont('Courier-Prime', 12)
+
         # Add different screenplay_x_style with different spacings before and after for different scenarios and write an algorithm to decide when to use which screenplay_x_style
         story.append(Paragraph("BLACK.", screenplay_transition_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
@@ -440,7 +444,7 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("I'm Sadness", screenplay_dialogue_style))
 
 
-        
+
 
         doc.multiBuild(story, canvasmaker=FooterCanvas)
 
