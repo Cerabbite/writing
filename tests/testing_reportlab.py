@@ -42,13 +42,13 @@ class FooterCanvas(canvas.Canvas):
         if page_number == 0:
             self.setFont('Courier-Prime', 12)
             #self.rotate(45)
-            txt = r'''<u>INSIDE OUT</u>'''
+            txt = "INSIDE OUT"
             txt_width = stringWidth(txt, "Courier-Prime", 12)
             height_ = 7
             under_ = .05
             self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
-            #self.setLineWidth(0.3)
-            #self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+            self.setLineWidth(0.5)
+            self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
 
 if __name__ == '__main__':
@@ -56,15 +56,9 @@ if __name__ == '__main__':
 
     # Content
     styles = getSampleStyleSheet()
-    style_underline = ParagraphStyle('screenplay-slugline-style',
-                                                fontName="Courier-Prime",
-                                                fontSize=12,
-                                                parent=styles['Normal'],
-                                                alignment=0,
-                                                underlineWidth=1)
     elements = []
-    elements.append(Paragraph("Title", styles["Normal"]))
-    elements.append(Paragraph("Page", styles["Normal"]))
+    #elements.append(Paragraph("Title", style_underline))
+    #elements.append(Paragraph("Page", styles["Normal"]))
     elements.append(PageBreak())
     elements.append(Paragraph("You are in page 1", styles["Normal"]))
     elements.append(PageBreak())
