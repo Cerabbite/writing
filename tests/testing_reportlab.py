@@ -36,13 +36,15 @@ class FooterCanvas(canvas.Canvas):
             self.setFont('Courier', 12)
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
             self.restoreState()
-        if page_number >= 1:
+        if page_number == 0:
             self.setFont('Courier', 12)
             #self.rotate(45)
             txt = "Title Screenplay"
             txt_width = stringWidth(txt, "Courier", 12)
-            self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, txt)
-            self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, page)
+            height_ = 7
+            self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
+            self.setLineWidth(0.1)
+            self.line((LETTER[0] - txt_width) / 2.0, (height_-.01)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-.01)*inch)
 
 
 if __name__ == '__main__':
