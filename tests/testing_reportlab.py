@@ -34,6 +34,8 @@ class FooterCanvas(canvas.Canvas):
             self.line(66, 78, LETTER[0] - 66, 78)
             self.setFont('Courier', 12)
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
+            self.setFont('Courier', 36)
+            self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, "Confidential")
             self.restoreState()
 
 
