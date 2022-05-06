@@ -29,7 +29,8 @@ You can start a new chapter with a ```#``` and then put the name of the chapter 
 
 ## Content
 The content of a chapter can be put after ```# Sample Title``` on a new line like so 
-```# Sample Title
+```
+# Sample Title
 Sample Content
 ```
 
