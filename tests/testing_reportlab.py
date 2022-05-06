@@ -39,9 +39,9 @@ class FooterCanvas(canvas.Canvas):
         if page_number >= 1:
             self.setFont('Courier', 12)
             #self.rotate(45)
-            txt = "Confidential"
-            txt_width = stringWidth(txt, "Courier", 36)
-            self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, "Confidential")
+            txt = "Title Screenplay"
+            txt_width = stringWidth(txt, "Courier", 12)
+            self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, txt)
 
 
 if __name__ == '__main__':
