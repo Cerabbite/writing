@@ -28,5 +28,8 @@ Style options:
 You can start a new chapter with a ```#``` and then put the name of the chapter after it like so ```# Sample Title```. This will create a new chapter on a new page.
 
 ## Content
+The content of a chapter can be put after ```# Sample Title``` on a new line like so ```# Sample Title
+Sample Content```.
 
 ## Good to know
+Be sure to have an empty line after your last line of text in your document otherwise the last line will NOT be included in the document.
