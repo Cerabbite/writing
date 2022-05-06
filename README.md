@@ -7,7 +7,12 @@
 # Documentation
 ## Running the program
 ```
-writing writing "Input File.md" Outputfile.pdf
+writing writing <replace this with your input file> <replace this with your output pdf>
+```
+
+For other the commands of writing
+```
+writing --help
 ```
 
 ## Settings
