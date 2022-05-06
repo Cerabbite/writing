@@ -42,9 +42,10 @@ class FooterCanvas(canvas.Canvas):
             txt = "Title Screenplay"
             txt_width = stringWidth(txt, "Courier", 12)
             height_ = 7
+            under_ = .05
             self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
             self.setLineWidth(0.1)
-            self.line((LETTER[0] - txt_width) / 2.0, (height_-.01)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-.01)*inch)
+            self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
 
 if __name__ == '__main__':
