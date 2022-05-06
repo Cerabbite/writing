@@ -39,7 +39,7 @@ class FooterCanvas(canvas.Canvas):
         if page_number == 0:
             self.setFont('Courier', 12)
             #self.rotate(45)
-            txt = "Title Screenplay"
+            txt = "INSIDE OUT"
             txt_width = stringWidth(txt, "Courier", 12)
             height_ = 7
             under_ = .05
