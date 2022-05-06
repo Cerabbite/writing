@@ -1,9 +1,11 @@
 from reportlab.pdfgen import canvas
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, PageBreak)
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.units import inch, cm
 from reportlab.pdfbase.pdfmetrics import stringWidth
+from reportlab.pdfbase.pdfmetrics import registerFont
+from reportlab.pdfbase.ttfonts import TTFont
 
 
 class FooterCanvas(canvas.Canvas):
@@ -25,6 +27,7 @@ class FooterCanvas(canvas.Canvas):
         canvas.Canvas.save(self)
 
     def draw_canvas(self, page_count):
+        registerFont(TTFont('Courier-Prime', 'E:/GitHub/writing/font/Courier Prime.ttf'))
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
@@ -33,25 +36,32 @@ class FooterCanvas(canvas.Canvas):
             self.setStrokeColorRGB(0, 0, 0)
             self.setLineWidth(0.5)
             self.line(66, 78, LETTER[0] - 66, 78)
-            self.setFont('Courier', 12)
+            self.setFont('Courier-Prime', 12)
             self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
             self.restoreState()
         if page_number == 0:
-            self.setFont('Courier', 12)
+            self.setFont('Courier-Prime', 12)
             #self.rotate(45)
-            txt = "INSIDE OUT"
-            txt_width = stringWidth(txt, "Courier", 12)
+            txt = r'''<u>INSIDE OUT</u>'''
+            txt_width = stringWidth(txt, "Courier-Prime", 12)
             height_ = 7
             under_ = .05
             self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
-            self.setLineWidth(0.1)
-            self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+            #self.setLineWidth(0.3)
+            #self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
 
 if __name__ == '__main__':
+    registerFont(TTFont('Courier-Prime', 'E:/GitHub/writing/font/Courier Prime.ttf'))
 
     # Content
     styles = getSampleStyleSheet()
+    style_underline = ParagraphStyle('screenplay-slugline-style',
+                                                fontName="Courier-Prime",
+                                                fontSize=12,
+                                                parent=styles['Normal'],
+                                                alignment=0,
+                                                underlineWidth=1)
     elements = []
     elements.append(Paragraph("Title", styles["Normal"]))
     elements.append(Paragraph("Page", styles["Normal"]))
