@@ -24,15 +24,17 @@ class FooterCanvas(canvas.Canvas):
         canvas.Canvas.save(self)
 
     def draw_canvas(self, page_count):
-        page = f"{self._pageNumber}." #"Page %s of %s" % (self._pageNumber, page_count)
-        x = 128
-        self.saveState()
-        self.setStrokeColorRGB(0, 0, 0)
-        self.setLineWidth(0.5)
-        self.line(66, 78, LETTER[0] - 66, 78)
-        self.setFont('Courier', 12)
-        self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
-        self.restoreState()
+        page_number = self._pageNumber-1
+        page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
+        x = 1*inch
+        if page_number >= 2:
+            self.saveState()
+            self.setStrokeColorRGB(0, 0, 0)
+            self.setLineWidth(0.5)
+            self.line(66, 78, LETTER[0] - 66, 78)
+            self.setFont('Courier', 12)
+            self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
+            self.restoreState()
 
 
 if __name__ == '__main__':
@@ -40,8 +42,13 @@ if __name__ == '__main__':
     # Content
     styles = getSampleStyleSheet()
     elements = []
-    elements.append(Paragraph("Hello", styles["Normal"]))
-    elements.append(Paragraph("World", styles["Normal"]))
+    elements.append(Paragraph("Title", styles["Normal"]))
+    elements.append(Paragraph("Page", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 1", styles["Normal"]))
+    elements.append(PageBreak())
+    elements.append(Paragraph("You are in page 2", styles["Normal"]))
+    elements.append(Paragraph("You are in page 1", styles["Normal"]))
     elements.append(PageBreak())
     elements.append(Paragraph("You are in page 2", styles["Normal"]))
 
