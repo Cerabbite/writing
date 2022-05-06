@@ -36,3 +36,13 @@ Sample Content
 
 ## Good to know
 Be sure to have an empty line after your last line of text in your document otherwise the last line will NOT be included in the document.
+```
+# Last chapter
+Last line of the document  <-- This line will NOT be included in the final document
+```
+
+```
+# Last chapter
+Last line of the document <-- This line will be included in the final document
+
+```
