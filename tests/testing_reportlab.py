@@ -40,14 +40,14 @@ class FooterCanvas(canvas.Canvas):
             self.setFont('Courier', 36)
             self.rotate(45)
             txt = "Confidential"
-            txt_width = stringWidth(txt)
-            self.drawString(100, LETTER[1]-LETTER[1]/2, "Confidential")
+            txt_width = stringWidth(txt, "Courier", 36)
+            self.drawString((LETTER[0] - txt_width) / 2.0, 5*inch, "Confidential")
 
 
 if __name__ == '__main__':
 
     # Content
-    styles = getSampleStyleSheet(pageSize=LETTER)
+    styles = getSampleStyleSheet()
     elements = []
     elements.append(Paragraph("Title", styles["Normal"]))
     elements.append(Paragraph("Page", styles["Normal"]))
