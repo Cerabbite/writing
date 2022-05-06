@@ -43,10 +43,16 @@ class FooterCanvas(canvas.Canvas):
             self.setFont('Courier-Prime', 12)
             #self.rotate(45)
             txt = "INSIDE OUT"
+            txt2 = "screenplay by"
+            txt3 = "Test Author"
             txt_width = stringWidth(txt, "Courier-Prime", 12)
+            txt2_width = stringWidth(txt2, "Courier-Prime", 12)
+            txt3_width = stringWidth(txt3, "Courier-Prime", 12)
             height_ = 7
             under_ = .05
             self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
+            self.drawString((LETTER[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
+            self.drawString((LETTER[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
             self.setLineWidth(0.5)
             self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
