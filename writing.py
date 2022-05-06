@@ -440,11 +440,9 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("I'm Sadness", screenplay_dialogue_style))
 
 
+        
 
-
-
-
-        doc.build(story)
+        doc.multiBuild(story, canvasmaker=FooterCanvas)
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
