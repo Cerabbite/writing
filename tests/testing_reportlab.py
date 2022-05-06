@@ -27,7 +27,7 @@ class FooterCanvas(canvas.Canvas):
         canvas.Canvas.save(self)
 
     def draw_canvas(self, page_count):
-        registerFont(TTFont('Courier-Prime', 'E:/GitHub/writing/font/Courier Prime.ttf'))
+        registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
@@ -58,7 +58,7 @@ class FooterCanvas(canvas.Canvas):
 
 
 if __name__ == '__main__':
-    registerFont(TTFont('Courier-Prime', 'E:/GitHub/writing/font/Courier Prime.ttf'))
+    registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
 
     # Content
     styles = getSampleStyleSheet()
