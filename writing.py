@@ -78,8 +78,9 @@ class FooterCanvas(canvas.Canvas):
             self.setStrokeColorRGB(0, 0, 0)
             #self.setLineWidth(0.5)
             #self.line(66, 78, page_size[0] - 66, 78)
-            self.setFont('Courier-Prime', 12)
+            self.setFont('Courier-Prime', 15)
             self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
+            self.drawString(x, page_size[1]-0.5*inch, "Test Script")
             self.restoreState()
         if page_number == 0:
             self.setFont('Courier-Prime', 12)
