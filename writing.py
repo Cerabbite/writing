@@ -86,6 +86,7 @@ class FooterCanvas(canvas.Canvas):
             page_number = self._pageNumber-1
             page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
             x = 1*inch
+            page_size = A4
 
             if page_number >= 2:
                 self.saveState()
@@ -94,7 +95,7 @@ class FooterCanvas(canvas.Canvas):
                 #self.line(66, 78, page_size[0] - 66, 78)
                 self.setFont('Courier-Prime', 15)
                 self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
-                self.drawString(x, page_size[1]-0.5*inch, title)
+                self.drawString(x, page_size[1]-0.5*inch, "title")
                 self.restoreState()
             if page_number == 0:
                 self.setFont('Courier-Prime', 12)
