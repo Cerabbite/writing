@@ -96,7 +96,7 @@ class FooterCanvas(canvas.Canvas):
             txt_width = stringWidth(txt, "Courier-Prime", 12)
             txt2_width = stringWidth(txt2, "Courier-Prime", 12)
             txt3_width = stringWidth(txt3, "Courier-Prime", 12)
-            height_ = 7
+            height_ = 7.5
             under_ = .05
             self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
             self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
