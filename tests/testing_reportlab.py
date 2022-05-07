@@ -10,9 +10,9 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 class FooterCanvas(canvas.Canvas):
 
-    def __init__(self, werid, filename, title, **kwargs):
+    def __init__(self, filename1, filename, settings, **kwargs):
         #print(werid, filename, title)
-        self.title = title
+        self.settings = settings
         canvas.Canvas.__init__(self, filename, **kwargs)
         self.pages = []
 
@@ -33,7 +33,7 @@ class FooterCanvas(canvas.Canvas):
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
-        title = self.title
+        title = self.settings[0]
         if page_number >= 2:
             self.saveState()
             self.setStrokeColorRGB(0, 0, 0)
@@ -86,13 +86,12 @@ def Test():
     elements.append(PageBreak())
     elements.append(Paragraph("You are in page 8", styles["Normal"]))
 
-    y = "Title"
+    settings = ["title", "author", "style", "paper_size", "font", "top_margin", "bottom_margin", "left_margin", "right_margin"]
     k = 'my_file.pdf'
-    r = "random"
 
     # Build
     doc = SimpleDocTemplate(k, pagesize=LETTER)
-    doc.multiBuild(elements, canvasmaker=lambda r=r, g=k, y=y, **kwargs:FooterCanvas(r, g, y, **kwargs))
+    doc.multiBuild(elements, canvasmaker=lambda filename1=k, filename=k, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
 Test()
 

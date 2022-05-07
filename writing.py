@@ -76,7 +76,7 @@ class FooterCanvas(canvas.Canvas):
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
-        page_size = A4
+        page_size = self.settings[3]
 
         if page_number >= 2:
             self.saveState()
@@ -85,14 +85,14 @@ class FooterCanvas(canvas.Canvas):
             #self.line(66, 78, page_size[0] - 66, 78)
             self.setFont('Courier-Prime', 15)
             self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
-            self.drawString(x, page_size[1]-0.5*inch, "title")
+            self.drawString(x, page_size[1]-0.5*inch, self.settings[0])
             self.restoreState()
         if page_number == 0:
             self.setFont('Courier-Prime', 12)
             #self.rotate(45)
-            txt = "Test Script"
+            txt = self.settings[0]
             txt2 = "screenplay by"
-            txt3 = "Test Author"
+            txt3 = self.settings[1]
             txt_width = stringWidth(txt, "Courier-Prime", 12)
             txt2_width = stringWidth(txt2, "Courier-Prime", 12)
             txt3_width = stringWidth(txt3, "Courier-Prime", 12)
@@ -160,10 +160,6 @@ def WRITING(input_file: str, output_file: str):
             right_margin = 1
 
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
-
-        __TITLE__ = title
-        __AUTHOR__ = author
-        __PAPERSIZE__ = paper_size
 
         return settings
 
@@ -302,6 +298,7 @@ def WRITING(input_file: str, output_file: str):
                 return ELEVENSEVENTEEN
 
         page_size = Get_PAGESIZE(settings[3])
+        settings[3] = page_size
 
         story = []
 
@@ -459,7 +456,7 @@ def WRITING(input_file: str, output_file: str):
 
 
 
-        doc.multiBuild(elements, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
