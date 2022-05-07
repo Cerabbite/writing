@@ -42,6 +42,7 @@ Possible: A single empty line means a new line and double empty line means new p
 
 # Screenplay styling: https://www.nfi.edu/screenplay-format/
 #                     https://www.youtube.com/watch?v=Zx6W3fz9tnA
+#                     https://online.pointpark.edu/screenwriting/screenplay-format/
 # Screenplay example: http://www.dailyscript.com/scripts/inside-out-screenplay.pdf
 # Need to start writing different functions for screenplay and novel styling
 # To accomplish the different margins https://groups.google.com/g/reportlab-users/c/I1oOOTIARGw
@@ -335,7 +336,7 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceBefore=25,
+                                                    spaceBefore=20,
                                                     spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
@@ -380,7 +381,8 @@ def WRITING(input_file: str, output_file: str):
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     spaceAfter=15,
-                                                    leftIndent=1*inch)
+                                                    leftIndent=1*inch,
+                                                    rightIndent=1*inch)
 
         """
         screenplay_dialogue_last_line_style = ParagraphStyle('screenplay-dialogue-style',
@@ -452,6 +454,11 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("Joy looks to her side. There's a new, droopy, blue character touching the button.", screenplay_actionline_style))
         story.append(Paragraph("SADNESS", screenplay_character_style))
         story.append(Paragraph("I'm Sadness", screenplay_dialogue_style))
+        story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
+        story.append(Paragraph("Oh, hello. I’m Joy.", screenplay_dialogue_style))
+        story.append(Paragraph("Joy tries to muscle past Sadness to press the button.", screenplay_actionline_style))
+        story.append(Paragraph("JOY (CONT'D)", screenplay_character_style))
+        story.append(Paragraph("Can I just... if you could... I just want to fix that. Thanks.", screenplay_dialogue_style))
 
 
 
