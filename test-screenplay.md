@@ -1,7 +1,7 @@
 ---
 style: screenplay
-title: Inside out test
-author: Test author
+title: INSIDE OUT TEST
+author: Test Author
 ---
 
 # Scene heading/slug line
