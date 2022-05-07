@@ -72,13 +72,14 @@ class FooterCanvas(canvas.Canvas):
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
+        page_size = A4
         if page_number >= 2:
             self.saveState()
             self.setStrokeColorRGB(0, 0, 0)
-            self.setLineWidth(0.5)
-            self.line(66, 78, LETTER[0] - 66, 78)
+            #self.setLineWidth(0.5)
+            #self.line(66, 78, page_size[0] - 66, 78)
             self.setFont('Courier-Prime', 12)
-            self.drawString(LETTER[0]-x, LETTER[1]-0.5*inch, page)
+            self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
             self.restoreState()
         if page_number == 0:
             self.setFont('Courier-Prime', 12)
@@ -91,11 +92,11 @@ class FooterCanvas(canvas.Canvas):
             txt3_width = stringWidth(txt3, "Courier-Prime", 12)
             height_ = 7
             under_ = .05
-            self.drawString((LETTER[0] - txt_width) / 2.0, height_*inch, txt)
-            self.drawString((LETTER[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
-            self.drawString((LETTER[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
+            self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
+            self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
+            self.drawString((page_size[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
             self.setLineWidth(0.5)
-            self.line((LETTER[0] - txt_width) / 2.0, (height_-under_)*inch, ((LETTER[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+            self.line((page_size[0] - txt_width) / 2.0, (height_-under_)*inch, ((page_size[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
 
 @app.command()
@@ -302,6 +303,7 @@ def WRITING(input_file: str, output_file: str):
                                     topMargin=settings[5]*cm,bottomMargin=settings[6]*cm, title=f"{settings[0]} by {settings[1]}")
 
         registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
+        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
 
         styles = getSampleStyleSheet()
 
@@ -320,7 +322,7 @@ def WRITING(input_file: str, output_file: str):
                                         spaceAfter=14)
 
         screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
@@ -328,13 +330,13 @@ def WRITING(input_file: str, output_file: str):
                                                     spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0)
 
         screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
@@ -343,13 +345,13 @@ def WRITING(input_file: str, output_file: str):
                                                     #leftIndent=4.5*inch)
 
         screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0)
 
         screenplay_character_style = ParagraphStyle('screenplay-character-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
@@ -357,14 +359,14 @@ def WRITING(input_file: str, output_file: str):
                                                     leftIndent=2*inch)
 
         screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     leftIndent=1.5*inch)
 
         screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
-                                                    fontName="Courier",
+                                                    fontName="Courier-Prime",
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
@@ -400,10 +402,8 @@ def WRITING(input_file: str, output_file: str):
             print(f"Unkown style: '{settings[2]}'")
         """
 
-        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
-        self.setFont('Courier-Prime', 12)
-
         # Add different screenplay_x_style with different spacings before and after for different scenarios and write an algorithm to decide when to use which screenplay_x_style
+        story.append(PageBreak())
         story.append(Paragraph("BLACK.", screenplay_transition_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
         #story.append(Paragraph("(sample parentheticals)", screenplay_parenthetical_style))
