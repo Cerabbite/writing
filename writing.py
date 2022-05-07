@@ -156,7 +156,7 @@ def WRITING(input_file: str, output_file: str):
                 print("Margin settings ignored, style set to screenplay")
 
             top_margin = 1
-            bottom_margin = 1
+            bottom_margin = .25
             left_margin = 1.5
             right_margin = 1
 
@@ -336,7 +336,7 @@ def WRITING(input_file: str, output_file: str):
                                                     fontSize=12,
                                                     parent=styles['Normal'],
                                                     alignment=0,
-                                                    spaceBefore=20,
+                                                    spaceBefore=23,
                                                     spaceAfter=12)
 
         screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
