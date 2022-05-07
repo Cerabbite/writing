@@ -51,55 +51,70 @@ app = typer.Typer()
 
 class FooterCanvas(canvas.Canvas):
 
-    def __init__(self, *args, **kwargs):
-        canvas.Canvas.__init__(self, *args, **kwargs)
-        self.pages = []
-        #self.page_size = page_size
-        #self.title = title
-        #self.author = author
+    def __init__(self, settings, *args, **kwargs):
+        try:
+            self.settings = settings
+            canvas.Canvas.__init__(self, *args, **kwargs)
+            self.pages = []
+            #self.page_size = page_size
+            #self.title = title
+            #self.author = author
+        except Exception as e:
+            print(f"__init__ {e}")
 
     def showPage(self):
-        self.pages.append(dict(self.__dict__))
-        self._startPage()
+        try:
+            self.pages.append(dict(self.__dict__))
+            self._startPage()
+        except Exception as e:
+            print(f"showPage {e}")
 
     def save(self):
-        page_count = len(self.pages)
-        for page in self.pages:
-            self.__dict__.update(page)
-            self.draw_canvas(page_count)
-            canvas.Canvas.showPage(self)
-        canvas.Canvas.save(self)
+        try:
+            page_count = len(self.pages)
+            for page in self.pages:
+                self.__dict__.update(page)
+                self.draw_canvas(page_count)
+                canvas.Canvas.showPage(self)
+            canvas.Canvas.save(self)
+        except Exception as e:
+            print(f"save {e}")
 
     def draw_canvas(self, page_count):
-        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
-        page_number = self._pageNumber-1
-        page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
-        x = 1*inch
-        if page_number >= 2:
-            self.saveState()
-            self.setStrokeColorRGB(0, 0, 0)
-            #self.setLineWidth(0.5)
-            #self.line(66, 78, page_size[0] - 66, 78)
-            self.setFont('Courier-Prime', 15)
-            self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
-            self.drawString(x, page_size[1]-0.5*inch, title)
-            self.restoreState()
-        if page_number == 0:
-            self.setFont('Courier-Prime', 12)
-            #self.rotate(45)
-            txt = "Test Script"
-            txt2 = "screenplay by"
-            txt3 = "Test Author"
-            txt_width = stringWidth(txt, "Courier-Prime", 12)
-            txt2_width = stringWidth(txt2, "Courier-Prime", 12)
-            txt3_width = stringWidth(txt3, "Courier-Prime", 12)
-            height_ = 7
-            under_ = .05
-            self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
-            self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
-            self.drawString((page_size[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
-            self.setLineWidth(0.5)
-            self.line((page_size[0] - txt_width) / 2.0, (height_-under_)*inch, ((page_size[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+        try:
+            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+            page_number = self._pageNumber-1
+            page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
+            x = 1*inch
+
+            if page_number >= 2:
+                self.saveState()
+                self.setStrokeColorRGB(0, 0, 0)
+                #self.setLineWidth(0.5)
+                #self.line(66, 78, page_size[0] - 66, 78)
+                self.setFont('Courier-Prime', 15)
+                self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
+                self.drawString(x, page_size[1]-0.5*inch, title)
+                self.restoreState()
+            if page_number == 0:
+                self.setFont('Courier-Prime', 12)
+                #self.rotate(45)
+                txt = "Test Script"
+                txt2 = "screenplay by"
+                txt3 = "Test Author"
+                txt_width = stringWidth(txt, "Courier-Prime", 12)
+                txt2_width = stringWidth(txt2, "Courier-Prime", 12)
+                txt3_width = stringWidth(txt3, "Courier-Prime", 12)
+                height_ = 7
+                under_ = .05
+                self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
+                self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
+                self.drawString((page_size[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
+                self.setLineWidth(0.5)
+                self.line((page_size[0] - txt_width) / 2.0, (height_-under_)*inch, ((page_size[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
+        except Exception as e:
+            print(f"draw_canvas {e}")
+
 
 
 @app.command()
@@ -156,6 +171,11 @@ def WRITING(input_file: str, output_file: str):
             right_margin = 1
 
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
+
+        __TITLE__ = title
+        __AUTHOR__ = author
+        __PAPERSIZE__ = paper_size
+
         return settings
 
     def Find_Chapters(file):
@@ -449,7 +469,7 @@ def WRITING(input_file: str, output_file: str):
 
 
 
-        doc.multiBuild(story, canvasmaker=FooterCanvas)
+        doc.multiBuild(story, canvasmaker=lambda settings=settings: FooterCanvas(settings))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
