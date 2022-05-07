@@ -86,7 +86,7 @@ def Test():
     y = "Title"
 
     # Build
-    doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
+    doc = SimpleDocTemplate("my_file.pdf")
     doc.multiBuild(elements, canvasmaker=lambda x=y:FooterCanvas(x))
 
 Test()
