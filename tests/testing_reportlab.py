@@ -18,7 +18,7 @@ class FooterCanvas(canvas.Canvas):
         self.pages.append(dict(self.__dict__))
         self._startPage()
 
-    def save(self, x):
+    def save(self):
         page_count = len(self.pages)
         for page in self.pages:
             self.__dict__.update(page)
@@ -26,7 +26,7 @@ class FooterCanvas(canvas.Canvas):
             canvas.Canvas.showPage(self)
         canvas.Canvas.save(self)
 
-    def draw_canvas(self, page_count):
+    def draw_canvas(self, page_count, title):
         registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
@@ -42,7 +42,7 @@ class FooterCanvas(canvas.Canvas):
         if page_number == 0:
             self.setFont('Courier-Prime', 12)
             #self.rotate(45)
-            txt = "Test Script"
+            txt = title
             txt2 = "screenplay by"
             txt3 = "Test Author"
             txt_width = stringWidth(txt, "Courier-Prime", 12)
@@ -86,8 +86,8 @@ def Test():
     y = "Title"
 
     # Build
-    doc = SimpleDocTemplate("my_file.pdf")
-    doc.multiBuild(elements, canvasmaker=lambda x=y:FooterCanvas(x))
+    doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
+    doc.multiBuild(elements, canvasmaker=lambda y=y:FooterCanvas(y))
 
 Test()
 
