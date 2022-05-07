@@ -10,8 +10,10 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 class FooterCanvas(canvas.Canvas):
 
-    def __init__(self, *args, **kwargs):
-        canvas.Canvas.__init__(self, *args, **kwargs)
+    def __init__(self, werid, filename, title, **kwargs):
+        print(filename, title)
+        self.title = title
+        canvas.Canvas.__init__(self, filename, **kwargs)
         self.pages = []
 
     def showPage(self):
@@ -26,11 +28,12 @@ class FooterCanvas(canvas.Canvas):
             canvas.Canvas.showPage(self)
         canvas.Canvas.save(self)
 
-    def draw_canvas(self, page_count, title):
+    def draw_canvas(self, page_count):
         registerFont(TTFont('Courier-Prime', '../font/Courier Prime.ttf'))
         page_number = self._pageNumber-1
         page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
         x = 1*inch
+        title = self.title
         if page_number >= 2:
             self.saveState()
             self.setStrokeColorRGB(0, 0, 0)
@@ -84,10 +87,12 @@ def Test():
     elements.append(Paragraph("You are in page 8", styles["Normal"]))
 
     y = "Title"
+    k = 'my_file.pdf'
+    r = "random"
 
     # Build
-    doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
-    doc.multiBuild(elements, canvasmaker=lambda y=y:FooterCanvas(y))
+    doc = SimpleDocTemplate(k, pagesize=LETTER)
+    doc.multiBuild(elements, canvasmaker=lambda r=r, g=k, y=y, **kwargs:FooterCanvas(r, g, y, **kwargs))
 
 Test()
 
