@@ -156,7 +156,7 @@ def WRITING(input_file: str, output_file: str):
                 print("Margin settings ignored, style set to screenplay")
 
             top_margin = 1
-            bottom_margin = .25
+            bottom_margin = .75
             left_margin = 1.5
             right_margin = 1
 
