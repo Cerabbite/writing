@@ -51,9 +51,9 @@ app = typer.Typer()
 
 class FooterCanvas(canvas.Canvas):
 
-    def __init__(self, settings):
+    def __init__(self, filename1, filename, settings, **kwargs)):
         self.settings = settings
-        canvas.Canvas.__init__(self)
+        canvas.Canvas.__init__(self, filename, **kwargs)
         self.pages = []
         #self.page_size = page_size
         #self.title = title
@@ -459,7 +459,7 @@ def WRITING(input_file: str, output_file: str):
 
 
 
-        doc.multiBuild(story, canvasmaker=lambda settings=settings: FooterCanvas(settings))
+        doc.multiBuild(elements, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
