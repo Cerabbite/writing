@@ -18,7 +18,7 @@ class FooterCanvas(canvas.Canvas):
         self.pages.append(dict(self.__dict__))
         self._startPage()
 
-    def save(self):
+    def save(self, x):
         page_count = len(self.pages)
         for page in self.pages:
             self.__dict__.update(page)
@@ -83,9 +83,11 @@ def Test():
     elements.append(PageBreak())
     elements.append(Paragraph("You are in page 8", styles["Normal"]))
 
+    y = "Title"
+
     # Build
     doc = SimpleDocTemplate("my_file.pdf", pagesize=LETTER)
-    doc.multiBuild(elements, canvasmaker=FooterCanvas)
+    doc.multiBuild(elements, canvasmaker=lambda x=y:FooterCanvas(x))
 
 Test()
 

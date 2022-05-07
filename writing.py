@@ -51,9 +51,9 @@ app = typer.Typer()
 
 class FooterCanvas(canvas.Canvas):
 
-    def __init__(self, settings, *args, **kwargs):
+    def __init__(self, settings):
         self.settings = settings
-        canvas.Canvas.__init__(self, *args, **kwargs)
+        canvas.Canvas.__init__(self)
         self.pages = []
         #self.page_size = page_size
         #self.title = title
