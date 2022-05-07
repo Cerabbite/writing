@@ -11,7 +11,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 class FooterCanvas(canvas.Canvas):
 
     def __init__(self, werid, filename, title, **kwargs):
-        print(filename, title)
+        #print(werid, filename, title)
         self.title = title
         canvas.Canvas.__init__(self, filename, **kwargs)
         self.pages = []
