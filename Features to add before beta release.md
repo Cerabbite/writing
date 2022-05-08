@@ -4,3 +4,6 @@
 - [ ] Simple front page design novel
 - [ ] Front page screenplay
 - [ ] Page numbers
+- [ ] Export screenplay to .trelby
+- [ ] Export screenplay to .FDX
+- [ ] Export novel to .docx
