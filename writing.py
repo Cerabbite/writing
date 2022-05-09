@@ -391,9 +391,7 @@ def WRITING(input_file: str, output_file: str):
                                                 fontName="Courier-Prime",
                                                 fontSize=12,
                                                 parent=styles['title'],
-                                                alignment=0,
-                                                leftIndent=1*inch,
-                                                rightIndent=1*inch)
+                                                alignment=1)
 
 
         """
