@@ -387,12 +387,19 @@ def WRITING(input_file: str, output_file: str):
         # Add screen play title and page number style insead of the header/footer class.
         #   Change top margin to .5 inch and put the number x inches from the left and add white space for the slugline/transition
         #   Option to have transition both on the left and right side and for the right side just align the text to the right. With a default to the right side
+        """
         screenplay_title_style = ParagraphStyle("screenplay-title-style",
                                                 fontName="Courier-Prime",
                                                 fontSize=12,
                                                 parent=styles['title'],
-                                                alignment=1)
+                                                alignment=1,)
 
+        #screenplay_title_author_style = ParagraphStyle("screenplay-title-style",
+                                                fontName="Courier-Prime",
+                                                fontSize=12,
+                                                parent=styles['title'],
+                                                alignment=1)
+        """
 
         """
         screenplay_dialogue_last_line_style = ParagraphStyle('screenplay-dialogue-style',
@@ -425,7 +432,7 @@ def WRITING(input_file: str, output_file: str):
         """
 
         # Add different screenplay_x_style with different spacings before and after for different scenarios and write an algorithm to decide when to use which screenplay_x_style
-        story.append(Paragraph("Test Title", screenplay_title_style))
+        #story.append(Paragraph("Test Title", screenplay_title_style))
         story.append(PageBreak())
         story.append(Paragraph("BLACK.", screenplay_transition_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
@@ -473,7 +480,8 @@ def WRITING(input_file: str, output_file: str):
 
 
         # was multiBuild
-        doc.build(story) #canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        #doc.build(story) #canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
