@@ -386,7 +386,7 @@ def WRITING(input_file: str, output_file: str):
 
         # Add screen play title and page number style insead of the header/footer class.
         #   Change top margin to .5 inch and put the number x inches from the left and add white space for the slugline/transition
-        #   Option to have transition both on the left and right side and for the right side just align the text to the right.
+        #   Option to have transition both on the left and right side and for the right side just align the text to the right. With a default to the right side
         screenplay_title_style = ParagraphStyle("screenplay-title-style")
 
         """
@@ -404,7 +404,7 @@ def WRITING(input_file: str, output_file: str):
         #print(chapters)
         #settings = ["screenplay"]
 
-
+        """
         if settings[2].lower() == "novel":
             for x in chapters:
                 story = Chapter_Content(x[0], story, novelchap_style)
@@ -417,9 +417,10 @@ def WRITING(input_file: str, output_file: str):
                 story = Page_Break(story)
         else:
             print(f"Unkown style: '{settings[2]}'")
+        """
 
         # Add different screenplay_x_style with different spacings before and after for different scenarios and write an algorithm to decide when to use which screenplay_x_style
-        """
+
         story.append(PageBreak())
         story.append(Paragraph("BLACK.", screenplay_transition_style))
         story.append(Paragraph("JOY (V.O.)", screenplay_character_style))
@@ -464,12 +465,10 @@ def WRITING(input_file: str, output_file: str):
         story.append(Paragraph("Joy tries to muscle past Sadness to press the button.", screenplay_actionline_style))
         story.append(Paragraph("JOY (CONT'D)", screenplay_character_style))
         story.append(Paragraph("Can I just... if you could... I just want to fix that. Thanks.", screenplay_dialogue_style))
-        """
 
 
-
-
-        doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        # was multiBuild
+        doc.Build(story) #canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
