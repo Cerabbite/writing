@@ -390,10 +390,10 @@ def WRITING(input_file: str, output_file: str):
         screenplay_title_style = ParagraphStyle("screenplay-title-style",
                                                 fontName="Courier-Prime",
                                                 fontSize=12,
-                                                parent=styles['underline'],
+                                                parent=styles['title'],
                                                 alignment=0,
                                                 leftIndent=1*inch,
-                                                rightIndent=1*inch))
+                                                rightIndent=1*inch)
 
 
         """
@@ -475,7 +475,7 @@ def WRITING(input_file: str, output_file: str):
 
 
         # was multiBuild
-        doc.Build(story) #canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        doc.build(story) #canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     def novel(settings, f_read, input_file, output_file):
         def Find_Chapters(file):
