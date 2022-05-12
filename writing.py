@@ -514,19 +514,24 @@ def WRITING(input_file: str, output_file: str):
     #print(chapters)
     #print(chapters_and_content)
     file.close()
-      
+
 class writing:
     def settings():
         pass
-    
+
 @app.command()
-def screenplay():
-    pass
+def screenplay(input_file: str, output_file: str, read: str="write"):
+    if read.lower() == "write":
+        pass
+    elif read.lower() == "read":
+        pass
+    else:
+         print(f"Unkown read type: {read}")
 
 @app.command()
 def novel():
     pass
-    
+
 def LIST_OF_VERSION(version):
     release = version
     release_list = release.split(".")
