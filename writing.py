@@ -521,20 +521,22 @@ class writing:
         pass
 
 @app.command()
-def screenplay(input_file: str, output_file: str, read: str="write"):
+def screenplay(input_file: str, output_file: str, read: bool=False):
+    # Screenplay extension: .scr
+    # Read and write FDX
     file_extension = pathlib.Path(input_file).suffix
-    if file_extension == ".scr":
-        pass
-    print("File Extension: ", file_extension)
-    if read.lower() == "write":
-        pass
-    elif read.lower() == "read":
+    #print("File Extension: ", file_extension)
+    if read == False:
+        if not file_extension == ".scr":
+            print(f"Unkown file extension: {file_extension}")
+    elif read == True:
         pass
     else:
          print(f"Unkown read type: {read}")
 
 @app.command()
 def novel():
+    # Novel extension: .nov
     pass
 
 def LIST_OF_VERSION(version):
