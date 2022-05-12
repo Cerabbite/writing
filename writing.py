@@ -7,6 +7,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
+import pathlib
 import os
 import typer
 import requests
@@ -521,6 +522,10 @@ class writing:
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: str="write"):
+    file_extension = pathlib.Path(input_file).suffix
+    if file_extension == ".scr":
+        pass
+    print("File Extension: ", file_extension)
     if read.lower() == "write":
         pass
     elif read.lower() == "read":
