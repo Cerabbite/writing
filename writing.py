@@ -515,6 +515,14 @@ def WRITING(input_file: str, output_file: str):
     #print(chapters_and_content)
     file.close()
 
+@app.command()
+def screenplay():
+    pass
+
+@app.command()
+def novel():
+    pass
+    
 def LIST_OF_VERSION(version):
     release = version
     release_list = release.split(".")
