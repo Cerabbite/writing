@@ -163,6 +163,8 @@ def WRITING_OLD(input_file: str, output_file: str):
 
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
 
+        print(settings)
+
         return settings
 
     def Find_Chapters(file):
@@ -702,8 +704,11 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             return
 
         file_read = open(input_file, "r").readlines()
+        f_read = []
+        for i in file_read:
+            f_read.append(i.split("\n")[0])
 
-        settings = WRITING.settings(file_read)
+        settings = WRITING.settings(f_read)
         print(settings)
         content = SCREENPLAY.Content(file_read)
     elif read == True:
