@@ -821,7 +821,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                                                     leftIndent=1*inch,
                                                     rightIndent=1*inch)
 
-        stroy.append(PageBreak())
+        story.append(PageBreak())
         for x in content:
             if content[1] == "header":
                 story.append(Paragraph(content[0].upper(), screenplay_slugline_style))
@@ -839,7 +839,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                 story.append(Paragraph(content[0].upper(), screenplay_dialogue_style))
 
         doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
-        
+
     elif read == True:
         pass
     else:
