@@ -600,7 +600,7 @@ class writing:
 
 class screenplay:
     def Content(file):
-        INTS = []
+        CHAPTER = []
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
