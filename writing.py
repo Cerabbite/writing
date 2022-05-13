@@ -519,11 +519,11 @@ def WRITING_OLD(input_file: str, output_file: str):
     file.close()
 
 class WRITING:
-    def settings(file):
+    def settings(file, style):
         title = "Title"
         author = "Author"
-        style = ""
-        paper_size = None
+        style = None
+        paper_size = "A4"
         font = None
         top_margin = 2
         bottom_margin = 2
@@ -759,6 +759,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         styles = getSampleStyleSheet()
 
         page_size = WRITING.Get_PAGESIZE(settings[3])
+        print(page_size)
 
         story = []
 
