@@ -519,7 +519,7 @@ def WRITING_OLD(input_file: str, output_file: str):
     file.close()
 
 class WRITING:
-    def settings(file, style):
+    def settings(file):
         title = "Title"
         author = "Author"
         style = None
