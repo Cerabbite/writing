@@ -598,13 +598,13 @@ class writing:
         elif page_size == "ELEVENSEVENTEEN":
             return ELEVENSEVENTEEN
 
-class screenplay:
+class SCREENPLAY:
     def Content(file):
         file_read = open(file, "r").read()
         print(file_read)
         CHAPTER = []
 
-        for i in file
+        #for i in file
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
@@ -617,7 +617,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             print(f"Unkown file extension: {file_extension}")
             return
 
-        content = Content(input_file)
+        content = SCREENPLAY.Content(input_file)
     elif read == True:
         pass
     else:
