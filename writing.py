@@ -517,10 +517,10 @@ def WRITING_OLD(input_file: str, output_file: str):
     file.close()
 
 class WRITING:
-    def settings(file):
+    def settings(file, style):
         title = "Title"
         author = "Author"
-        style = None
+        style = style
         paper_size = None
         font = None
         top_margin = 2
@@ -751,7 +751,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
         file_read = open(input_file, "r").readlines()
 
-        settings = WRITING.settings(file_read)
+        settings = WRITING.settings(file_read, "screenplay")
         content = SCREENPLAY.Content(file_read)
 
         styles = getSampleStyleSheet()
