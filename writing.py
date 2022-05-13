@@ -671,8 +671,19 @@ class SCREENPLAY:
             if len(cont) > 1:
                 if cont[0] == "#":
                     if cont[1] == "#":
+                        if cont[2] == " ":
+                            cur_cont.append(cont[3:])
+                        else:
+                            cur_cont.append(cont[2:])
+
+                        cur_cont.append('sub-header')
                         print("SubHeader")
                     else:
+                        if cont[1] == " ":
+                            cur_cont.append(cont[2:])
+                        else:
+                            cur_cont.append(cont[1:])
+                        cur_cont.append('header')
                         print("Header")
                 elif cont[0] == ">":
                     if cont[1] == ">":
