@@ -653,7 +653,6 @@ class WRITING:
 
 class SCREENPLAY:
     def Content(file):
-        print(len(file))
         #print(file_read)
         CONTENT = []
         setting_section = False
@@ -753,15 +752,12 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         file_read = open(input_file, "r").readlines()
 
         settings = WRITING.settings(file_read)
-        print(settings)
         content = SCREENPLAY.Content(file_read)
-        print(content)
 
         styles = getSampleStyleSheet()
 
         page_size = WRITING.Get_PAGESIZE(settings[3])
         settings[3] = page_size
-        print(page_size)
 
         story = []
 
