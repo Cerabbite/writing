@@ -759,6 +759,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         styles = getSampleStyleSheet()
 
         page_size = WRITING.Get_PAGESIZE(settings[3])
+
+        story = []
+
         doc = SimpleDocTemplate(output_file,pagesize=page_size,
                                     rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
                                     topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
@@ -818,10 +821,25 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                                                     leftIndent=1*inch,
                                                     rightIndent=1*inch)
 
+        stroy.append(PageBreak())
         for x in content:
-            pass
+            if content[1] == "header":
+                story.append(Paragraph(content[0].upper(), screenplay_slugline_style))
+            elif content[1] == "sub-header":
+                story.append(Paragraph(content[0].upper(), screenplay_slubheader_style))
+            elif content[1] == "action-line":
+                story.append(Paragraph(content[0].upper(), screenplay_actionline_style))
+            elif content[1] == "fade":
+                story.append(Paragraph(content[0].upper(), screenplay_transition_style))
+            elif content[1] == "character":
+                story.append(Paragraph(content[0].upper(), screenplay_character_style))
+            elif content[1] == "parenthetical":
+                story.append(Paragraph(content[0].upper(), screenplay_parenthetical_style))
+            elif content[1] == "dialogue":
+                story.append(Paragraph(content[0].upper(), screenplay_dialogue_style))
 
-        #doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        
     elif read == True:
         pass
     else:
