@@ -6,10 +6,10 @@ author: Test Author
 
 # Scene heading/slug line
 /*## Subheaders
-<< Fade
+>> Fade
 > Action Lines
->> Speaking character
-< parenthetical
+< Speaking character
+<< parenthetical
 Dialogue
 
 #INT. Sample Scene - Night

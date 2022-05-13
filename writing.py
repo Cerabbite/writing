@@ -838,7 +838,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             elif x[1] == "character":
                 story.append(Paragraph(x[0].upper(), screenplay_character_style))
             elif x[1] == "parenthetical":
-                story.append(Paragraph(x[0], screenplay_parenthetical_style))
+                story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
             elif x[1] == "dialogue":
                 story.append(Paragraph(x[0], screenplay_dialogue_style))
 
