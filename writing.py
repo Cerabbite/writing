@@ -163,8 +163,6 @@ def WRITING_OLD(input_file: str, output_file: str):
 
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
 
-        print(settings)
-
         return settings
 
     def Find_Chapters(file):
@@ -523,7 +521,7 @@ class WRITING:
         title = "Title"
         author = "Author"
         style = None
-        paper_size = "A4"
+        paper_size = None
         font = None
         top_margin = 2
         bottom_margin = 2
@@ -790,7 +788,8 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                                                     parent=styles['Normal'],
                                                     alignment=0,
                                                     spaceBefore=16,
-                                                    spaceAfter=14)#,
+                                                    spaceAfter=14)
+                                                    #,
                                                     #leftIndent=4.5*inch)
 
         screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
@@ -825,20 +824,20 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
         story.append(PageBreak())
         for x in content:
-            if content[1] == "header":
-                story.append(Paragraph(content[0].upper(), screenplay_slugline_style))
-            elif content[1] == "sub-header":
-                story.append(Paragraph(content[0].upper(), screenplay_slubheader_style))
-            elif content[1] == "action-line":
-                story.append(Paragraph(content[0].upper(), screenplay_actionline_style))
-            elif content[1] == "fade":
-                story.append(Paragraph(content[0].upper(), screenplay_transition_style))
-            elif content[1] == "character":
-                story.append(Paragraph(content[0].upper(), screenplay_character_style))
-            elif content[1] == "parenthetical":
-                story.append(Paragraph(content[0].upper(), screenplay_parenthetical_style))
-            elif content[1] == "dialogue":
-                story.append(Paragraph(content[0].upper(), screenplay_dialogue_style))
+            if x[1] == "header":
+                story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+            elif x[1] == "sub-header":
+                story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+            elif x[1] == "action-line":
+                story.append(Paragraph(x[0], screenplay_actionline_style))
+            elif x[1] == "fade":
+                story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+            elif x[1] == "character":
+                story.append(Paragraph(x[0].upper(), screenplay_character_style))
+            elif x[1] == "parenthetical":
+                story.append(Paragraph(x[0], screenplay_parenthetical_style))
+            elif x[1] == "dialogue":
+                story.append(Paragraph(x[0], screenplay_dialogue_style))
 
         doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
