@@ -532,8 +532,9 @@ class WRITING:
 
         start_settings = False
         for i in file:
+            i_set = str(i.split("\n")[0])
             if start_settings == True:
-                setting = i.split(":")
+                setting = i_set.split(":")
                 if setting[0] == "title":
                     if setting[1][0] == " ":
                         setting[1] = setting[1][1:]
@@ -556,9 +557,9 @@ class WRITING:
                     left_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "right-margin":
                     right_margin = float(setting[1].replace(" ", ""))
-            if i == "---" and start_settings == False:
+            if i_set == "---" and start_settings == False:
                 start_settings = True
-            elif i == "---" and start_settings == True:
+            elif i_set == "---" and start_settings == True:
                 break
 
         if style == "screenplay":
@@ -704,11 +705,8 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             return
 
         file_read = open(input_file, "r").readlines()
-        f_read = []
-        for i in file_read:
-            f_read.append(i.split("\n")[0])
 
-        settings = WRITING.settings(f_read)
+        settings = WRITING.settings(file_read)
         print(settings)
         content = SCREENPLAY.Content(file_read)
     elif read == True:
