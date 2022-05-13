@@ -759,6 +759,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         styles = getSampleStyleSheet()
 
         page_size = WRITING.Get_PAGESIZE(settings[3])
+        settings[3] = page_size
         print(page_size)
 
         story = []
