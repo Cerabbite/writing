@@ -600,7 +600,11 @@ class writing:
 
 class screenplay:
     def Content(file):
+        file_read = open(file, "r").read()
+        print(file_read)
         CHAPTER = []
+
+        for i in file
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
