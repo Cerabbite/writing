@@ -109,7 +109,7 @@ class FooterCanvas(canvas.Canvas):
 
 
 @app.command()
-def WRITING(input_file: str, output_file: str):
+def WRITING_OLD(input_file: str, output_file: str):
     def Settings(file):
         title = "Title"
         author = "Author"
@@ -518,7 +518,57 @@ def WRITING(input_file: str, output_file: str):
 
 class writing:
     def settings():
-        pass
+        title = "Title"
+        author = "Author"
+        style = ""
+        paper_size = None
+        font = None
+        top_margin = 2
+        bottom_margin = 2
+        left_margin = 2
+        right_margin = 2
+
+        start_settings = False
+        for i in file:
+            if start_settings == True:
+                setting = i.split(":")
+                if setting[0] == "title":
+                    if setting[1][0] == " ":
+                        setting[1] = setting[1][1:]
+                    title = setting[1]
+                elif setting[0] == "author":
+                    if setting[1][0] == " ":
+                        setting[1] = setting[1][1:]
+                    author = setting[1]
+                elif setting[0] == "style":
+                    style = setting[1].replace(" ", "")
+                elif setting[0] == "paper-size" or setting[0] == "page-size":
+                    paper_size = setting[1].replace(" ", "")
+                elif setting[0] == "font":
+                    font = setting[1].replace(" ", "")
+                elif setting[0] == "top-margin":
+                    top_margin = float(setting[1].replace(" ", ""))
+                elif setting[0] == "bottom-margin":
+                    bottom_margin = float(setting[1].replace(" ", ""))
+                elif setting[0] == "left-margin":
+                    left_margin = float(setting[1].replace(" ", ""))
+                elif setting[0] == "right-margin":
+                    right_margin = float(setting[1].replace(" ", ""))
+            if i == "---" and start_settings == False:
+                start_settings = True
+            elif i == "---" and start_settings == True:
+                break
+
+        if style == "screenplay":
+            if not top_margin == 2 or not bottom_margin == 2 or not left_margin == 2 or not right_margin == 2:
+                print("Margin settings ignored, style set to screenplay")
+
+            top_margin = 1
+            bottom_margin = .75
+            left_margin = 1.5
+            right_margin = 1
+
+        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
 
     def Get_PAGESIZE(page_size):
         if not page_size:
@@ -645,10 +695,12 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     if read == False:
         if file_extension == ".nov":
             print("Use the 'writing novel input-file.nov output_file.pdf' for .nov files")
+            return
         elif not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
             return
 
+        settings = WRITING.settings()
         content = SCREENPLAY.Content(input_file)
     elif read == True:
         pass
