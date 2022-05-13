@@ -643,7 +643,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     file_extension = pathlib.Path(input_file).suffix
     #print("File Extension: ", file_extension)
     if read == False:
-        if not file_extension == ".scr":
+        if file_extension == ".nov":
+            print("Use the 'writing novel input-file.nov output_file.pdf' for .nov files")
+        elif not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
             return
 
