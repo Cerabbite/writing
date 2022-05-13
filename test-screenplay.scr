@@ -4,8 +4,9 @@ title: Test Screenplay
 author: Test Author
 ---
 
+/* Comment
 # Scene heading/slug line
-/*## Subheaders
+## Subheaders
 >> Fade
 > Action Lines
 < Speaking character
