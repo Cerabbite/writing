@@ -661,6 +661,7 @@ class SCREENPLAY:
 
         for i in file:
             cont = str(i.split("\n")[0])
+            cur_cont = []
 
             if len(cont) == 3:
                 if cont[0] == "-" and cont[1] == "-" and cont[2] == "-":
@@ -687,19 +688,44 @@ class SCREENPLAY:
                         print("Header")
                 elif cont[0] == ">":
                     if cont[1] == ">":
+                        if cont[2] == " ":
+                            cur_cont.append(cont[3:])
+                        else:
+                            cur_cont.append(cont[2:])
+
+                        cur_cont.append('action-line')
                         print("Action line")
                     else:
+                        if cont[1] == " ":
+                            cur_cont.append(cont[2:])
+                        else:
+                            cur_cont.append(cont[1:])
+                        cur_cont.append('fade')
                         print("Fade")
                 elif cont[0] == "<":
                     if cont[1] == "<":
+                        if cont[2] == " ":
+                            cur_cont.append(cont[3:])
+                        else:
+                            cur_cont.append(cont[2:])
+                        cur_cont.append('parenthetical')
                         print("Parenthetical")
                     else:
+                        if cont[1] == " ":
+                            cur_cont.append(cont[2:])
+                        else:
+                            cur_cont.append(cont[1:])
+                        cur_cont.append('character')
                         print("Character")
                 else:
                     #cont[0] == "" and not cont[1] == " ":
                     #print(setting_section)
                     if not setting_section:
+                        cur_cont.append(cont)
+                        cur_content.append('dialog')
                         print("Dialog")
+
+                CONTENT.append(cur_cont)
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
