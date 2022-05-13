@@ -655,18 +655,21 @@ class WRITING:
 
 class SCREENPLAY:
     def Content(file):
+        print(len(file))
         #print(file_read)
         CONTENT = []
         setting_section = False
+        wait = False
 
-        for i in file:
-            cont = str(i.split("\n")[0])
+        for x in file:
+            cont = str(x.split("\n")[0])
             cur_cont = []
 
             if len(cont) == 3:
                 if cont[0] == "-" and cont[1] == "-" and cont[2] == "-":
                     if setting_section:
                         setting_section = False
+                        wait = True
                     else:
                         setting_section = True
             if len(cont) > 1:
@@ -678,14 +681,14 @@ class SCREENPLAY:
                             cur_cont.append(cont[2:])
 
                         cur_cont.append('sub-header')
-                        print("SubHeader")
+                        #print("SubHeader")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
                         else:
                             cur_cont.append(cont[1:])
                         cur_cont.append('header')
-                        print("Header")
+                        #print("Header")
                 elif cont[0] == ">":
                     if cont[1] == ">":
                         if cont[2] == " ":
@@ -694,14 +697,14 @@ class SCREENPLAY:
                             cur_cont.append(cont[2:])
 
                         cur_cont.append('action-line')
-                        print("Action line")
+                        #print("Action line")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
                         else:
                             cur_cont.append(cont[1:])
                         cur_cont.append('fade')
-                        print("Fade")
+                        #print("Fade")
                 elif cont[0] == "<":
                     if cont[1] == "<":
                         if cont[2] == " ":
@@ -709,23 +712,28 @@ class SCREENPLAY:
                         else:
                             cur_cont.append(cont[2:])
                         cur_cont.append('parenthetical')
-                        print("Parenthetical")
+                        #print("Parenthetical")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
                         else:
                             cur_cont.append(cont[1:])
                         cur_cont.append('character')
-                        print("Character")
+                        #print("Character")
                 else:
                     #cont[0] == "" and not cont[1] == " ":
                     #print(setting_section)
-                    if not setting_section:
+                    if not setting_section and not wait:
                         cur_cont.append(cont)
-                        cur_content.append('dialog')
-                        print("Dialog")
+                        cur_cont.append('dialogue')
+                        #print("Dialogue")
+                    elif not setting_section and wait:
+                        wait = False
 
-                CONTENT.append(cur_cont)
+                if len(cur_cont) == 2:
+                    CONTENT.append(cur_cont)
+
+        return CONTENT
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
@@ -746,6 +754,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         settings = WRITING.settings(file_read)
         print(settings)
         content = SCREENPLAY.Content(file_read)
+        print(content)
     elif read == True:
         pass
     else:
