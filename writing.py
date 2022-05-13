@@ -639,7 +639,7 @@ class SCREENPLAY:
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
     # Screenplay extension: .scr
-    # Read and write FDX
+    # Read and write FDXs
     file_extension = pathlib.Path(input_file).suffix
     #print("File Extension: ", file_extension)
     if read == False:
