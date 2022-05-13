@@ -596,7 +596,11 @@ class writing:
         elif page_size == "TABLOID":
             return TABLOID
         elif page_size == "ELEVENSEVENTEEN":
-            return ELEVENSEVENTEEN 
+            return ELEVENSEVENTEEN
+
+class screenplay:
+    def Content():
+        pass
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
@@ -607,6 +611,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     if read == False:
         if not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
+            return
+
+
     elif read == True:
         pass
     else:
