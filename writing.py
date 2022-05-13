@@ -600,11 +600,30 @@ class writing:
 
 class SCREENPLAY:
     def Content(file):
-        file_read = open(file, "r").read()
-        print(file_read)
-        CHAPTER = []
+        file_read = open(file, "r").readlines()
+        #print(file_read)
+        CONTENT = []
 
-        #for i in file
+        for i in file_read:
+            cont = str(i.split("\n")[0])
+            if len(cont) > 1:
+                if cont[0] == "#":
+                    if cont[1] == "#":
+                        print("SubHeader")
+                    else:
+                        print("Header")
+                elif cont[0] == ">":
+                    if cont[1] == ">":
+                        print("Action line")
+                    else:
+                        print("Fade")
+                elif cont[0] == "<":
+                    if cont[1] == "<":
+                        print("Parenthetical")
+                    else:
+                        print("Character")
+                elif cont[0] == " ":
+                    print("Dialog")
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
