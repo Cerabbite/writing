@@ -696,7 +696,7 @@ class SCREENPLAY:
                         else:
                             cur_cont.append(cont[2:])
 
-                        cur_cont.append('fade')
+                        cur_cont.append('character')
                         #print("Action line")
                     else:
                         if cont[1] == " ":
@@ -711,14 +711,14 @@ class SCREENPLAY:
                             cur_cont.append(cont[3:])
                         else:
                             cur_cont.append(cont[2:])
-                        cur_cont.append('parenthetical')
+                        cur_cont.append('fade')
                         #print("Parenthetical")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
                         else:
                             cur_cont.append(cont[1:])
-                        cur_cont.append('character')
+                        cur_cont.append('parenthetical')
                         #print("Character")
                 else:
                     #cont[0] == "" and not cont[1] == " ":
