@@ -517,7 +517,7 @@ def WRITING_OLD(input_file: str, output_file: str):
     file.close()
 
 class writing:
-    def settings():
+    def settings(file):
         title = "Title"
         author = "Author"
         style = ""
@@ -650,7 +650,6 @@ class writing:
 
 class SCREENPLAY:
     def Content(file):
-        file_read = open(file, "r").readlines()
         #print(file_read)
         CONTENT = []
         setting_section = False
@@ -700,8 +699,10 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             print(f"Unkown file extension: {file_extension}")
             return
 
-        settings = WRITING.settings()
-        content = SCREENPLAY.Content(input_file)
+        file_read = open(input_file, "r").readlines()
+
+        settings = WRITING.settings(file_read)
+        content = SCREENPLAY.Content(file_read)
     elif read == True:
         pass
     else:
