@@ -755,6 +755,73 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         print(settings)
         content = SCREENPLAY.Content(file_read)
         print(content)
+
+        styles = getSampleStyleSheet()
+
+        page_size = WRITING.Get_PAGESIZE(settings[3])
+        doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                    rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
+                                    topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
+
+        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+
+        screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceBefore=23,
+                                                    spaceAfter=12)
+
+        screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0)
+
+        screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceBefore=16,
+                                                    spaceAfter=14)#,
+                                                    #leftIndent=4.5*inch)
+
+        screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0)
+
+        screenplay_character_style = ParagraphStyle('screenplay-character-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceBefore=15,
+                                                    leftIndent=2*inch)
+
+        screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    leftIndent=1.5*inch)
+
+        screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
+                                                    fontName="Courier-Prime",
+                                                    fontSize=12,
+                                                    parent=styles['Normal'],
+                                                    alignment=0,
+                                                    spaceAfter=15,
+                                                    leftIndent=1*inch,
+                                                    rightIndent=1*inch)
+
+        for x in content:
+            pass
+
+        #doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
     elif read == True:
         pass
     else:
