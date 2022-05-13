@@ -94,15 +94,19 @@ class FooterCanvas(canvas.Canvas):
             #self.rotate(45)
             txt = self.settings[0]
             txt2 = "screenplay by"
-            txt3 = self.settings[1]
+            txt3 = self.settings[1].split(',')
             txt_width = stringWidth(txt, "Courier-Prime", 12)
             txt2_width = stringWidth(txt2, "Courier-Prime", 12)
-            txt3_width = stringWidth(txt3, "Courier-Prime", 12)
+            #txt3_width = stringWidth(txt3, "Courier-Prime", 12)
             height_ = 7.5
             under_ = .05
             self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
             self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
-            self.drawString((page_size[0] - txt3_width) / 2.0, (height_-1)*inch, txt3)
+            n = 0
+            for i in txt3:
+                txt3_width = stringWidth(i, "Courier-Prime", 12)
+                self.drawString((page_size[0] - txt3_width) / 2.0, (height_-(1+n))*inch, i)
+                n += .2
             self.setLineWidth(0.5)
             self.line((page_size[0] - txt_width) / 2.0, (height_-under_)*inch, ((page_size[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
 
