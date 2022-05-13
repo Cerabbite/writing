@@ -603,9 +603,17 @@ class SCREENPLAY:
         file_read = open(file, "r").readlines()
         #print(file_read)
         CONTENT = []
+        setting_section = False
 
         for i in file_read:
             cont = str(i.split("\n")[0])
+
+            if len(cont) == 3:
+                if cont[0] == "-" and cont[1] == "-" and cont[2] == "-":
+                    if setting_section:
+                        setting_section = False
+                    else:
+                        setting_section = True
             if len(cont) > 1:
                 if cont[0] == "#":
                     if cont[1] == "#":
@@ -622,8 +630,11 @@ class SCREENPLAY:
                         print("Parenthetical")
                     else:
                         print("Character")
-                elif cont[0] == " ":
-                    print("Dialog")
+                else:
+                    #cont[0] == "" and not cont[1] == " ":
+                    #print(setting_section)
+                    if not setting_section:
+                        print("Dialog")
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
