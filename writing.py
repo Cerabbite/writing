@@ -516,7 +516,7 @@ def WRITING_OLD(input_file: str, output_file: str):
     #print(chapters_and_content)
     file.close()
 
-class writing:
+class WRITING:
     def settings(file):
         title = "Title"
         author = "Author"
@@ -569,6 +569,8 @@ class writing:
             right_margin = 1
 
         settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
+
+        return settings
 
     def Get_PAGESIZE(page_size):
         if not page_size:
@@ -654,7 +656,7 @@ class SCREENPLAY:
         CONTENT = []
         setting_section = False
 
-        for i in file_read:
+        for i in file:
             cont = str(i.split("\n")[0])
 
             if len(cont) == 3:
@@ -702,6 +704,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         file_read = open(input_file, "r").readlines()
 
         settings = WRITING.settings(file_read)
+        print(settings)
         content = SCREENPLAY.Content(file_read)
     elif read == True:
         pass
