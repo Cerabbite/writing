@@ -696,14 +696,14 @@ class SCREENPLAY:
                         else:
                             cur_cont.append(cont[2:])
 
-                        cur_cont.append('action-line')
+                        cur_cont.append('fade')
                         #print("Action line")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
                         else:
                             cur_cont.append(cont[1:])
-                        cur_cont.append('fade')
+                        cur_cont.append('action-line')
                         #print("Fade")
                 elif cont[0] == "<":
                     if cont[1] == "<":
