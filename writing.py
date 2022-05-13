@@ -671,7 +671,10 @@ class SCREENPLAY:
                     else:
                         setting_section = True
             if len(cont) > 1:
-                if cont[0] == "#":
+                if cont[0] == "/":
+                    if cont[1] == "*":
+                        continue
+                elif cont[0] == "#":
                     if cont[1] == "#":
                         if cont[2] == " ":
                             cur_cont.append(cont[3:])
