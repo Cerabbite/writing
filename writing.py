@@ -520,6 +520,84 @@ class writing:
     def settings():
         pass
 
+    def Get_PAGESIZE(page_size):
+        if not page_size:
+            return A4
+        elif page_size == "A0":
+            return A0
+        elif page_size == "A1":
+            return A1
+        elif page_size == "A2":
+            return A2
+        elif page_size == "A3":
+            return A3
+        elif page_size == "A4":
+            return A4
+        elif page_size == "A5":
+            return A5
+        elif page_size == "A6":
+            return A6
+        elif page_size == "A7":
+            return A7
+        elif page_size == "A8":
+            return A8
+        elif page_size == "A9":
+            return A9
+        elif page_size == "A10":
+            return A10
+        elif page_size == "B0":
+            return B0
+        elif page_size == "B1":
+            return B1
+        elif page_size == "B2":
+            return B2
+        elif page_size == "B3":
+            return B3
+        elif page_size == "B4":
+            return B4
+        elif page_size == "B5":
+            return B5
+        elif page_size == "B6":
+            return B6
+        elif page_size == "B7":
+            return B7
+        elif page_size == "B8":
+            return B8
+        elif page_size == "B9":
+            return B9
+        elif page_size == "B10":
+            return B10
+        elif page_size == "C0":
+            return C0
+        elif page_size == "C0":
+            return C1
+        elif page_size == "C0":
+            return C2
+        elif page_size == "C0":
+            return C3
+        elif page_size == "C0":
+            return C4
+        elif page_size == "C0":
+            return C5
+        elif page_size == "C0":
+            return C6
+        elif page_size == "C0":
+            return C7
+        elif page_size == "C0":
+            return C8
+        elif page_size == "C0":
+            return C9
+        elif page_size == "C0":
+            return C10
+        elif page_size == "LETTER":
+            return LETTER
+        elif page_size == "LEGAL":
+            return LEGAL
+        elif page_size == "TABLOID":
+            return TABLOID
+        elif page_size == "ELEVENSEVENTEEN":
+            return ELEVENSEVENTEEN 
+
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
     # Screenplay extension: .scr
