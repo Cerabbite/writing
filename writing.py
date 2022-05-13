@@ -599,8 +599,8 @@ class writing:
             return ELEVENSEVENTEEN
 
 class screenplay:
-    def Content():
-        pass
+    def Content(file):
+        = []
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
@@ -613,7 +613,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             print(f"Unkown file extension: {file_extension}")
             return
 
-
+        content = Content(input_file)
     elif read == True:
         pass
     else:
