@@ -848,22 +848,39 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             # Build the PDF
             doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
         elif file_extension_output.lower() == ".pdf":
-            file = open(output_file, 'r')
+            file = open(output_file, 'w')
+
+            file.write(r"""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                        <FinalDraft Version="2" DocumentType="Script" Template="No">
+                        <Content>""")
+
+            characters = []
+
             for x in content:
                 if x[1] == "header":
-                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                    #story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                    pass
                 elif x[1] == "sub-header":
-                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                    #story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                    pass
                 elif x[1] == "action-line":
-                    story.append(Paragraph(x[0], screenplay_actionline_style))
+                    #story.append(Paragraph(x[0], screenplay_actionline_style))
+                    pass
                 elif x[1] == "fade":
-                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                    #story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                    pass
                 elif x[1] == "character":
-                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                    #story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                    #characters.append(Paragraph(x[0].upper()).split("(")[0])
+                    pass
                 elif x[1] == "parenthetical":
-                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                    #story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                    pass
                 elif x[1] == "dialogue":
-                    story.append(Paragraph(x[0], screenplay_dialogue_style))
+                    #story.append(Paragraph(x[0], screenplay_dialogue_style))
+                    pass
+
+            file.close()
         else:
             print(f"Cannot export to '{file_extension_output}'")
 
