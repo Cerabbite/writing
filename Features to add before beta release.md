@@ -8,4 +8,6 @@
 - [ ] Export screenplay to .FDX
 - [ ] Export novel to .docx
 - [ ] Word count
-- [ ] watermark
+- [ ] watermark word
+- [ ] watermark pdf
+- [ ] watermark fdx
