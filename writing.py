@@ -740,7 +740,7 @@ class SCREENPLAY:
         return CONTENT
 
 @app.command()
-def screenplay(input_file: str, output_file: str, read: bool=False, FDX: bool=False):
+def screenplay(input_file: str, output_file: str, read: bool=False):
     # Screenplay extension: .scr
     # Read and write FDXs
     file_extension = pathlib.Path(input_file).suffix
@@ -758,7 +758,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False, FDX: bool=Fa
         settings = WRITING.settings(file_read, "screenplay")
         content = SCREENPLAY.Content(file_read)
 
-        if not FDX:
+        file_extension_output = pathlib.Path(input_file).suffix
+
+        if file_extension_output.lower() == ".pdf":
             styles = getSampleStyleSheet()
 
             page_size = WRITING.Get_PAGESIZE(settings[3])
@@ -845,8 +847,25 @@ def screenplay(input_file: str, output_file: str, read: bool=False, FDX: bool=Fa
 
             # Build the PDF
             doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        elif file_extension_output.lower() == ".pdf":
+            file = open(output_file, 'r')
+            for x in content:
+                if x[1] == "header":
+                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                elif x[1] == "sub-header":
+                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                elif x[1] == "action-line":
+                    story.append(Paragraph(x[0], screenplay_actionline_style))
+                elif x[1] == "fade":
+                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                elif x[1] == "character":
+                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                elif x[1] == "parenthetical":
+                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                elif x[1] == "dialogue":
+                    story.append(Paragraph(x[0], screenplay_dialogue_style))
         else:
-            pass
+            print(f"Cannot export to '{file_extension_output}'")
 
     elif read == True:
         pass
