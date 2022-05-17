@@ -847,12 +847,12 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
             # Build the PDF
             doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
-        elif file_extension_output.lower() == ".pdf":
+        elif file_extension_output.lower() == ".fdx":
             file = open(output_file, 'w')
 
             file.write(r"""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-                        <FinalDraft Version="2" DocumentType="Script" Template="No">
-                        <Content>""")
+<FinalDraft Version="2" DocumentType="Script" Template="No">
+    <Content>""")
 
             characters = []
 
