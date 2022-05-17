@@ -955,7 +955,14 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             <TimeOfDay>THE PREVIOUS DAY</TimeOfDay>
         </TimesOfDay>""")
             file.write('\n')
+            file.write(r"""        <SceneIntros Separator=". ">
+            <SceneIntro>EXT</SceneIntro>
+            <SceneIntro>I/E</SceneIntro>
+            <SceneIntro>INT</SceneIntro>
+        </SceneIntros>""")
+            file.write('\n')
             file.write(f'    </SmartType>\n')
+            file.write('</FinalDraft>')
             file.close()
         else:
             print(f"Cannot export to '{file_extension_output}'")

@@ -65,4 +65,10 @@
             <TimeOfDay>THE NEXT DAY</TimeOfDay>
             <TimeOfDay>THE PREVIOUS DAY</TimeOfDay>
         </TimesOfDay>
+        <SceneIntros Separator=". ">
+            <SceneIntro>EXT</SceneIntro>
+            <SceneIntro>I/E</SceneIntro>
+            <SceneIntro>INT</SceneIntro>
+        </SceneIntros>
     </SmartType>
+</FinalDraft>
