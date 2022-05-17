@@ -923,13 +923,38 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
             file.write("    </Content>\n")
             if settings[9]:
-                file.write(f'    <Watermarking Text="{settings[9]}"/>')
+                file.write(f'    <Watermarking Text="{settings[9]}"/>\n')
 
             file.write(f'    <SmartType>\n')
             file.write(f'        <Characters>\n')
             for i in characters:
                 file.write(f'            <Character>"{i}"</Character>\n')
             file.write(f'        </Characters>\n')
+            file.write(r"""        <TimesOfDay Separator=" - ">
+            <TimeOfDay></TimeOfDay>
+            <TimeOfDay>AFTERNOON</TimeOfDay>
+            <TimeOfDay>CONTINUOUS</TimeOfDay>
+            <TimeOfDay>DAWN</TimeOfDay>
+            <TimeOfDay>DAY</TimeOfDay>
+            <TimeOfDay>DUSK</TimeOfDay>
+            <TimeOfDay>EARLIER</TimeOfDay>
+            <TimeOfDay>EARLY MORNING</TimeOfDay>
+            <TimeOfDay>EVENING</TimeOfDay>
+            <TimeOfDay>EVENING 66</TimeOfDay>
+            <TimeOfDay>LATE AFTERNOON</TimeOfDay>
+            <TimeOfDay>LATE NIGHT</TimeOfDay>
+            <TimeOfDay>LATER</TimeOfDay>
+            <TimeOfDay>MAGIC HOUR</TimeOfDay>
+            <TimeOfDay>MOMENTS EARLIER</TimeOfDay>
+            <TimeOfDay>MOMENTS LATER</TimeOfDay>
+            <TimeOfDay>MORNING</TimeOfDay>
+            <TimeOfDay>NEXT AFTERNOON</TimeOfDay>
+            <TimeOfDay>NIGHT</TimeOfDay>
+            <TimeOfDay>SECONDS LATER</TimeOfDay>
+            <TimeOfDay>THE NEXT DAY</TimeOfDay>
+            <TimeOfDay>THE PREVIOUS DAY</TimeOfDay>
+        </TimesOfDay>""")
+            file.write('\n')
             file.write(f'    </SmartType>\n')
             file.close()
         else:
