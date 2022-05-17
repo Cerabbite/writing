@@ -852,7 +852,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
             file.write(r"""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <FinalDraft Version="2" DocumentType="Script" Template="No">
-    <Content>\n""")
+    <Content>""")
+
+            file.write("\n")
 
             characters = []
 
@@ -861,6 +863,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     #story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
                     file.write('        <Paragraph Type="Scene Heading">\n')
                     file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
                     pass
                 elif x[1] == "sub-header":
                     #story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
