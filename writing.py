@@ -758,7 +758,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         settings = WRITING.settings(file_read, "screenplay")
         content = SCREENPLAY.Content(file_read)
 
-        file_extension_output = pathlib.Path(input_file).suffix
+        file_extension_output = pathlib.Path(output_file).suffix
 
         if file_extension_output.lower() == ".pdf":
             styles = getSampleStyleSheet()
