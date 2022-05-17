@@ -695,7 +695,14 @@ class SCREENPLAY:
                         #print("Header")
                 elif cont[0] == ">":
                     if cont[1] == ">":
-                        if cont[2] == " ":
+                        if cont[2] == ">":
+                            if cont[2] == " ":
+                                cur_cont.append(cont[4:])
+                            else:
+                                cur_cont.append(cont[3:])
+
+                            cur_cont.append('shot')
+                        elif cont[2] == " ":
                             cur_cont.append(cont[3:])
                         else:
                             cur_cont.append(cont[2:])
@@ -792,6 +799,16 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                                                         fontName="Courier-Prime",
                                                         fontSize=12,
                                                         parent=styles['Normal'],
+                                                        alignment=2,
+                                                        spaceBefore=16,
+                                                        spaceAfter=14)
+                                                        #,
+                                                        #leftIndent=4.5*inch)
+
+            screenplay_shot_style = ParagraphStyle('screenplay-shot-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
                                                         alignment=0,
                                                         spaceBefore=16,
                                                         spaceAfter=14)
@@ -838,6 +855,8 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     story.append(Paragraph(x[0], screenplay_actionline_style))
                 elif x[1] == "fade":
                     story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                elif x[1] == "shot":
+                    story.append(Paragraph(x[0].upper(), screenplay_shot_style))
                 elif x[1] == "character":
                     story.append(Paragraph(x[0].upper(), screenplay_character_style))
                 elif x[1] == "parenthetical":
@@ -874,7 +893,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     file.write('        </Paragraph>\n')
                 elif x[1] == "fade":
                     #story.append(Paragraph(x[0].upper(), screenplay_transition_style))
-                    pass
+                    file.write('        <Paragraph Type="Action">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
                 elif x[1] == "character":
                     #story.append(Paragraph(x[0].upper(), screenplay_character_style))
                     #characters.append(Paragraph(x[0].upper()).split("(")[0])

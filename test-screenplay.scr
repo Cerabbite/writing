@@ -7,7 +7,8 @@ author: Test Author
 /* Comment
 # Scene heading/slug line
 ## Subheaders
->> Fade
+>>> Shot
+>> Transition
 > Action Lines
 < Speaking character
 << parenthetical
