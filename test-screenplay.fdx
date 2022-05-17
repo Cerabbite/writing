@@ -13,9 +13,24 @@
         <Paragraph Type="Action">
             <Text Font="Courier Final Draft">ACTION LINES</Text>
         </Paragraph>
+        <Paragraph Type="Character">
+            <Text Font="Courier Final Draft">SPEAKING CHARACTER</Text>
+        </Paragraph>
+        <Paragraph Type="Parenthetical">
+            <Text Font="Courier Final Draft">PARENTHETICAL</Text>
+        </Paragraph>
+        <Paragraph Type="Dialogue">
+            <Text Font="Courier Final Draft">DIALOGUE</Text>
+        </Paragraph>
         <Paragraph Type="Scene Heading">
             <Text Font="Courier Final Draft">INT. SAMPLE SCENE - NIGHT</Text>
         </Paragraph>
         <Paragraph Type="Action">
             <Text Font="Courier Final Draft">SOME SAMPLE ACTION</Text>
+        </Paragraph>
+        <Paragraph Type="Character">
+            <Text Font="Courier Final Draft">SAMPLE CHARACTER</Text>
+        </Paragraph>
+        <Paragraph Type="Dialogue">
+            <Text Font="Courier Final Draft">SOME SAMPLE DIALOGUE</Text>
         </Paragraph>
