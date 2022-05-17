@@ -2,10 +2,11 @@
 - [x] Change margins
 - [ ] Change font
 - [ ] Simple front page design novel
-- [ ] Front page screenplay
+- [x] Front page screenplay pdf
+- [ ] Front page screenplay fdx
 - [ ] Page numbers
 - [ ] Export screenplay to .trelby
-- [ ] Export screenplay to .FDX
+- [x] Export screenplay to .FDX
 - [ ] Export novel to .docx
 - [ ] Word count
 - [ ] watermark word
