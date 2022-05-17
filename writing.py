@@ -696,19 +696,23 @@ class SCREENPLAY:
                 elif cont[0] == ">":
                     if cont[1] == ">":
                         if cont[2] == ">":
-                            if cont[2] == " ":
+                            if cont[3] == " ":
                                 cur_cont.append(cont[4:])
+                                print(1)
                             else:
                                 cur_cont.append(cont[3:])
+                                print(2)
 
                             cur_cont.append('shot')
-                        elif cont[2] == " ":
-                            cur_cont.append(cont[3:])
+                            print(3)
                         else:
-                            cur_cont.append(cont[2:])
+                            if cont[2] == " ":
+                                cur_cont.append(cont[3:])
+                            else:
+                                cur_cont.append(cont[2:])
 
-                        cur_cont.append('fade')
-                        #print("Action line")
+                            cur_cont.append('fade')
+                            #print("Action line")
                     else:
                         if cont[1] == " ":
                             cur_cont.append(cont[2:])
@@ -876,6 +880,8 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             file.write("\n")
 
             characters = []
+
+            print(content)
 
             for x in content:
                 if x[1] == "header":

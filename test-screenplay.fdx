@@ -4,6 +4,9 @@
         <Paragraph Type="Scene Heading">
             <Text Font="Courier Final Draft">SCENE HEADING/SLUG LINE</Text>
         </Paragraph>
+        <Paragraph Type="Shot">
+            <Text Font="Courier Final Draft">SHOT</Text>
+        </Paragraph>
         <Paragraph Type="Transition">
             <Text Font="Courier Final Draft">TRANSITION</Text>
         </Paragraph>
