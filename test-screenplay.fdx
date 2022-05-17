@@ -4,6 +4,12 @@
         <Paragraph Type="Scene Heading">
             <Text Font="Courier Final Draft">SCENE HEADING/SLUG LINE</Text>
         </Paragraph>
+        <Paragraph Type="Action">
+            <Text Font="Courier Final Draft">ACTION LINES</Text>
+        </Paragraph>
         <Paragraph Type="Scene Heading">
             <Text Font="Courier Final Draft">INT. SAMPLE SCENE - NIGHT</Text>
+        </Paragraph>
+        <Paragraph Type="Action">
+            <Text Font="Courier Final Draft">SOME SAMPLE ACTION</Text>
         </Paragraph>

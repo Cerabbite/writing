@@ -864,13 +864,14 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     file.write('        <Paragraph Type="Scene Heading">\n')
                     file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
                     file.write('        </Paragraph>\n')
-                    pass
                 elif x[1] == "sub-header":
                     #story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
                     pass
                 elif x[1] == "action-line":
                     #story.append(Paragraph(x[0], screenplay_actionline_style))
-                    pass
+                    file.write('        <Paragraph Type="Action">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
                 elif x[1] == "fade":
                     #story.append(Paragraph(x[0].upper(), screenplay_transition_style))
                     pass
