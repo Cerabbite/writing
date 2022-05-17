@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <FinalDraft Version="2" DocumentType="Script" Template="No">
-    <Content>
+    <Content>\n        <Paragraph Type="Scene Heading">
+            <Text Font="Courier Final Draft">SCENE HEADING/SLUG LINE</Text>
+        <Paragraph Type="Scene Heading">
+            <Text Font="Courier Final Draft">INT. SAMPLE SCENE - NIGHT</Text>
