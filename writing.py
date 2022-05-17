@@ -740,7 +740,7 @@ class SCREENPLAY:
         return CONTENT
 
 @app.command()
-def screenplay(input_file: str, output_file: str, read: bool=False):
+def screenplay(input_file: str, output_file: str, read: bool=False, FDX: bool=False):
     # Screenplay extension: .scr
     # Read and write FDXs
     file_extension = pathlib.Path(input_file).suffix
@@ -758,92 +758,95 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         settings = WRITING.settings(file_read, "screenplay")
         content = SCREENPLAY.Content(file_read)
 
-        styles = getSampleStyleSheet()
+        if not FDX:
+            styles = getSampleStyleSheet()
 
-        page_size = WRITING.Get_PAGESIZE(settings[3])
-        settings[3] = page_size
+            page_size = WRITING.Get_PAGESIZE(settings[3])
+            settings[3] = page_size
 
-        story = []
+            story = []
 
-        doc = SimpleDocTemplate(output_file,pagesize=page_size,
-                                    rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
-                                    topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
+            doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                        rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
+                                        topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
 
-        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
 
-        screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceBefore=23,
-                                                    spaceAfter=12)
+            screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=23,
+                                                        spaceAfter=12)
 
-        screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0)
+            screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0)
 
-        screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceBefore=16,
-                                                    spaceAfter=14)
-                                                    #,
-                                                    #leftIndent=4.5*inch)
+            screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=16,
+                                                        spaceAfter=14)
+                                                        #,
+                                                        #leftIndent=4.5*inch)
 
-        screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0)
+            screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0)
 
-        screenplay_character_style = ParagraphStyle('screenplay-character-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceBefore=15,
-                                                    leftIndent=2*inch)
+            screenplay_character_style = ParagraphStyle('screenplay-character-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=15,
+                                                        leftIndent=2*inch)
 
-        screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0,
-                                                    leftIndent=1.5*inch)
+            screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        leftIndent=1.5*inch)
 
-        screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
-                                                    fontName="Courier-Prime",
-                                                    fontSize=12,
-                                                    parent=styles['Normal'],
-                                                    alignment=0,
-                                                    spaceAfter=15,
-                                                    leftIndent=1*inch,
-                                                    rightIndent=1*inch)
+            screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceAfter=15,
+                                                        leftIndent=1*inch,
+                                                        rightIndent=1*inch)
 
-        story.append(PageBreak())
-        for x in content:
-            if x[1] == "header":
-                story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
-            elif x[1] == "sub-header":
-                story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
-            elif x[1] == "action-line":
-                story.append(Paragraph(x[0], screenplay_actionline_style))
-            elif x[1] == "fade":
-                story.append(Paragraph(x[0].upper(), screenplay_transition_style))
-            elif x[1] == "character":
-                story.append(Paragraph(x[0].upper(), screenplay_character_style))
-            elif x[1] == "parenthetical":
-                story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
-            elif x[1] == "dialogue":
-                story.append(Paragraph(x[0], screenplay_dialogue_style))
+            story.append(PageBreak())
+            for x in content:
+                if x[1] == "header":
+                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                elif x[1] == "sub-header":
+                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                elif x[1] == "action-line":
+                    story.append(Paragraph(x[0], screenplay_actionline_style))
+                elif x[1] == "fade":
+                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                elif x[1] == "character":
+                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                elif x[1] == "parenthetical":
+                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                elif x[1] == "dialogue":
+                    story.append(Paragraph(x[0], screenplay_dialogue_style))
 
-        # Build the PDF
-        doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+            # Build the PDF
+            doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        else:
+            pass
 
     elif read == True:
         pass
