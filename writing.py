@@ -893,7 +893,11 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     file.write('        </Paragraph>\n')
                 elif x[1] == "fade":
                     #story.append(Paragraph(x[0].upper(), screenplay_transition_style))
-                    file.write('        <Paragraph Type="Action">\n')
+                    file.write('        <Paragraph Type="Transition">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "shot":
+                    file.write('        <Paragraph Type="Shot">\n')
                     file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
                     file.write('        </Paragraph>\n')
                 elif x[1] == "character":
