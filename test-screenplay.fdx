@@ -34,3 +34,5 @@
         <Paragraph Type="Dialogue">
             <Text Font="Courier Final Draft">SOME SAMPLE DIALOGUE</Text>
         </Paragraph>
+    </Content>
+    <Watermarking Text="Beta-Product"/>

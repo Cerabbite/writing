@@ -10,4 +10,4 @@
 - [ ] Word count
 - [ ] watermark word
 - [ ] watermark pdf
-- [ ] watermark fdx
+- [x] watermark fdx

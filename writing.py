@@ -531,6 +531,7 @@ class WRITING:
         bottom_margin = 2
         left_margin = 2
         right_margin = 2
+        watermark = None
 
         start_settings = False
         for i in file:
@@ -559,6 +560,8 @@ class WRITING:
                     left_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "right-margin":
                     right_margin = float(setting[1].replace(" ", ""))
+                elif setting[0] == "watermark":
+                    watermark = setting[1].replace(" ", "")
             if i_set == "---" and start_settings == False:
                 start_settings = True
             elif i_set == "---" and start_settings == True:
@@ -573,7 +576,7 @@ class WRITING:
             left_margin = 1.5
             right_margin = 1
 
-        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin]
+        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin, watermark]
 
         return settings
 
@@ -698,13 +701,10 @@ class SCREENPLAY:
                         if cont[2] == ">":
                             if cont[3] == " ":
                                 cur_cont.append(cont[4:])
-                                print(1)
                             else:
                                 cur_cont.append(cont[3:])
-                                print(2)
 
                             cur_cont.append('shot')
-                            print(3)
                         else:
                             if cont[2] == " ":
                                 cur_cont.append(cont[3:])
@@ -881,8 +881,6 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
             characters = []
 
-            print(content)
-
             for x in content:
                 if x[1] == "header":
                     #story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
@@ -923,6 +921,9 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                     file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
                     file.write('        </Paragraph>\n')
 
+            file.write("    </Content>\n")
+            if settings[9]:
+                file.write(f'    <Watermarking Text="{settings[9]}"/>')
             file.close()
         else:
             print(f"Cannot export to '{file_extension_output}'")
