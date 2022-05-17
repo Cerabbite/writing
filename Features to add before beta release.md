@@ -7,3 +7,5 @@
 - [ ] Export screenplay to .trelby
 - [ ] Export screenplay to .FDX
 - [ ] Export novel to .docx
+- [ ] Word count
+- [ ] Watermark
