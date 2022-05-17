@@ -17,7 +17,7 @@
             <Text Font="Courier Final Draft">SPEAKING CHARACTER</Text>
         </Paragraph>
         <Paragraph Type="Parenthetical">
-            <Text Font="Courier Final Draft">PARENTHETICAL</Text>
+            <Text Font="Courier Final Draft">(PARENTHETICAL)</Text>
         </Paragraph>
         <Paragraph Type="Dialogue">
             <Text Font="Courier Final Draft">DIALOGUE</Text>

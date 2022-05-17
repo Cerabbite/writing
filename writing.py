@@ -913,7 +913,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
                 elif x[1] == "parenthetical":
                     #story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
                     file.write('        <Paragraph Type="Parenthetical">\n')
-                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write(f'            <Text Font="Courier Final Draft">({x[0].upper()})</Text>\n')
                     file.write('        </Paragraph>\n')
                 elif x[1] == "dialogue":
                     #story.append(Paragraph(x[0], screenplay_dialogue_style))
