@@ -35,4 +35,9 @@
             <Text Font="Courier Final Draft">SOME SAMPLE DIALOGUE</Text>
         </Paragraph>
     </Content>
-    <Watermarking Text="Beta-Product"/>
+    <Watermarking Text="Beta-Product"/>    <SmartType>
+        <Characters>
+            <Character>"SPEAKING CHARACTER"</Character>
+            <Character>"SAMPLE CHARACTER"</Character>
+        </Characters>
+    </SmartType>

@@ -924,6 +924,13 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             file.write("    </Content>\n")
             if settings[9]:
                 file.write(f'    <Watermarking Text="{settings[9]}"/>')
+
+            file.write(f'    <SmartType>\n')
+            file.write(f'        <Characters>\n')
+            for i in characters:
+                file.write(f'            <Character>"{i}"</Character>\n')
+            file.write(f'        </Characters>\n')
+            file.write(f'    </SmartType>\n')
             file.close()
         else:
             print(f"Cannot export to '{file_extension_output}'")
