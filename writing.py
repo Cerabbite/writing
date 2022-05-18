@@ -362,6 +362,7 @@ class NOVEL:
         chapts = []
         for x,i in enumerate(chapters):
             chapt = []
+            print(len(i))
             start_line = i[1] + 1
             if x + 1 <= len(chapters)-1:
                 end_line = chapters[int(x+1)][1] + 1
@@ -604,9 +605,14 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 @app.command()
 def novel(input_file: str, output_file: str, read: bool=False):
     # Novel extension: .nov
-    chapters = NOVEL.Find_Chapters(input_file)
+    file = open(input_file)
+    file_read = file.readlines()
+    f_read = []
+    for i in file_read:
+        f_read.append(i.split("\n")[0])
+    chapters = NOVEL.Find_Chapters(f_read)
+    print(chapters)
     chapts = NOVEL.Get_Content(chapters, input_file)
-    print(chapts)
 
 def LIST_OF_VERSION(version):
     release = version
