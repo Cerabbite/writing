@@ -340,6 +340,45 @@ class SCREENPLAY:
 
         return CONTENT
 
+class NOVEL:
+    def Find_Chapters(file):
+        chapters = []
+        for x, i in enumerate(file):
+            chapter = []
+            if len(i) <= 0:
+                continue
+            if i[0] == "#":
+                #print(i)
+                if i[1] == " ":
+                    chapter.append(i[2:])
+                else:
+                    chapter.append(i[1:])
+
+                chapter.append(x)
+                chapters.append(chapter)
+        return chapters
+
+        def Get_Content(file, chapters):
+            chapts = []
+            for x,i in enumerate(chapters):
+                chapt = []
+                start_line = i[1] + 1
+                if x + 1 <= len(chapters)-1:
+                    end_line = chapters[int(x+1)][1] + 1
+                else:
+                    end_line = len(file)+1
+                all_nums = range(start_line+1, end_line)
+                all_nums = list(all_nums)
+                content = ""
+                for z in all_nums:
+                    content += f"{file[int(z-1)]}\n"
+                #print(start_line, end_line, all_nums)
+                chapt.append(i[0])
+                chapt.append(content)
+                chapts.append(chapt)
+
+            return chapts
+
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
     # Screenplay extension: .scr
@@ -348,7 +387,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     #print("File Extension: ", file_extension)
     if read == False:
         if file_extension == ".nov":
-            print("Use the 'writing novel input-file.nov output_file.pdf' for .nov files")
+            print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
             return
         elif not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
