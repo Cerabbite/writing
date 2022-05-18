@@ -604,7 +604,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 @app.command()
 def novel(input_file: str, output_file: str, read: bool=False):
     # Novel extension: .nov
-    chapters = NOVEL.Get_Chapters(input_file)
+    chapters = NOVEL.Find_Chapters(input_file)
     chapts = NOVEL.Get_Content(chapters, input_file)
     print(chapts)
 
