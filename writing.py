@@ -358,26 +358,26 @@ class NOVEL:
                 chapters.append(chapter)
         return chapters
 
-        def Get_Content(file, chapters):
-            chapts = []
-            for x,i in enumerate(chapters):
-                chapt = []
-                start_line = i[1] + 1
-                if x + 1 <= len(chapters)-1:
-                    end_line = chapters[int(x+1)][1] + 1
-                else:
-                    end_line = len(file)+1
-                all_nums = range(start_line+1, end_line)
-                all_nums = list(all_nums)
-                content = ""
-                for z in all_nums:
-                    content += f"{file[int(z-1)]}\n"
-                #print(start_line, end_line, all_nums)
-                chapt.append(i[0])
-                chapt.append(content)
-                chapts.append(chapt)
+    def Get_Content(file, chapters):
+        chapts = []
+        for x,i in enumerate(chapters):
+            chapt = []
+            start_line = i[1] + 1
+            if x + 1 <= len(chapters)-1:
+                end_line = chapters[int(x+1)][1] + 1
+            else:
+                end_line = len(file)+1
+            all_nums = range(start_line+1, end_line)
+            all_nums = list(all_nums)
+            content = ""
+            for z in all_nums:
+                content += f"{file[int(z-1)]}\n"
+            #print(start_line, end_line, all_nums)
+            chapt.append(i[0])
+            chapt.append(content)
+            chapts.append(chapt)
 
-            return chapts
+        return chapts
 
 @app.command()
 def screenplay(input_file: str, output_file: str, read: bool=False):
@@ -602,9 +602,11 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
          print(f"Unkown read type: {read}")
 
 @app.command()
-def novel():
+def novel(input_file: str, output_file: str, read: bool=False):
     # Novel extension: .nov
-    pass
+    chapters = NOVEL.Get_Chapters(input_file)
+    chapts = NOVEL.Get_Content(chapters, input_file)
+    print(chapts)
 
 def LIST_OF_VERSION(version):
     release = version
