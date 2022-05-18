@@ -360,9 +360,8 @@ class NOVEL:
 
     def Get_Content(file, chapters):
         chapts = []
-        for x,i in enumerate(chapters):
+        for x,i in enumerate(list(chapters)):
             chapt = []
-            print(len(i))
             start_line = i[1] + 1
             if x + 1 <= len(chapters)-1:
                 end_line = chapters[int(x+1)][1] + 1
@@ -610,9 +609,10 @@ def novel(input_file: str, output_file: str, read: bool=False):
     f_read = []
     for i in file_read:
         f_read.append(i.split("\n")[0])
+
     chapters = NOVEL.Find_Chapters(f_read)
-    print(chapters)
-    chapts = NOVEL.Get_Content(chapters, input_file)
+    chapts = NOVEL.Get_Content(f_read, chapters)
+    print(chapts)
 
 def LIST_OF_VERSION(version):
     release = version
