@@ -623,6 +623,11 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
             word_ammount += len(variable)
         
         print(word_ammount)
+        
+    if settings[2] == "novel-centered":
+        print("Everything will be centered")
+    elif settings[2] == "novel-right":
+        print('Everything will be aligneed right')
 
 def LIST_OF_VERSION(version):
     release = version
