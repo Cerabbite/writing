@@ -602,17 +602,27 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
          print(f"Unkown read type: {read}")
 
 @app.command()
-def novel(input_file: str, output_file: str, read: bool=False):
+def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=False):
     # Novel extension: .nov
     file = open(input_file)
     file_read = file.readlines()
     f_read = []
     for i in file_read:
         f_read.append(i.split("\n")[0])
-
+        
+    settings = WRITING.Settings(f_read)
     chapters = NOVEL.Find_Chapters(f_read)
     chapts = NOVEL.Get_Content(f_read, chapters)
+    print(settings)
     print(chapts)
+    
+    if countwords:
+        word_ammount = 0
+        for i in chapts:
+            variable = str(i[1].split())
+            word_ammount += len(variable)
+        
+        print(word_ammount)
 
 def LIST_OF_VERSION(version):
     release = version
