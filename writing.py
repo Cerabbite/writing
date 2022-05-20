@@ -619,9 +619,9 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
     if countwords:
         word_ammount = 0
         for i in chapts:
-            variable = str(i[1].split())
-            print(variable)
+            variable = str(i[1].split(' '))
             word_ammount += len(variable)
+            print(word_ammount)
 
         print(word_ammount)
 
