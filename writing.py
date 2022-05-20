@@ -613,10 +613,9 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
     settings = WRITING.settings(f_read, "novel")
     chapters = NOVEL.Find_Chapters(f_read)
     chapts = NOVEL.Get_Content(f_read, chapters)
-    print(settings)
-    print(chapts)
 
     if countwords:
+        print("Word count is NOT accurate yet.")
         word_ammount = 0
         for i in chapts:
             variable = str(i[1].split(' '))
