@@ -609,21 +609,22 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
     f_read = []
     for i in file_read:
         f_read.append(i.split("\n")[0])
-        
-    settings = WRITING.Settings(f_read)
+
+    settings = WRITING.settings(f_read, "novel")
     chapters = NOVEL.Find_Chapters(f_read)
     chapts = NOVEL.Get_Content(f_read, chapters)
     print(settings)
     print(chapts)
-    
+
     if countwords:
         word_ammount = 0
         for i in chapts:
             variable = str(i[1].split())
+            print(variable)
             word_ammount += len(variable)
-        
+
         print(word_ammount)
-        
+
     if settings[2] == "novel-centered":
         print("Everything will be centered")
     elif settings[2] == "novel-right":
