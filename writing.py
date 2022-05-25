@@ -606,31 +606,31 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
     # Novel extension: .nov
     file_extension = pathlib.Path(input_file).suffix.lower()
     if read == False:
-        if file_extenstion == ".nov"
-        file = open(input_file)
-        file_read = file.readlines()
-        f_read = []
-        for i in file_read:
-            f_read.append(i.split("\n")[0])
+        if file_extenstion == ".nov":
+            file = open(input_file)
+            file_read = file.readlines()
+            f_read = []
+            for i in file_read:
+                f_read.append(i.split("\n")[0])
 
-        settings = WRITING.settings(f_read, "novel")
-        chapters = NOVEL.Find_Chapters(f_read)
-        chapts = NOVEL.Get_Content(f_read, chapters)
+            settings = WRITING.settings(f_read, "novel")
+            chapters = NOVEL.Find_Chapters(f_read)
+            chapts = NOVEL.Get_Content(f_read, chapters)
 
-        if countwords:
-            print("Word count is NOT accurate yet.")
-            word_ammount = 0
-            for i in chapts:
-                variable = str(i[1].split(' '))
-                word_ammount += len(variable)
+            if countwords:
+                print("Word count is NOT accurate yet.")
+                word_ammount = 0
+                for i in chapts:
+                    variable = str(i[1].split(' '))
+                    word_ammount += len(variable)
+                    print(word_ammount)
+
                 print(word_ammount)
 
-            print(word_ammount)
-
-        if settings[2] == "novel-centered":
-            print("Everything will be centered")
-        elif settings[2] == "novel-right":
-            print('Everything will be aligneed right')
+            if settings[2] == "novel-centered":
+                print("Everything will be centered")
+            elif settings[2] == "novel-right":
+                print('Everything will be aligneed right')
 
 def LIST_OF_VERSION(version):
     release = version
