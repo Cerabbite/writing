@@ -631,6 +631,8 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                 print("Everything will be centered")
             elif settings[2] == "novel-right":
                 print('Everything will be aligneed right')
+        elif file_extension == ".scr":
+            print("")
 
 def LIST_OF_VERSION(version):
     release = version
