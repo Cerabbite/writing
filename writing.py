@@ -734,5 +734,9 @@ def INFO():
     #    txt_read = txt.read()
     #    print(txt_read)
 
+@app.command()
+def LICENSE():
+    print(__LICENSE__)
+
 if __name__ == "__main__":
     app()
