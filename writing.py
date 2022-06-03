@@ -17,7 +17,7 @@ __VERSION__ = "1.0.0-Beta"
 __LICENSE__ = "MIT License"
 __LICENSETEXT__ = r"""MIT License
 
-Copyright (c) 2022 Kevin
+Copyright (c) 2022 Cerabbite
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
