@@ -2,8 +2,12 @@
 - [x] Change margins
 - [ ] Change font
 - [ ] Simple front page design novel
+- [ ] Fantasy novel formatting
+- [ ] Sci-Fi novel formatting
+- [ ] Mysery novel formatting
+- [ ] Romance novel formatting
+- [ ] Thriller novel formatting
 - [x] Front page screenplay pdf
-- [ ] Front page screenplay fdx
 - [ ] Page numbers novel
 - [ ] Export screenplay to .trelby
 - [x] Export screenplay to .FDX
