@@ -247,6 +247,10 @@ class WRITING:
             return TABLOID
         elif page_size == "ELEVENSEVENTEEN":
             return ELEVENSEVENTEEN
+        else:
+            print(f"Unkown page size '{page_size}'.")
+            print("Paper size is set to A4.")
+            return A4
 
 class SCREENPLAY:
     def Content(file):
@@ -623,10 +627,10 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
         chapters = NOVEL.Find_Chapters(f_read)
         chapts = NOVEL.Get_Content(f_read, chapters)
 
+        print(settings)
+
         page_size = WRITING.Get_PAGESIZE(settings[2])
         settings[2] = page_size
-
-        print(page_size, settings[2])
 
         if countwords:
             print("Word count is NOT accurate yet.")
