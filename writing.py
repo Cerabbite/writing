@@ -663,6 +663,20 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
             registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
 
+            novelchap_style = ParagraphStyle('novel-chapter',
+                                            fontName="Baskerville",
+                                            fontSize=24,
+                                            parent=styles['Heading2'],
+                                            alignment=0,
+                                            spaceAfter=14)
+
+            novelpar_style = ParagraphStyle('novel-paragraph',
+                                            fontName="Baskerville",
+                                            fontSize=12,
+                                            parent=styles['Normal'],
+                                            alignment=0,
+                                            spaceAfter=14)
+
             story.append(PageBreak())
             for x in content:
                 if x[1] == "header":
