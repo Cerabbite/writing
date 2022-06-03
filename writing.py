@@ -704,7 +704,8 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                     story.append(Paragraph(x[0], screenplay_dialogue_style))"""
 
             # Build the PDF
-            doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+            doc.build(story)
+            #doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     elif file_extension == ".scr":
         print("")
