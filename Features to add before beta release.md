@@ -4,7 +4,7 @@
 - [ ] Simple front page design novel
 - [x] Front page screenplay pdf
 - [ ] Front page screenplay fdx
-- [ ] Page numbers
+- [ ] Page numbers novel
 - [ ] Export screenplay to .trelby
 - [x] Export screenplay to .FDX
 - [ ] Export novel to .docx
