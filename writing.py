@@ -122,6 +122,7 @@ class WRITING:
         left_margin = 2
         right_margin = 2
         watermark = None
+        genre = None
 
         start_settings = False
         for i in file:
@@ -152,6 +153,8 @@ class WRITING:
                     right_margin = float(setting[1].replace(" ", ""))
                 elif setting[0] == "watermark":
                     watermark = setting[1].replace(" ", "")
+                elif setting[0] == "genre":
+                    genre = setting[1].replace(" ", "")
             if i_set == "---" and start_settings == False:
                 start_settings = True
             elif i_set == "---" and start_settings == True:
@@ -166,7 +169,7 @@ class WRITING:
             left_margin = 1.5
             right_margin = 1
 
-        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin, watermark]
+        settings = [title, author, style, paper_size, font, top_margin, bottom_margin, left_margin, right_margin, watermark, genre]
 
         return settings
 
