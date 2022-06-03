@@ -5,6 +5,9 @@
 # Why use writing?
 
 # Documentation
+## Instalation
+### Install
+### Add to environment variable
 ## Running the program
 ```
 writing writing <replace this with your input file> <replace this with your output pdf>
