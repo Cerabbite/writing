@@ -647,10 +647,10 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
         if settings[2] == "novel-centered":
             print("Everything will be centered")
-            if settings[10]:
-                print("Style ignored")
         elif settings[2] == "novel-right":
             print('Everything will be aligneed right')
+        elif settings[2] == "manuscript":
+            print("Manuscript style")
 
     elif file_extension == ".scr":
         print("")
