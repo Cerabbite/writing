@@ -4,7 +4,7 @@
 - [ ] Simple front page design novel
 - [ ] Fantasy novel formatting
 - [ ] Sci-Fi novel formatting
-- [ ] Mysery novel formatting
+- [ ] Mystery novel formatting
 - [ ] Romance novel formatting
 - [ ] Thriller novel formatting
 - [x] Front page screenplay pdf
