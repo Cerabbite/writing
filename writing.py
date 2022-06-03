@@ -688,19 +688,21 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                             fontName="Baskerville",
                                             fontSize=12,
                                             parent=styles['Normal'],
-                                            alignment=0,
-                                            spaceAfter=14)
+                                            alignment=0)
 
             novelwordcount_style = ParagraphStyle('novel-wordcount',
                                             fontName="Baskerville",
                                             fontSize=12,
                                             parent=styles['Normal'],
-                                            alignment=2,
-                                            spaceAfter=14)
+                                            alignment=2)
 
             if settings[2] == "manuscript":
                 tbl_data = [
-                    [Paragraph(f"{settings[1]}", novelcontact_style), Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)]
+                    [Paragraph(f"{settings[1]}", novelcontact_style), Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)],
+                    [Paragraph(f"street", novelcontact_style), Paragraph(f"{settings[10]}", novelwordcount_style)],
+                    [Paragraph(f"Address", novelcontact_style)],
+                    [Paragraph(f"Phone number", novelcontact_style)],
+                    [Paragraph(f"E-mail", novelcontact_style)]
                 ]
 
                 tbl = Table(tbl_data)
