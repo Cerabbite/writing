@@ -2,6 +2,7 @@
 - [x] Change margins
 - [ ] Change font
 - [ ] Simple front page design novel
+- [ ] Manuscript front page
 - [ ] Specific genre formatting novel
   - [ ] Fantasy
   - [ ] Horror
