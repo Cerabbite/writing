@@ -642,12 +642,19 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
             print(word_ammount)
 
+
+        aligment = 0
+
         if settings[2] == "novel-centered":
-            print("Everything will be centered")
+            #print("Everything will be centered")
+            aligment = 1
         elif settings[2] == "novel-right":
-            print('Everything will be aligneed right')
+            #print('Everything will be aligneed right')
+            aligment = 2
         elif settings[2] == "manuscript":
             print("Manuscript style")
+
+        file_extension_output = pathlib.Path(output_file).suffix
 
         if file_extension_output == ".pdf":
             styles = getSampleStyleSheet()
@@ -667,18 +674,18 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                             fontName="Baskerville",
                                             fontSize=24,
                                             parent=styles['Heading2'],
-                                            alignment=0,
+                                            alignment=aligment,
                                             spaceAfter=14)
 
             novelpar_style = ParagraphStyle('novel-paragraph',
                                             fontName="Baskerville",
                                             fontSize=12,
                                             parent=styles['Normal'],
-                                            alignment=0,
+                                            alignment=aligment,
                                             spaceAfter=14)
 
             story.append(PageBreak())
-            for x in content:
+            """for x in content:
                 if x[1] == "header":
                     story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
                 elif x[1] == "sub-header":
@@ -694,7 +701,7 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                 elif x[1] == "parenthetical":
                     story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
                 elif x[1] == "dialogue":
-                    story.append(Paragraph(x[0], screenplay_dialogue_style))
+                    story.append(Paragraph(x[0], screenplay_dialogue_style))"""
 
             # Build the PDF
             doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
