@@ -668,7 +668,7 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                         rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
                                         topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
 
-            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+            registerFont(TTFont("Baskerville","C:/Windows/Fonts/BASKVILL.TTF"))
 
             novelchap_style = ParagraphStyle('novel-chapter',
                                             fontName="Baskerville",
@@ -684,22 +684,22 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                             alignment=aligment,
                                             spaceAfter=14)
 
-            novelcontact_style = ParagraphStyle('novel-wordcount',
-                                            fontName="Baskerville",
-                                            fontSize=12,
-                                            parent=styles['Normal'],
-                                            alignment=2,
-                                            spaceAfter=14)
-
-            novelwordcount_style = ParagraphStyle('novel-wordcount',
+            novelcontact_style = ParagraphStyle('novel-contact',
                                             fontName="Baskerville",
                                             fontSize=12,
                                             parent=styles['Normal'],
                                             alignment=0,
                                             spaceAfter=14)
 
+            novelwordcount_style = ParagraphStyle('novel-wordcount',
+                                            fontName="Baskerville",
+                                            fontSize=12,
+                                            parent=styles['Normal'],
+                                            alignment=2,
+                                            spaceAfter=14)
+
             if settings[2] == "manuscript":
-                story.append(story.append(Paragraph(f"{author}", novelcontact_style)))
+                story.append(story.append(Paragraph(f"{settings[1]}", novelcontact_style)))
                 story.append(story.append(Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)))
 
                 story.append(PageBreak())
