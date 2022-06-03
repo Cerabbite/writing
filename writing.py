@@ -632,9 +632,6 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
         print(settings)
 
-        page_size = WRITING.Get_PAGESIZE(settings[3])
-        settings[3] = page_size
-
         if countwords:
             print("Word count is NOT accurate yet.")
             word_ammount = 0
@@ -651,6 +648,42 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
             print('Everything will be aligneed right')
         elif settings[2] == "manuscript":
             print("Manuscript style")
+
+        if file_extension_output == ".pdf":
+            styles = getSampleStyleSheet()
+
+            page_size = WRITING.Get_PAGESIZE(settings[3])
+            settings[3] = page_size
+
+            story = []
+
+            doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                        rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
+                                        topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
+
+            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+
+            story.append(PageBreak())
+            for x in content:
+                if x[1] == "header":
+                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                elif x[1] == "sub-header":
+                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                elif x[1] == "action-line":
+                    story.append(Paragraph(x[0], screenplay_actionline_style))
+                elif x[1] == "fade":
+                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                elif x[1] == "shot":
+                    story.append(Paragraph(x[0].upper(), screenplay_shot_style))
+                elif x[1] == "character":
+                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                elif x[1] == "parenthetical":
+                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                elif x[1] == "dialogue":
+                    story.append(Paragraph(x[0], screenplay_dialogue_style))
+
+            # Build the PDF
+            doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
 
     elif file_extension == ".scr":
         print("")
