@@ -736,7 +736,7 @@ def INFO():
 
 @app.command()
 def LICENSE():
-    print(__LICENSE__)
+    print(__LICENSETEXT__)
 
 if __name__ == "__main__":
     app()
