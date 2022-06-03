@@ -637,10 +637,8 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
             word_ammount = 0
             for i in chapts:
                 variable = list(i[1].split(' '))
-                for x, y in enumerate(variable):
-                    print(x, y)
                 word_ammount += len(variable)
-                print(word_ammount)
+                #print(word_ammount)
 
             print(word_ammount)
 
