@@ -632,7 +632,7 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
         print(settings)
 
-        if countwords:
+        if countwords or settings[2] == "manuscript":
             print("Word count is NOT accurate yet.")
             word_ammount = 0
             for i in chapts:
@@ -684,7 +684,25 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                             alignment=aligment,
                                             spaceAfter=14)
 
-            story.append(PageBreak())
+            novelcontact_style = ParagraphStyle('novel-wordcount',
+                                            fontName="Baskerville",
+                                            fontSize=12,
+                                            parent=styles['Normal'],
+                                            alignment=2,
+                                            spaceAfter=14)
+
+            novelwordcount_style = ParagraphStyle('novel-wordcount',
+                                            fontName="Baskerville",
+                                            fontSize=12,
+                                            parent=styles['Normal'],
+                                            alignment=0,
+                                            spaceAfter=14)
+
+            if settings[2] == "manuscript":
+                story.append(story.append(Paragraph(f"{author}", novelcontact_style)))
+                story.append(story.append(Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)))
+
+                story.append(PageBreak())
             """for x in content:
                 if x[1] == "header":
                     story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
