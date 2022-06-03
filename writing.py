@@ -623,6 +623,11 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
         chapters = NOVEL.Find_Chapters(f_read)
         chapts = NOVEL.Get_Content(f_read, chapters)
 
+        page_size = WRITING.Get_PAGESIZE(settings[2])
+        settings[2] = page_size
+
+        print(page_size, settings[2])
+
         if countwords:
             print("Word count is NOT accurate yet.")
             word_ammount = 0
@@ -637,6 +642,7 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
             print("Everything will be centered")
         elif settings[2] == "novel-right":
             print('Everything will be aligneed right')
+
     elif file_extension == ".scr":
         print("")
 
