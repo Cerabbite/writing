@@ -632,8 +632,8 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
 
         print(settings)
 
-        page_size = WRITING.Get_PAGESIZE(settings[2])
-        settings[2] = page_size
+        page_size = WRITING.Get_PAGESIZE(settings[3])
+        settings[3] = page_size
 
         if countwords:
             print("Word count is NOT accurate yet.")
