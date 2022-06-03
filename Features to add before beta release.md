@@ -3,6 +3,11 @@
 - [ ] Change font
 - [ ] Simple front page design novel
 - [ ] Specific genre formatting novel
+  - [ ] Fantasy
+  - [ ] Horror
+  - [ ] Romance
+  - [ ] Thriller
+  - [ ] Drama
 - [x] Front page screenplay pdf
 - [ ] Page numbers novel
 - [ ] Export screenplay to .trelby
