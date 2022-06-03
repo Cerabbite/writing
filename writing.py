@@ -1,7 +1,7 @@
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.lib.units import inch, cm
 from reportlab.lib.pagesizes import LETTER, LEGAL, TABLOID, ELEVENSEVENTEEN, A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10
-from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak
+from reportlab.platypus import SimpleDocTemplate, Paragraph, PageBreak, Table
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
@@ -117,10 +117,10 @@ class WRITING:
         style = style
         paper_size = None
         font = None
-        top_margin = 2
-        bottom_margin = 2
-        left_margin = 2
-        right_margin = 2
+        top_margin = 1
+        bottom_margin = 1
+        left_margin = 1
+        right_margin = 1
         watermark = None
         genre = None
 
@@ -699,8 +699,13 @@ def novel(input_file: str, output_file: str, read: bool=False, countwords: bool=
                                             spaceAfter=14)
 
             if settings[2] == "manuscript":
-                story.append(story.append(Paragraph(f"{settings[1]}", novelcontact_style)))
-                story.append(story.append(Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)))
+                tbl_data = [
+                    [Paragraph(f"{settings[1]}", novelcontact_style), Paragraph(f"Approx. {word_ammount} words", novelwordcount_style)]
+                ]
+
+                tbl = Table(tbl_data)
+
+                story.append(tbl)
 
                 story.append(PageBreak())
             """for x in content:
