@@ -9,7 +9,6 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 from jouvence.parser import JouvenceParser
 from jouvence.html import HtmlDocumentRenderer
-#from jouvence.pdf import PdfDocumentRenderer
 import pathlib
 import os
 import typer
@@ -358,6 +357,9 @@ class SCREENPLAY:
 
         return CONTENT
 
+    def fountain(input_file, output_file):
+        pass
+        
 class NOVEL:
     def Find_Chapters(file):
         chapters = []
@@ -406,6 +408,10 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     if read == False:
         if file_extension == ".nov":
             print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
+            return
+        elif file_extension == ".fountain":
+            print("Good Choice!")
+            SCREENPLAY.fountain(input_file, output_file)
             return
         elif not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
