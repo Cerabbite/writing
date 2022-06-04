@@ -1,3 +1,11 @@
 title
 author
 style
+paper-size
+font
+top-margin
+bottom-margin
+left-margin
+right-margin
+watermark
+genre
