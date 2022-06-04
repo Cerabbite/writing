@@ -1,4 +1,5 @@
-#Copyright 2019 Manuel Senfft
+#Original: Copyright 2019 Manuel Senfft
+#Edited: Copyright (c) 2022 Cerabbite
 import fountain2pdf_style_radioplay as style  # define your style here
 
 import screenplay_generate_soundlist
@@ -27,31 +28,6 @@ def getProgrammParameters(arr):
     # quit, if there is not at least one parameter
     if len(arr) < 2:
         print('At least one parameter needed: source fountain file.')
-        exit()
-
-    # help print
-    if '-h' in arr or '-help' in arr:
-        print()
-        print('A Fountain-script to PDF converter.')
-        print('\t1st parameter: filename of the source fountain file')
-        print(
-            '\t-c / -char ["Character Name" / "all"] --> '
-            'marks one char or all in seperate files'
-        )
-        print(
-            '\t-co / -char-only ["Character Name"] --> '
-            'prints out text for this character only'
-        )
-        print('\t-n / -notes --> enables output for comments/notes')
-        print('\t-s / -soundlist --> outputs a soundlist only')
-        print('\t-i / -index --> enables first page as index of sections and scenes')
-        print('\t-d / -numbers --> enables numbers on the sounds / action sentences')
-        print()
-        exit()
-
-    # quit, if the given parameter is not a file
-    if not os.path.isfile(arr[1]):
-        print(arr[1] + ' is not a valid file.')
         exit()
 
     # check parameters and assign default values
