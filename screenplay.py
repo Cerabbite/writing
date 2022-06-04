@@ -590,7 +590,7 @@ def getLocations(SFXList):
         for y in x.locations:
             if y not in locs:
                 locs.append(y)
-    return locs
+    return locs 
 
 
 def Fountain2SoundlistPDF(fount):
