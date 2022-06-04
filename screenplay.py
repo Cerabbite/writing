@@ -14,7 +14,7 @@ import sys
 import os
 import re
 
-DEFAULT_AUTHOR = 'Manuel Senfft'
+DEFAULT_AUTHOR = 'Cerabbite' #'Manuel Senfft'
 
 
 # if this string is set, only the whole script ABOVE this string will be rendered
@@ -25,11 +25,6 @@ path_to_project = os.path.dirname(os.path.realpath(__file__))
 
 
 def getProgrammParameters(arr):
-    # quit, if there is not at least one parameter
-    if len(arr) < 2:
-        print('At least one parameter needed: source fountain file.')
-        exit()
-
     # check parameters and assign default values
     output = {}
 
