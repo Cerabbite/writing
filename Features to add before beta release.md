@@ -1,4 +1,4 @@
-6/19 Finished
+6/24 Finished
 - [x] Change paper size
 - [x] Change margins
 - [ ] Change font
@@ -10,14 +10,14 @@
   - [ ] Romance
   - [ ] Thriller
   - [ ] Drama
-- [x] Front page screenplay pdf
+- [x] Front page own screenplay language pdf
 - [ ] Page numbers novel (0/5 finished)
 	- [ ] Top right
 	- [ ] Top left
 	- [ ] Bottom right
 	- [ ] Bottom left
-- [ ] Export screenplay to .trelby
-- [x] Export screenplay to .FDX
+- [ ] Export own screenplay language to .trelby
+- [x] Export own screenplay to .FDX
 - [ ] Export novel to .docx
 - [ ] Word count
 - [ ] watermark word
@@ -27,3 +27,8 @@
 - [ ] Fountain screenwriting language support
 - [x] Own screenwriting language support
 - [ ] Export novel as Rich text document (RTF)
+- [ ] Export own screenplay language to .HTML
+- [ ] Export fountain screenplay language to .HTML
+- [ ] Export fountain screenplay language to .PDF
+- [ ] Export fountain screenplay language to .FDX
+- [ ] Export fountain screenplay language to .trelby
