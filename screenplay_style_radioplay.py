@@ -1,4 +1,5 @@
-#Copyright 2019 Manuel Senfft
+#Original: Copyright 2019 Manuel Senfft
+#Edited: Copyright (c) 2022 Cerabbite
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.lib.colors import lightgrey, grey
