@@ -1,4 +1,4 @@
-6/24 Finished
+7/24 Finished
 - [x] Change paper size
 - [x] Change margins
 - [ ] Change font
@@ -28,7 +28,7 @@
 - [x] Own screenwriting language support
 - [ ] Export novel as Rich text document (RTF)
 - [ ] Export own screenplay language to .HTML
-- [ ] Export fountain screenplay language to .HTML
+- [x] Export fountain screenplay language to .HTML
 - [ ] Export fountain screenplay language to .PDF
 - [ ] Export fountain screenplay language to .FDX
 - [ ] Export fountain screenplay language to .trelby
