@@ -32,3 +32,5 @@
 - [ ] Export fountain screenplay language to .PDF
 - [ ] Export fountain screenplay language to .FDX
 - [ ] Export fountain screenplay language to .trelby
+
+Remove own screenplay language and focus purely on fountain
