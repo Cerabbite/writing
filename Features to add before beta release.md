@@ -1,9 +1,10 @@
+6/18 Finished
 - [x] Change paper size
 - [x] Change margins
 - [ ] Change font
 - [ ] Simple front page design novel
 - [ ] Manuscript front page
-- [ ] Specific genre formatting novel
+- [ ] Specific genre formatting novel (0/5 finished)
   - [ ] Fantasy
   - [ ] Horror
   - [ ] Romance
