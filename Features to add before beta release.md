@@ -1,4 +1,4 @@
-6/18 Finished
+6/19 Finished
 - [x] Change paper size
 - [x] Change margins
 - [ ] Change font
@@ -11,7 +11,11 @@
   - [ ] Thriller
   - [ ] Drama
 - [x] Front page screenplay pdf
-- [ ] Page numbers novel
+- [ ] Page numbers novel (0/5 finished)
+	- [ ] Top right
+	- [ ] Top left
+	- [ ] Bottom right
+	- [ ] Bottom left
 - [ ] Export screenplay to .trelby
 - [x] Export screenplay to .FDX
 - [ ] Export novel to .docx
@@ -22,3 +26,4 @@
 - [ ] Copyright setting
 - [ ] Fountain screenwriting language support
 - [x] Own screenwriting language support
+- [ ] Export novel as Rich text document (RTF)
