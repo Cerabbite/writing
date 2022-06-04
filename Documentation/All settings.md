@@ -1,7 +1,7 @@
 title
 author
 style
-paper-size
+paper-size/page-size
 font
 top-margin
 bottom-margin
