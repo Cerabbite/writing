@@ -18,3 +18,4 @@
 - [ ] watermark word
 - [ ] watermark pdf
 - [x] watermark fdx
+- [ ] Copyright setting
