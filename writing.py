@@ -161,7 +161,7 @@ class WRITING:
                     currentDateTime = datetime.datetime.now()
                     date = currentDateTime.date()
                     year = date.strftime("%Y")
-                    copyright = f"Copyright (c) {year} {setting[1].replace(" ", "")}"
+                    copyright = f'Copyright (c) {year} {setting[1].replace(" ", "")}'
                     print(copyright)
             if i_set == "---" and start_settings == False:
                 start_settings = True
