@@ -7,10 +7,10 @@ from reportlab.lib.pagesizes import A4
 # settings and style
 
 DOC_SIZE = A4
-FONT = 'Helvetica'
-FONTITALIC = 'Helvetica-Oblique'
-FONTBOLD = 'Helvetica-Bold'
-FONTBOLDITALIC = 'Helvetica-BoldOblique'
+FONT = 'font/Courier Prime.ttf'
+FONTITALIC = 'font/Courier Prime Italic.ttf'
+FONTBOLD = 'font/Courier Prime Bold.ttf'
+FONTBOLDITALIC = 'font/Courier Prime Bold Italic.ttf'
 SIZE = 16
 INDENT_LEFT = 28
 INDENT_RIGHT = 28
@@ -24,10 +24,15 @@ BOTTOMMARGIN = 65
 SCENE_NUMBER_L = True
 SCENE_NUMBER_R = True
 
+registerFont(TTFont('Courier-Prime', FONT))
+registerFont(TTFont('Courier-Prime-Italic', FONTITALIC))
+registerFont(TTFont('Courier-Prime-Bold', FONTBOLD))
+registerFont(TTFont('Courier-Prime-Bold-Italic', FONTBOLDITALIC))
+
 
 STYLE_TITLEPAGE_TITLE = ParagraphStyle(
     'Titlepage Title',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 3,
     leading=SIZE * 4,
     spaceAfter=SIZE * 6,
@@ -36,7 +41,7 @@ STYLE_TITLEPAGE_TITLE = ParagraphStyle(
 
 STYLE_TITLEPAGE_CREDIT = ParagraphStyle(
     'Titlepage Credit',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 0.75,
     leading=SIZE * 0.75 * 1.25,
     spaceAfter=SIZE * 2,
@@ -45,7 +50,7 @@ STYLE_TITLEPAGE_CREDIT = ParagraphStyle(
 
 STYLE_TITLEPAGE_AUTHOR = ParagraphStyle(
     'Titlepage Author',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     spaceAfter=SIZE,
@@ -54,7 +59,7 @@ STYLE_TITLEPAGE_AUTHOR = ParagraphStyle(
 
 STYLE_TITLEPAGE_DATE = ParagraphStyle(
     'Titlepage Date',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime-Italic',
     fontSize=SIZE,
     leading=0,
     textColor=grey
@@ -62,7 +67,7 @@ STYLE_TITLEPAGE_DATE = ParagraphStyle(
 
 STYLE_TITLEPAGE_CONTACT = ParagraphStyle(
     'Titlepage Contact',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime-Italic',
     fontSize=SIZE,
     alignment=TA_RIGHT,
     leading=SIZE * 1.25,
@@ -71,7 +76,7 @@ STYLE_TITLEPAGE_CONTACT = ParagraphStyle(
 
 STYLE_SECTION_HEADING = ParagraphStyle(
     'Section Heading',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 1.4,
     leading=SIZE * 1.4 * 1.25,
     alignment=TA_CENTER
@@ -79,7 +84,7 @@ STYLE_SECTION_HEADING = ParagraphStyle(
 
 STYLE_SCENE_NUMBER_L = ParagraphStyle(
     'Scene Number Left',
-    fontName=FONTBOLD,
+    fontName='Courier-Prime-Bold',
     fontSize=SIZE,
     leading=0,
     textTransform='uppercase'
@@ -87,7 +92,7 @@ STYLE_SCENE_NUMBER_L = ParagraphStyle(
 
 STYLE_SCENE_HEADING = ParagraphStyle(
     'Scene Heading',
-    fontName=FONTBOLD,
+    fontName='Courier-Prime-Bold',
     fontSize=SIZE,
     leading=0,
     leftIndent=SIZE * 2.5,
@@ -97,7 +102,7 @@ STYLE_SCENE_HEADING = ParagraphStyle(
 
 STYLE_SCENE_NUMBER_R = ParagraphStyle(
     'Scene Number Right',
-    fontName=FONTBOLD,
+    fontName='Courier-Prime-Bold',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     alignment=TA_RIGHT,
@@ -106,7 +111,7 @@ STYLE_SCENE_NUMBER_R = ParagraphStyle(
 
 STYLE_COMMENT = ParagraphStyle(
     'Comment',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime-Italic',
     fontSize=SIZE * 0.7,
     leading=SIZE * 0.7,
     leftIndent=SIZE * 6,
@@ -117,7 +122,7 @@ STYLE_COMMENT = ParagraphStyle(
 
 STYLE_ACTION = ParagraphStyle(
     'Action',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5,
@@ -127,7 +132,7 @@ STYLE_ACTION = ParagraphStyle(
 
 STYLE_CHARACTER = ParagraphStyle(
     'Character',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5,
@@ -137,7 +142,7 @@ STYLE_CHARACTER = ParagraphStyle(
 
 STYLE_PARENTHETICAL = ParagraphStyle(
     'Parenthetical',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime',
     fontSize=SIZE * 0.75,
     leading=SIZE * 0.75 * 1.25,
     leftIndent=SIZE * 2.5 + SIZE * 1.8,
@@ -146,7 +151,7 @@ STYLE_PARENTHETICAL = ParagraphStyle(
 
 STYLE_DIALOGUE = ParagraphStyle(
     'Dialogue',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5 + SIZE * 1.8,
@@ -155,7 +160,7 @@ STYLE_DIALOGUE = ParagraphStyle(
 
 STYLE_CHARACTER_MARK = ParagraphStyle(
     'Character_Mark',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5,
@@ -166,7 +171,7 @@ STYLE_CHARACTER_MARK = ParagraphStyle(
 
 STYLE_PARENTHETICAL_MARK = ParagraphStyle(
     'Parenthetical Mark',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime-Italic',
     fontSize=SIZE * 0.75,
     leading=SIZE * 0.75 * 1.25,
     leftIndent=SIZE * 2.5 + SIZE * 1.8,
@@ -177,7 +182,7 @@ STYLE_PARENTHETICAL_MARK = ParagraphStyle(
 
 STYLE_DIALOGUE_MARK = ParagraphStyle(
     'Dialogue Mark',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5 + SIZE * 1.8,
@@ -187,7 +192,7 @@ STYLE_DIALOGUE_MARK = ParagraphStyle(
 
 STYLE_TRANSITION = ParagraphStyle(
     'Transition',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE * 1.25,
     leftIndent=SIZE * 2.5,
@@ -199,7 +204,7 @@ STYLE_TRANSITION = ParagraphStyle(
 
 STYLE_EMPTY_LINE = ParagraphStyle(
     'Empty Line',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE,
     leading=SIZE,
     leftIndent=SIZE * 2.5,
@@ -208,7 +213,7 @@ STYLE_EMPTY_LINE = ParagraphStyle(
 
 STYLE_INDEX_SECTION = ParagraphStyle(
     'Index Section',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 1.5,
     leading=SIZE * 2,
     leftIndent=SIZE * 2.5,
@@ -218,7 +223,7 @@ STYLE_INDEX_SECTION = ParagraphStyle(
 
 STYLE_INDEX_SCENE = ParagraphStyle(
     'Index Scene',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 1.5,
     leading=SIZE * 2,
     leftIndent=SIZE * 4,
@@ -228,7 +233,7 @@ STYLE_INDEX_SCENE = ParagraphStyle(
 
 STYLE_INDEX_LOCATION = ParagraphStyle(
     'Index Location',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 3,
     leading=SIZE * 3.5,
     leftIndent=SIZE * 4,
@@ -238,7 +243,7 @@ STYLE_INDEX_LOCATION = ParagraphStyle(
 
 STYLE_SOUNDLIST_LOCATION_HEAD = ParagraphStyle(
     'Soundlist Location Head',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 4,
     leading=SIZE * 4,
     alignment=TA_CENTER
@@ -246,28 +251,28 @@ STYLE_SOUNDLIST_LOCATION_HEAD = ParagraphStyle(
 
 STYLE_SOUNDLIST_LOCATION = ParagraphStyle(
     'Soundlist Location',
-    fontName=FONT,
+    fontName='Courier-Prime'
     fontSize=SIZE * 1.5,
     leading=SIZE * 2
 )
 
 STYLE_SOUNDLIST_SCENE = ParagraphStyle(
     'Soundlist Scene',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 2,
     leading=SIZE * 6
 )
 
 STYLE_SOUNDLIST_SOUND = ParagraphStyle(
     'Soundlist Sound',
-    fontName=FONT,
+    fontName='Courier-Prime',
     fontSize=SIZE * 2.5,
     leading=SIZE * 3
 )
 
 STYLE_SYNOPSIS = ParagraphStyle(
     'Synopsis',
-    fontName=FONTITALIC,
+    fontName='Courier-Prime-Italic',
     fontSize=SIZE * 0.7,
     leading=SIZE * 0.7,
     leftIndent=SIZE * 6,
