@@ -19,3 +19,5 @@
 - [ ] watermark pdf
 - [x] watermark fdx
 - [ ] Copyright setting
+- [ ] Fountain screenwriting language support
+- [x] Own screenwriting language support
