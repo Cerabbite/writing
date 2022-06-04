@@ -7,6 +7,9 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFont
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
+from jouvence.parser import JouvenceParser
+from jouvence.html import HtmlDocumentRenderer
+#from jouvence.pdf import PdfDocumentRenderer
 import pathlib
 import os
 import typer
