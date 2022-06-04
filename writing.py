@@ -358,8 +358,17 @@ class SCREENPLAY:
         return CONTENT
 
     def fountain(input_file, output_file):
-        pass
-        
+        parser = JouvenceParser()
+        document = parser.parse(input_file)
+
+        output_file_extension = pathlib.Path(output_file).suffix
+        if output_file_extension == ".html":
+            renderer = HtmlDocumentRenderer()
+            with open(output_file, 'w') as fp:
+              renderer.render_doc(document, fp)
+        else:
+            print("Other export formats are not supported yet with .fountain files")
+
 class NOVEL:
     def Find_Chapters(file):
         chapters = []
