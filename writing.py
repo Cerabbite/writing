@@ -12,6 +12,7 @@ import os
 import typer
 import requests
 import platform
+import datetime
 
 __VERSION__ = "1.0.0-Beta"
 __LICENSE__ = "MIT License"
@@ -123,6 +124,7 @@ class WRITING:
         right_margin = 1
         watermark = None
         genre = None
+        copyright = None
 
         start_settings = False
         for i in file:
@@ -155,6 +157,12 @@ class WRITING:
                     watermark = setting[1].replace(" ", "")
                 elif setting[0] == "genre":
                     genre = setting[1].replace(" ", "")
+                elif setting[0] == "copyright":
+                    currentDateTime = datetime.datetime.now()
+                    date = currentDateTime.date()
+                    year = date.strftime("%Y")
+                    copyright = f"Copyright (c) {year} {setting[1].replace(" ", "")}"
+                    print(copyright)
             if i_set == "---" and start_settings == False:
                 start_settings = True
             elif i_set == "---" and start_settings == True:
