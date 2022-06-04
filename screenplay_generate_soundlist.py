@@ -1,3 +1,4 @@
+#Copyright 2019 Manuel Senfft
 from fountain import fountain
 import os
 import yaml

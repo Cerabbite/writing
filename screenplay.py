@@ -1,3 +1,4 @@
+#Copyright 2019 Manuel Senfft
 import fountain2pdf_style_radioplay as style  # define your style here
 
 import fountain2pdf_generate_soundlist
