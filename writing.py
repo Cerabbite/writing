@@ -211,6 +211,7 @@ class WRITING:
 
 class SCREENPLAY:
     def Content(input_file):
+        #https://nerdymovie.blogspot.com/2014/03/parsing-fountain-files.html
         def scene_list(input_ftn_file, line_numbers = False):
             """
 
@@ -235,7 +236,43 @@ class SCREENPLAY:
             f.close()
             return scene_lst
 
-        print(scene_list(input_file, line_numbers=True))
+        def character_list(input_ftn_file):
+            """
+
+            INPUT:
+               input_ftn_file could be "/home/wdj/my-script.fountain"
+
+            OUTPUT:
+               list of characters with speaking parts occurring in script
+
+            """
+            f = open(input_ftn_file,'r')
+            lines = f.readlines()
+            char_list = []
+            N = len(lines)
+            for j in range(1,N-1):
+                x = lines[j]
+                if lines[j-1] == "\n" and lines[j+1] != "\n" and x.isupper():
+                    char = x[:-1]
+                    if "(" in char and ")" in char:
+                        i1 = char.index("(")
+                        i2 = char.index(")")
+                        char = char[:i1]
+                    if char[-1] == " ":
+                        char = char[:-1]
+                    if "\xc2\xa0" in char:
+                        char = char.replace("\xc2\xa0","")
+                    if "\xc2" in char:
+                        char = char.replace("\xc2","")
+                    if "\xa0" in char:
+                        char = char.replace("\xa0","")
+                    if not(char in char_list):
+                        char_list.append(char)
+            f.close()
+            return char_list
+
+        print(len(scene_list(input_file, line_numbers=True)))
+        print(len(character_list(input_file)))
 
 class NOVEL:
     def Find_Chapters(file):
