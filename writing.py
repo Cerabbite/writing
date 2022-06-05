@@ -214,12 +214,30 @@ class SCREENPLAY:
         pass
 
     def fountain(input_file, output_file):
-        #https://github.com/Tagirijus/fountain2pdf
+        def scene_list(input_ftn_file, line_numbers = False):
+            """
 
-        ###Style###
+            INPUT:
+               input_ftn_file could be "/path/my-script.fountain"
 
-        ###########
-        ###Create Different FILES
+            OUTPUT:
+               list of scenes occurring in script
+
+            """
+            f = open(input_ftn_file)
+            lines = f.readlines()
+            scene_lst = []
+            for j in range(len(lines)):
+                x = lines[j]
+                if x[:3].upper() == "INT" or x[:3].upper() == "EXT":
+                    if line_numbers == True:
+                        scene_lst.append([j,x[:-1]])
+                    else:
+                        scene_lst.append(x[:-1])
+            f.close()
+            return scene_lst
+
+        print(scene_list(input_file, line_numbers=True))
 
 class NOVEL:
     def Find_Chapters(file):
