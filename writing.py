@@ -210,10 +210,7 @@ class WRITING:
             return A4
 
 class SCREENPLAY:
-    def Content(file):
-        pass
-
-    def fountain(input_file, output_file):
+    def Content(input_file):
         def scene_list(input_ftn_file, line_numbers = False):
             """
 
@@ -224,6 +221,7 @@ class SCREENPLAY:
                list of scenes occurring in script
 
             """
+            print(input_ftn_file)
             f = open(input_ftn_file)
             lines = f.readlines()
             scene_lst = []
@@ -284,6 +282,8 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
     # Read and write FDXs
     file_extension = pathlib.Path(input_file).suffix
     #print("File Extension: ", file_extension)
+    #print(input_file)
+    SCREENPLAY.Content(input_file)
     if read == False:
         if file_extension == ".nov":
             print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
@@ -295,7 +295,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         file_read = open(input_file, "r").readlines()
 
         settings = WRITING.settings(file_read, "screenplay")
-        content = SCREENPLAY.Content(file_read)
+        #content = SCREENPLAY.Content(file_read)
 
         file_extension_output = pathlib.Path(output_file).suffix
 
