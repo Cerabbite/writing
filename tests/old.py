@@ -405,3 +405,231 @@ def WRITING_OLD(input_file: str, output_file: str):
     #print(chapters)
     #print(chapters_and_content)
     file.close()
+
+###NEWER OLD SCREENPLAY###
+@app.command()
+def screenplay(input_file: str, output_file: str, read: bool=False):
+    # Screenplay extension: .scr
+    # Read and write FDXs
+    file_extension = pathlib.Path(input_file).suffix
+    #print("File Extension: ", file_extension)
+    if read == False:
+        if file_extension == ".nov":
+            print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
+            return
+        elif file_extension == ".fountain":
+            print("Good Choice!")
+            SCREENPLAY.fountain(input_file, output_file)
+            return
+        elif not file_extension == ".scr":
+            print(f"Unkown file extension: {file_extension}")
+            return
+
+        file_read = open(input_file, "r").readlines()
+
+        settings = WRITING.settings(file_read, "screenplay")
+        content = SCREENPLAY.Content(file_read)
+
+        file_extension_output = pathlib.Path(output_file).suffix
+
+        if file_extension_output.lower() == ".pdf":
+            styles = getSampleStyleSheet()
+
+            page_size = WRITING.Get_PAGESIZE(settings[3])
+            settings[3] = page_size
+
+            story = []
+
+            doc = SimpleDocTemplate(output_file,pagesize=page_size,
+                                        rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
+                                        topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
+
+            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
+
+            screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=23,
+                                                        spaceAfter=12)
+
+            screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0)
+
+            screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=2,
+                                                        spaceBefore=16,
+                                                        spaceAfter=14)
+                                                        #,
+                                                        #leftIndent=4.5*inch)
+
+            screenplay_shot_style = ParagraphStyle('screenplay-shot-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=16,
+                                                        spaceAfter=14)
+                                                        #,
+                                                        #leftIndent=4.5*inch)
+
+            screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0)
+
+            screenplay_character_style = ParagraphStyle('screenplay-character-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceBefore=15,
+                                                        leftIndent=2*inch)
+
+            screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        leftIndent=1.5*inch)
+
+            screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
+                                                        fontName="Courier-Prime",
+                                                        fontSize=12,
+                                                        parent=styles['Normal'],
+                                                        alignment=0,
+                                                        spaceAfter=15,
+                                                        leftIndent=1*inch,
+                                                        rightIndent=1*inch)
+
+            story.append(PageBreak())
+            for x in content:
+                if x[1] == "header":
+                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                elif x[1] == "sub-header":
+                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                elif x[1] == "action-line":
+                    story.append(Paragraph(x[0], screenplay_actionline_style))
+                elif x[1] == "fade":
+                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                elif x[1] == "shot":
+                    story.append(Paragraph(x[0].upper(), screenplay_shot_style))
+                elif x[1] == "character":
+                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                elif x[1] == "parenthetical":
+                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                elif x[1] == "dialogue":
+                    story.append(Paragraph(x[0], screenplay_dialogue_style))
+
+            # Build the PDF
+            doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
+        elif file_extension_output.lower() == ".fdx":
+            file = open(output_file, 'w')
+
+            file.write(r"""<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<FinalDraft Version="2" DocumentType="Script" Template="No">
+    <Content>""")
+
+            file.write("\n")
+
+            characters = []
+
+            for x in content:
+                if x[1] == "header":
+                    #story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
+                    file.write('        <Paragraph Type="Scene Heading">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "sub-header":
+                    #story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
+                    pass
+                elif x[1] == "action-line":
+                    #story.append(Paragraph(x[0], screenplay_actionline_style))
+                    file.write('        <Paragraph Type="Action">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "fade":
+                    #story.append(Paragraph(x[0].upper(), screenplay_transition_style))
+                    file.write('        <Paragraph Type="Transition">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "shot":
+                    file.write('        <Paragraph Type="Shot">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "character":
+                    #story.append(Paragraph(x[0].upper(), screenplay_character_style))
+                    characters.append(x[0].upper().split("(")[0])
+                    file.write('        <Paragraph Type="Character">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "parenthetical":
+                    #story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
+                    file.write('        <Paragraph Type="Parenthetical">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">({x[0].upper()})</Text>\n')
+                    file.write('        </Paragraph>\n')
+                elif x[1] == "dialogue":
+                    #story.append(Paragraph(x[0], screenplay_dialogue_style))
+                    file.write('        <Paragraph Type="Dialogue">\n')
+                    file.write(f'            <Text Font="Courier Final Draft">{x[0].upper()}</Text>\n')
+                    file.write('        </Paragraph>\n')
+
+            file.write("    </Content>\n")
+            if settings[9]:
+                file.write(f'    <Watermarking Text="{settings[9]}"/>\n')
+
+            file.write(f'    <SmartType>\n')
+            file.write(f'        <Characters>\n')
+            for i in characters:
+                file.write(f'            <Character>"{i}"</Character>\n')
+            file.write(f'        </Characters>\n')
+            file.write(r"""        <TimesOfDay Separator=" - ">
+            <TimeOfDay></TimeOfDay>
+            <TimeOfDay>AFTERNOON</TimeOfDay>
+            <TimeOfDay>CONTINUOUS</TimeOfDay>
+            <TimeOfDay>DAWN</TimeOfDay>
+            <TimeOfDay>DAY</TimeOfDay>
+            <TimeOfDay>DUSK</TimeOfDay>
+            <TimeOfDay>EARLIER</TimeOfDay>
+            <TimeOfDay>EARLY MORNING</TimeOfDay>
+            <TimeOfDay>EVENING</TimeOfDay>
+            <TimeOfDay>EVENING 66</TimeOfDay>
+            <TimeOfDay>LATE AFTERNOON</TimeOfDay>
+            <TimeOfDay>LATE NIGHT</TimeOfDay>
+            <TimeOfDay>LATER</TimeOfDay>
+            <TimeOfDay>MAGIC HOUR</TimeOfDay>
+            <TimeOfDay>MOMENTS EARLIER</TimeOfDay>
+            <TimeOfDay>MOMENTS LATER</TimeOfDay>
+            <TimeOfDay>MORNING</TimeOfDay>
+            <TimeOfDay>NEXT AFTERNOON</TimeOfDay>
+            <TimeOfDay>NIGHT</TimeOfDay>
+            <TimeOfDay>SECONDS LATER</TimeOfDay>
+            <TimeOfDay>THE NEXT DAY</TimeOfDay>
+            <TimeOfDay>THE PREVIOUS DAY</TimeOfDay>
+        </TimesOfDay>""")
+            file.write('\n')
+            file.write(r"""        <SceneIntros Separator=". ">
+            <SceneIntro>EXT</SceneIntro>
+            <SceneIntro>I/E</SceneIntro>
+            <SceneIntro>INT</SceneIntro>
+        </SceneIntros>""")
+            file.write('\n')
+            file.write(f'    </SmartType>\n')
+            file.write('</FinalDraft>')
+            file.close()
+        else:
+            print(f"Cannot export to '{file_extension_output}'")
+
+    elif read == True:
+        pass
+    else:
+         print(f"Unkown read type: {read}")
+##########################
