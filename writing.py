@@ -357,7 +357,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         if file_extension == ".nov":
             print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
             return
-        elif not file_extension == ".scr":
+        elif not file_extension == ".fountain":
             print(f"Unkown file extension: {file_extension}")
             return
 
@@ -471,6 +471,10 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
             file.write(f'    </SmartType>\n')
             file.write('</FinalDraft>')
             file.close()
+        elif file_extension_output.lower() == ".html":
+            pass
+        elif file_extension_output.lower() == ".trelby":
+            pass
         else:
             print(f"Cannot export to '{file_extension_output}'")
 
