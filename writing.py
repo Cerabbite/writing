@@ -56,65 +56,6 @@ Possible: A single empty line means a new line and double empty line means new p
 
 app = typer.Typer()
 
-class FooterCanvas(canvas.Canvas):
-
-    def __init__(self, filename1, filename, settings, **kwargs):
-        self.settings = settings
-        canvas.Canvas.__init__(self, filename, **kwargs)
-        self.pages = []
-        #self.page_size = page_size
-        #self.title = title
-        #self.author = author
-
-    def showPage(self):
-        self.pages.append(dict(self.__dict__))
-        self._startPage()
-
-    def save(self):
-        page_count = len(self.pages)
-        for page in self.pages:
-            self.__dict__.update(page)
-            self.draw_canvas(page_count)
-            canvas.Canvas.showPage(self)
-        canvas.Canvas.save(self)
-
-    def draw_canvas(self, page_count):
-        registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
-        page_number = self._pageNumber-1
-        page = f"{page_number}." #"Page %s of %s" % (self._pageNumber, page_count)
-        x = 1*inch
-        page_size = self.settings[3]
-
-        if page_number >= 2:
-            self.saveState()
-            self.setStrokeColorRGB(0, 0, 0)
-            #self.setLineWidth(0.5)
-            #self.line(66, 78, page_size[0] - 66, 78)
-            self.setFont('Courier-Prime', 15)
-            self.drawString(page_size[0]-x, page_size[1]-0.5*inch, page)
-            self.drawString(x, page_size[1]-0.5*inch, self.settings[0])
-            self.restoreState()
-        if page_number == 0:
-            self.setFont('Courier-Prime', 12)
-            #self.rotate(45)
-            txt = self.settings[0]
-            txt2 = "screenplay by"
-            txt3 = self.settings[1].split(',')
-            txt_width = stringWidth(txt, "Courier-Prime", 12)
-            txt2_width = stringWidth(txt2, "Courier-Prime", 12)
-            #txt3_width = stringWidth(txt3, "Courier-Prime", 12)
-            height_ = 7.5
-            under_ = .05
-            self.drawString((page_size[0] - txt_width) / 2.0, height_*inch, txt)
-            self.drawString((page_size[0] - txt2_width) / 2.0, (height_-.7)*inch, txt2)
-            n = 0
-            for i in txt3:
-                txt3_width = stringWidth(i, "Courier-Prime", 12)
-                self.drawString((page_size[0] - txt3_width) / 2.0, (height_-(1+n))*inch, i)
-                n += .2
-            self.setLineWidth(0.5)
-            self.line((page_size[0] - txt_width) / 2.0, (height_-under_)*inch, ((page_size[0] - txt_width) / 2.0)+txt_width, (height_-under_)*inch)
-
 class WRITING:
     def settings(file, style):
         title = "Title"
@@ -363,7 +304,7 @@ class SCREENPLAY:
         #https://github.com/Tagirijus/fountain2pdf
 
         ###Style###
-        
+
         ###########
         ###Create Different FILES
 
@@ -416,10 +357,6 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
         if file_extension == ".nov":
             print("Use the 'writing novel input-file.nov output-file.pdf' for .nov files")
             return
-        elif file_extension == ".fountain":
-            print("Good Choice!")
-            SCREENPLAY.fountain(input_file, output_file)
-            return
         elif not file_extension == ".scr":
             print(f"Unkown file extension: {file_extension}")
             return
@@ -439,97 +376,7 @@ def screenplay(input_file: str, output_file: str, read: bool=False):
 
             story = []
 
-            doc = SimpleDocTemplate(output_file,pagesize=page_size,
-                                        rightMargin=settings[8]*inch,leftMargin=settings[7]*inch,
-                                        topMargin=settings[5]*inch,bottomMargin=settings[6]*inch, title=f"{settings[0]} by {settings[1]}")
 
-            registerFont(TTFont('Courier-Prime', 'font/Courier Prime.ttf'))
-
-            screenplay_slugline_style = ParagraphStyle('screenplay-slugline-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0,
-                                                        spaceBefore=23,
-                                                        spaceAfter=12)
-
-            screenplay_subheaders_style = ParagraphStyle('screenplay-subheaders-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0)
-
-            screenplay_transition_style = ParagraphStyle('screenplay-transition-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=2,
-                                                        spaceBefore=16,
-                                                        spaceAfter=14)
-                                                        #,
-                                                        #leftIndent=4.5*inch)
-
-            screenplay_shot_style = ParagraphStyle('screenplay-shot-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0,
-                                                        spaceBefore=16,
-                                                        spaceAfter=14)
-                                                        #,
-                                                        #leftIndent=4.5*inch)
-
-            screenplay_actionline_style = ParagraphStyle('screenplay-actionline-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0)
-
-            screenplay_character_style = ParagraphStyle('screenplay-character-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0,
-                                                        spaceBefore=15,
-                                                        leftIndent=2*inch)
-
-            screenplay_parenthetical_style = ParagraphStyle('screenplay-parenthetical-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0,
-                                                        leftIndent=1.5*inch)
-
-            screenplay_dialogue_style = ParagraphStyle('screenplay-dialogue-style',
-                                                        fontName="Courier-Prime",
-                                                        fontSize=12,
-                                                        parent=styles['Normal'],
-                                                        alignment=0,
-                                                        spaceAfter=15,
-                                                        leftIndent=1*inch,
-                                                        rightIndent=1*inch)
-
-            story.append(PageBreak())
-            for x in content:
-                if x[1] == "header":
-                    story.append(Paragraph(x[0].upper(), screenplay_slugline_style))
-                elif x[1] == "sub-header":
-                    story.append(Paragraph(x[0].upper(), screenplay_subheaders_style))
-                elif x[1] == "action-line":
-                    story.append(Paragraph(x[0], screenplay_actionline_style))
-                elif x[1] == "fade":
-                    story.append(Paragraph(x[0].upper(), screenplay_transition_style))
-                elif x[1] == "shot":
-                    story.append(Paragraph(x[0].upper(), screenplay_shot_style))
-                elif x[1] == "character":
-                    story.append(Paragraph(x[0].upper(), screenplay_character_style))
-                elif x[1] == "parenthetical":
-                    story.append(Paragraph(f"({x[0]})", screenplay_parenthetical_style))
-                elif x[1] == "dialogue":
-                    story.append(Paragraph(x[0], screenplay_dialogue_style))
-
-            # Build the PDF
-            doc.multiBuild(story, canvasmaker=lambda filename1=output_file, filename=output_file, settings=settings, **kwargs:FooterCanvas(filename1, filename, settings, **kwargs))
         elif file_extension_output.lower() == ".fdx":
             file = open(output_file, 'w')
 
