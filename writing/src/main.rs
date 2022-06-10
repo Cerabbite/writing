@@ -1,3 +1,4 @@
+mod Test;
 use std::env;
 
 fn main() {
@@ -8,4 +9,5 @@ fn main() {
 
     println!("Searching for {}", query);
     println!("In file {}", filename);
+    Test::printmsg();
 }
