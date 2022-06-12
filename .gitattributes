@@ -1,2 +1,4 @@
 *.html linguist-generated
 *.rtf linguist-generated
+*.v linguist-language=V
+*.mod linguist-language=V
