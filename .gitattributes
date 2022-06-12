@@ -1,2 +1,2 @@
-*.html linguist-language=Python
+*.html non-detactable
 *.rtf linguist-language=Python
