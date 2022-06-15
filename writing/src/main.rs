@@ -1,14 +1,15 @@
 mod fountain_parser;
 mod novel_parser;
+mod setting;
 use std::env;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let target: &String = &args[1];
+    let _args: Vec<String> = env::args().collect();
+    //let target: &String = &_args[1];
 
-    settings::version(args)
+    setting::version(_args);
 
-    if target == "screenplay" {
-        fountain_parser::parser(args);
-    }
+    /*if target == "screenplay" {
+        fountain_parser::parser(_args);
+    }*/
 }
