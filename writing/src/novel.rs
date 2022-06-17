@@ -1,5 +1,7 @@
-pub fn novel() {
-    
+use std::{env, fs};
+
+pub fn novel(_args: Vec<string>) {
+
 }
 
 fn DOCX() {

@@ -11,5 +11,9 @@ fn main() {
 
     if target == "screenplay" {
         fountain_parser::parser(_args);
+    } else if target == "novel" {
+        novel_parser::parser(_args);
+    } else {
+        println!("Unkown target {}", target);
     }
 }
