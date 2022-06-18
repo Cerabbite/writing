@@ -8,7 +8,11 @@ const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite"
 pub fn version(_args: Vec<String>) {
     //println!("{:?}", _args);
     let release_date: &str = "20-07-2022";
-    println!("writing v{} released on {}", VERSION, release_date);
+    if release_date == "cannot find" {
+        println!("writing v{} this version is not yet public", VERSION);
+    } else {
+        println!("writing v{} released on {}", VERSION, release_date);
+    }
 }
 
 pub fn update(_args: Vec<String>) {
