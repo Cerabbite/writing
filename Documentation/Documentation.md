@@ -5,7 +5,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 <table>
     <tr><td width=33% valign=top>
 
-* [Hello world](#hello-world)
+* [Installation](#Installation)
 
 </td><td width=33% valign=top>
 
@@ -21,7 +21,8 @@ Writing is a software made to write novels and screenplay without any heavy text
 ## Installation
 
 ## Basics of Fountain
-> Fountain is not designed by writing. For more information go on their official website https://fountain.io/ >
+> Fountain is not designed by writing. For more information go on their official website https://fountain.io/
+
 
 ## Basics of Novel
 
