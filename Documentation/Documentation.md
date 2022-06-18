@@ -6,6 +6,8 @@ Writing is a software made to write novels and screenplay without any heavy text
     <tr><td width=33% valign=top>
 
 * [Installation](#Installation)
+* [Basics of Fountain)(#Basics-of-Fountain)
+* [Basics of Novel](#Basics-of-Novel)
 
 </td><td width=33% valign=top>
 
@@ -13,7 +15,8 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 </td><td valign=top>
 
-* [Writing documentation](#writing-documentation)
+* [Error Codes](#Error-Codes)
+* [Contributing to writing](#Contributing-to-writing)
 
 </td></tr>
 </table>
@@ -39,3 +42,5 @@ writing target
 ### 100B
 
 ### 404
+
+## Contributing to writing
