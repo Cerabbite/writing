@@ -1,14 +1,27 @@
 # writing
 Writing is a software made to write novels and screenplay without any heavy text editor.
 
-## Table of Contents
+# Table of Contents
 1. [Installation](#Installation)
-2. [Installation](#First-screenplay)
-3. [First novel](#First-novel)
+2. [First Screenplay](#First-screenplay)
+4. [First novel](#First-novel)
+5. [Error Codes](#Error-Codes)
 
 
-## Installation
+# Installation
 
-## First screenplay
+# First screenplay
 
-## First Novel
+# First Novel
+
+# Error Codes
+## 100A
+### Causes
+- You did not specify a target
+
+### Solutions
+```
+writing target
+```
+
+## 100B
