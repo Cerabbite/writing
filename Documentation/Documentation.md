@@ -24,7 +24,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 ## Installation
 
 ## Fountain
-> Fountain is not designed by writing. For more information go on their official website https://fountain.io/
+> Fountain is not designed for writing. For more information go on their official website https://fountain.io/
 > The documentation is written from their official documentation which you can find [here](https://fountain.io/syntax#section-slug)
 ### Scene Heading
 ```
@@ -52,6 +52,13 @@ INT./EXT. WRITING ROOM - DAY
 <!-- ### Error Handling -->
 
 ## Novel
+### Settings
+### Chapter Titles
+### Chapter Content
+### Table of Contents
+### Title Page
+### Page Break
+### Notes
 
 ## Error Codes
 ### 100A
