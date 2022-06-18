@@ -7,32 +7,32 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 * [Installation](#Installation)
 * [Fountain](#Fountain)<br>
-        * [Scene Heading](#Scene-Heading)<br>
-        * [Action](#Action)<br>
-        * [Character](#Character)<br>
-        * [Dialogue](#Dialogue)<br>
-        * [Parenthetical](#Parenthetical)<br>
-        * [Dual Dialogue](#Dual-Dialogue)<br>
-        * [Lyrics](#Lyrics)<br>
-        * [Transition](#Transition)<br>
-        * [Centered Text](#Centered-Text)<br>
-        * [Emphasis](#Emphasis)<br>
-        * [Title Page](#Title-Page)<br>
-        * [Page Break](#Page-Breaks)<br>
-        * [Punctuation](#Punctuation)<br>
-        * [Line Breaks](#Line-Breaks)<br>
-        * [Indenting](#Indenting)<br>
-        * [Notes](#Notes)<br>
-        * [Boneyard](#Boneyard)<br>
-        * [Sections and Synopses](#Sections-and-Synopses)<br>
+    * [Scene Heading](#Scene-Heading)<br>
+    * [Action](#Action)<br>
+    * [Character](#Character)<br>
+    * [Dialogue](#Dialogue)<br>
+    * [Parenthetical](#Parenthetical)<br>
+    * [Dual Dialogue](#Dual-Dialogue)<br>
+    * [Lyrics](#Lyrics)<br>
+    * [Transition](#Transition)<br>
+    * [Centered Text](#Centered-Text)<br>
+    * [Emphasis](#Emphasis)<br>
+    * [Title Page](#Title-Page)<br>
+    * [Page Break](#Page-Breaks)<br>
+    * [Punctuation](#Punctuation)<br>
+    * [Line Breaks](#Line-Breaks)<br>
+    * [Indenting](#Indenting)<br>
+    * [Notes](#Notes)<br>
+    * [Boneyard](#Boneyard)<br>
+    * [Sections and Synopses](#Sections-and-Synopses)<br>
 * [Novel](#Basics-of-Novel)<br>
-        * [Settings](#Settings)<br>
-        * [Chapter Titles](#Chapter-Titles)<br>
-        * [Chapter Content](#Chapter-Content)<br>
-        * [Table of Contents](#Table-of-Contents)<br>
-        * [Title Page](#Title-Page)<br>
-        * [Page Break](#Page-Break)<br>
-        * [Notes](#Notes)<br>
+    * [Settings](#Settings)<br>
+    * [Chapter Titles](#Chapter-Titles)<br>
+    * [Chapter Content](#Chapter-Content)<br>
+    * [Table of Contents](#Table-of-Contents)<br>
+    * [Title Page](#Title-Page)<br>
+    * [Page Break](#Page-Break)<br>
+    * [Notes](#Notes)<br>
 
 </td><td width=33% valign=top>
 
