@@ -1,13 +1,12 @@
 mod fountain_parser;
 mod novel_parser;
 mod setting;
+mod error;
 
 use std::env;
-use colored::*;
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
-const ERRORCODES: [&str; 1] = ["100A"];
-const ERRORCODEURL: &str = r"https://github.com/Cerabbite/writing/blob/main/Documentation/Error%20Codes.md#";
+const ERRORCODES: [&str; 2] = ["100A", "100B"];
 
 fn main() {
     let _args: Vec<String> = env::args().collect();
@@ -16,9 +15,7 @@ fn main() {
 
     if _args.len() <= 1 {
         println!("No target found");
-        let errorcode = ERRORCODES[0];
-        println!("{}: writing exited with error code '{}' check '{}{}' for more information.", "error".red(), errorcode, ERRORCODEURL, errorcode);
-        //std::process::abort();
+        error::error_handling(ERRORCODES[0]);
         return;
     } else {
         target = &_args[1];
@@ -37,6 +34,7 @@ fn main() {
         //setting::help(_args);
         println!("Help command is not yet implemented")
     } else {
-        println!("Please provide a valid target")
+        println!("Please provide a valid target");
+        error::error_handling(ERRORCODES[1]);
     }
 }

@@ -1,4 +1,4 @@
-use crate::{ERRORCODES, ERRORCODEURL};
+use crate::ERRORCODES;
 
 pub fn parser(_args: Vec<String>) {
 
