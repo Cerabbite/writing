@@ -6,7 +6,7 @@ mod error;
 use std::env;
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
-const ERRORCODES: [&str; 2] = ["100A", "100B"];
+const ERRORCODES: [&str; 3] = ["100A", "100B", "404"];
 
 fn main() {
     let _args: Vec<String> = env::args().collect();

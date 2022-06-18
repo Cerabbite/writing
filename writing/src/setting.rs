@@ -3,7 +3,7 @@
 use crate::ERRORCODES;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
-const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite"
+const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite";
 
 pub fn version(_args: Vec<String>) {
     //println!("{:?}", _args);
@@ -20,6 +20,6 @@ pub fn update(_args: Vec<String>) {
 }
 
 pub fn license(_args: Vec<String>) {
-    error:not_implemented("license");
+    error::not_implemented("license");
     // Extract license text from Github
 }
