@@ -19,7 +19,7 @@ fn main() {
         return;
     } else {
         target = &_args[1];
-        println!("{}", target)
+        //println!("{}", target)
     }
 
     if target == "screenplay" {
@@ -32,7 +32,7 @@ fn main() {
         setting::update(_args);
     } else if target == "help" {
         //setting::help(_args);
-        println!("Help command is not yet implemented")
+        error::not_implemented("help-command");
     } else {
         println!("Please provide a valid target");
         error::error_handling(ERRORCODES[1]);
