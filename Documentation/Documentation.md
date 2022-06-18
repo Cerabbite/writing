@@ -7,25 +7,35 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 * [Installation](#Installation)
 * [Fountain](#Fountain)
-        [Scene Heading](#Scene-Heading)<br>
-        [Action](#Action)<br>
-        [Character](#Character)<br>
-        [Dialogue](#Dialogue)<br>
-        [Parenthetical](#Parenthetical)<br>
-        [Dual Dialogue](#Dual-Dialogue)<br>
-        [Lyrics](#Lyrics)<br>
-        [Transition](#Transition)<br>
-        [Centered Text](#Centered-Text)<br>
-        [Emphasis](#Emphasis)<br>
-        [Title Page](#Title-Page)<br>
-        [Page Break](#Page-Breaks)<br>
-        [Punctuation](#Punctuation)<br>
-        [Line Breaks](#Line-Breaks)<br>
-        [Indenting](#Indenting)<br>
-        [Notes](#Notes)<br>
-        [Boneyard](#Boneyard)<br>
-        [Sections and Synopses](#Sections-and-Synopses)<br>
+        * [Scene Heading](#Scene-Heading)
+        * [Action](#Action)
+        * [Character](#Character)
+        * [Dialogue](#Dialogue)
+        * [Parenthetical](#Parenthetical)
+        * [Dual Dialogue](#Dual-Dialogue)
+        * [Lyrics](#Lyrics)
+        * [Transition](#Transition)
+        * [Centered Text](#Centered-Text)
+        * [Emphasis](#Emphasis)
+        * [Title Page](#Title-Page)
+        * [Page Break](#Page-Breaks)
+        * [Punctuation](#Punctuation)
+        * [Line Breaks](#Line-Breaks)
+        * [Indenting](#Indenting)
+        * [Notes](#Notes)
+        * [Boneyard](#Boneyard)
+        * [Sections and Synopses](#Sections-and-Synopses)
 * [Novel](#Basics-of-Novel)
+        * [Settings](#Settings)
+        * [Chapter Titles](#Chapter-Titles)
+        * [Chapter Content](#Chapter-Content]
+        * [Table of Contents](#Table-of-Contents)
+        * [Title Page](#Title-Page)
+        * [Page Break](#Page-Break)
+        * [Notes](#Notes)
+Title Page
+Page Break
+Notes
 
 </td><td width=33% valign=top>
 
