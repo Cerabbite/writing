@@ -2,4 +2,4 @@
 - Remove writing.spec [commit:633b8930d3950d881109e71d3ac7fcf569555891 url:https://github.com/Cerabbite/writing/commit/633b8930d3950d881109e71d3ac7fcf569555891]
 - Remove old.py [commit:fce5e02ad9ca2c0f936d6d56cca5a6aa99ba7649 url:https://github.com/Cerabbite/writing/commit/fce5e02ad9ca2c0f936d6d56cca5a6aa99ba7649]
 - Remove screenplay.py [commit:11a454ec1485fc47b61c237a1a27f52b0d5d8e51 url:https://github.com/Cerabbite/writing/commit/11a454ec1485fc47b61c237a1a27f52b0d5d8e51]
-- Remove screenplay_style_radioplay.py [commit: url:]
+- Remove screenplay_style_radioplay.py [commit:73cc8d28098f5a02a383c55ba92e1b6683d7e681 url:https://github.com/Cerabbite/writing/commit/73cc8d28098f5a02a383c55ba92e1b6683d7e681]
