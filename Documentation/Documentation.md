@@ -36,12 +36,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 </td><td width=33% valign=top>
 
-* [Hello world](#hello-world)
-* [Running a project folder](#running-a-project-folder-with-several-files)
-* [Comments](#comments)
-* [Functions](#functions)
-    * [Returning multiple values](#returning-multiple-values)
-    * [Hoistings](#hoistings)
+* [Test](#Test)
 
 </td><td valign=top>
 
