@@ -20,9 +20,10 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 ## Installation
 
-## First screenplay
+## Basics of Fountain
+> Fountain is not designed by writing. For more information go on their official website https://fountain.io/ >
 
-## First Novel
+## Basics of Novel
 
 ## Error Codes
 ### 100A
