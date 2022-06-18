@@ -6,8 +6,8 @@ Writing is a software made to write novels and screenplay without any heavy text
     <tr><td width=33% valign=top>
 
 * [Installation](#Installation)
-* [Basics of Fountain)(#Basics-of-Fountain)
-* [Basics of Novel](#Basics-of-Novel)
+* [Fountain](#Fountain)
+* [Novel](#Basics-of-Novel)
 
 </td><td width=33% valign=top>
 
@@ -23,11 +23,35 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 ## Installation
 
-## Basics of Fountain
+## Fountain
 > Fountain is not designed by writing. For more information go on their official website https://fountain.io/
+> The documentation is written from their official documentation which you can find [here](https://fountain.io/syntax#section-slug)
+### Scene Heading
+```
+INT./EXT. WRITING ROOM - DAY
+```
+### Action
+### Character
+### Dialogue
+### Parenthetical
+### Dual Dialogue
+> Dual dialogue is not yet implemented in writing
+### Lyrics
+### Transition
+### Centered Text
+> Centered Text is not yet implemented in writing
+### Emphasis
+### Title Page
+### Page Breaks
+### Punctuation
+### Line Breaks
+### Indenting
+### Notes
+### Boneyard
+### Sections and Synopses
+<!-- ### Error Handling -->
 
-
-## Basics of Novel
+## Novel
 
 ## Error Codes
 ### 100A
