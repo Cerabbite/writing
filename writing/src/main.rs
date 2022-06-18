@@ -6,11 +6,10 @@ use std::env;
 use colored::*;
 
 const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
-pub const ERRORCODES: [&str; 1] = ["100A"];
+const ERRORCODES: [&str; 1] = ["100A"];
 
 fn main() {
     let _args: Vec<String> = env::args().collect();
-    //let target = "None";
 
     if _args.len() <= 1 {
         println!("No target found");
