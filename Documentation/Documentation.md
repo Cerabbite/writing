@@ -6,6 +6,9 @@ Writing is a software made to write novels and screenplay without any heavy text
     <tr><td width=33% valign=top>
 
 * [Installation](#Installation)
+    * [Windows](#Windows)
+    * [Mac Os](#Mac-Os)
+    * [Linux](#Linux)
 * [Fountain](#Fountain)<br>
     * [Scene Heading](#Scene-Heading)<br>
     * [Action](#Action)<br>
@@ -47,6 +50,9 @@ Writing is a software made to write novels and screenplay without any heavy text
 </table>
 
 ## Installation
+### Windows
+### Mac Os
+### Linux
 
 ## Fountain
 > Fountain is not designed for writing. For more information go on their official website https://fountain.io/
