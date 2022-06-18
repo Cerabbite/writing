@@ -1,8 +1,4 @@
-use crate::ERRORCODES;
-
-pub fn test() {
-    println!("{:?}", ERRORCODES);
-}
+use crate::{ERRORCODES, ERRORCODEURL};
 
 pub fn parser(_args: Vec<String>) {
 

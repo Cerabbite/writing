@@ -5,24 +5,27 @@ mod setting;
 use std::env;
 use colored::*;
 
-const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
+//const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
 const ERRORCODES: [&str; 1] = ["100A"];
+const ERRORCODEURL: &str = r"https://github.com/Cerabbite/writing/blob/main/Documentation/Error%20Codes.md#";
 
 fn main() {
     let _args: Vec<String> = env::args().collect();
 
+    let mut target: &str = "None";
+
     if _args.len() <= 1 {
         println!("No target found");
-        println!("{}: writing exited with error code '{}' check 'https://github.com/Cerabbite/writing/blob/main/Documentation/Error%20Codes.md#100a' for more information.", "error".red(), ERRORCODES[0]);
+        let errorcode = ERRORCODES[0];
+        println!("{}: writing exited with error code '{}' check '{}{}' for more information.", "error".red(), errorcode, ERRORCODEURL, errorcode);
         //std::process::abort();
         return;
     } else {
-        println!("2");
-        let target = &_args[1];
+        target = &_args[1];
         println!("{}", target)
     }
 
-    /*if target == "screenplay" {
+    if target == "screenplay" {
         fountain_parser::parser(_args);
     } else if target == "novel" {
         novel_parser::parser(_args);
@@ -34,7 +37,6 @@ fn main() {
         //setting::help(_args);
         println!("Help command is not yet implemented")
     } else {
-        println!("Unkown target '{}'", target);
-        println!("For help use the '{}' command", TARGETS[4]);
-    }*/
+        println!("Please provide a valid target")
+    }
 }
