@@ -1,6 +1,6 @@
 ## 100A
 ### Causes
-You did not specify a target
+- You did not specify a target
 
 ### Solutions
 ```
