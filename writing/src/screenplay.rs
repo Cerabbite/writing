@@ -1,6 +1,6 @@
 use std::{env, fs};
 
-pub fn screenplay(_args: Vec<string>) {
+pub fn screenplay(_args: Vec<String>) {
 
 }
 

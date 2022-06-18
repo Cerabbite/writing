@@ -1,6 +1,6 @@
 use std::{env, fs};
 
-pub fn novel(_args: Vec<string>) {
+pub fn novel(_args: Vec<String>) {
 
 }
 

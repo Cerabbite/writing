@@ -1,7 +1,7 @@
-pub fn version(args: Vec<String>) {
-    println!("{:?}", args);
+pub fn version(_args: Vec<String>) {
+    println!("{:?}", _args);
 }
 
-pub fn update(args: Vec<String>) {
+pub fn update(_args: Vec<String>) {
 
 }

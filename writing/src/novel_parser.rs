@@ -1,3 +1,3 @@
-pub fn novel_parser(_args: Vec<string>) {
+pub fn parser(_args: Vec<String>) {
 
 }
