@@ -6,7 +6,7 @@ Writing is a software made to write novels and screenplay without any heavy text
     <tr><td width=33% valign=top>
 
 * [Installation](#Installation)
-* [Fountain](#Fountain)
+* [Fountain](#Fountain)<br>
         * [Scene Heading](#Scene-Heading)<br>
         * [Action](#Action)<br>
         * [Character](#Character)<br>
@@ -25,7 +25,7 @@ Writing is a software made to write novels and screenplay without any heavy text
         * [Notes](#Notes)<br>
         * [Boneyard](#Boneyard)<br>
         * [Sections and Synopses](#Sections-and-Synopses)<br>
-* [Novel](#Basics-of-Novel)
+* [Novel](#Basics-of-Novel)<br>
         * [Settings](#Settings)<br>
         * [Chapter Titles](#Chapter-Titles)<br>
         * [Chapter Content](#Chapter-Content)<br>
