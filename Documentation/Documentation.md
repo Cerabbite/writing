@@ -19,7 +19,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 ### Causes
 - You did not specify a target
 
-### Solutions
+#### Solutions
 ```
 writing target
 ```
