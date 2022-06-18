@@ -39,7 +39,9 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 </td><td width=33% valign=top>
 
-* [Test](#Test)
+* [Exporting your project](#Exporting-your-project)
+    * [Screenplay](#Screenplay)
+    * [Novel](#Novel)
 
 </td><td valign=top>
 
@@ -90,6 +92,10 @@ INT./EXT. WRITING ROOM - DAY
 ### Title Page
 ### Page Break
 ### Notes
+
+## Exporting your project
+### Screenplay
+### Novel
 
 ## Error Codes
 ### 100A
