@@ -40,17 +40,6 @@ Writing is a software made to write novels and screenplay without any heavy text
     - [Title Page](#title-page-1)
     - [Page Break](#page-break)
     - [Notes](#notes-1)
-  - [Exporting your project](#exporting-your-project)
-    - [Screenplay](#screenplay)
-    - [Novel](#novel-1)
-  - [Error Codes](#error-codes)
-    - [100A](#100a)
-      - [Causes](#causes)
-      - [Solutions](#solutions)
-    - [100B](#100b)
-      - [List of valid targets](#list-of-valid-targets)
-    - [404](#404)
-  - [Contributing to writing](#contributing-to-writing)
 
 </td><td width=33% valign=top>
 
