@@ -57,8 +57,8 @@ Writing is a software made to write novels and screenplay without any heavy text
 ### Linux
 
 ## Fountain
-> Fountain is not designed for writing. For more information go on their official website https://fountain.io/
-> The documentation is written from their official documentation which you can find [here](https://fountain.io/syntax#section-slug)
+> Fountain is not designed for writing. For more information go on their official website https://fountain.io/<br>
+> The documentation on Fountain is written from their official documentation which you can find [here](https://fountain.io/syntax#section-slug)
 ### Scene Heading
 ```
 INT./EXT. WRITING ROOM - DAY
