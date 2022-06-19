@@ -58,11 +58,19 @@ Writing is a software made to write novels and screenplay without any heavy text
 
 ## Fountain
 > Fountain is not designed for writing. For more information go on their official website https://fountain.io/<br>
-> The documentation on Fountain is written from their official documentation which you can find [here](https://fountain.io/syntax#section-slug)
+> The documentation on Fountain is written using their official documentation which you can find [here](https://fountain.io/syntax#section-slug). In this tutorial we only cover the parts of Fountain that writing supports in it's latets version.
 ### Scene Heading
+A scene heading consists of a line that begins with ```INT.``` or ```EXT.``` followed by an empty line.
 ```
-INT./EXT. WRITING ROOM - DAY
+INT. WRITING ROOM - DAY
+
 ```
+
+You can force a scene heading by starting a line with a single period.
+```
+.FORCED SCENE HEADING
+```
+
 ### Action
 ### Character
 ### Dialogue
