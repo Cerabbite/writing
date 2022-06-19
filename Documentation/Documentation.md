@@ -73,7 +73,7 @@ You can also "force" a scene heading by starting a line with a single period.
 ```
 
 ```INT. WRITING ROOM - DAY``` is interpreted as a Scene Heading because of the keyword ```INT.```, but ```.FORCED SCENE HEADING``` requires the single period start in order to be interperted as a Scene Heading.
-
+<br>
 
 > **_NOTE__:**  Only a line starting with a singular period will be interperted as a Scene Heading. So a line that starts with multiple periods will NOT be interperted as a Scene Heading.
 ```
