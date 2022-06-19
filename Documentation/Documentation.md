@@ -59,6 +59,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 ## Fountain
 > Fountain is not designed for writing. For more information go on their official website https://fountain.io/<br>
 > The documentation on Fountain is written using their official documentation which you can find [here](https://fountain.io/syntax#section-slug). In this tutorial we only cover the parts of Fountain that writing supports in it's latets version.
+
 ### Scene Heading
 A scene heading consists of a line that begins with ```INT.``` or ```EXT.``` followed by an empty line.
 ```
@@ -66,9 +67,17 @@ INT. WRITING ROOM - DAY
 
 ```
 
-You can force a scene heading by starting a line with a single period.
+You can also "force" a scene heading by starting a line with a single period.
 ```
 .FORCED SCENE HEADING
+```
+```INT. WRITING ROOM - DAY``` is interpreted as a Scene Heading because of the keyword ```INT.```, but ```.FORCED SCENE HEADING``` requires the single period start in order to be interperted as a Scene Heading.
+
+> **_NOTE__:**  Only a line starting with a singular period will be interperted as a Scene Heading. So a line that starts with multiple periods will NOT be interperted as a Scene Heading.
+```
+.FORCED SCENE HEADING
+
+..Not a forced scene heading
 ```
 
 ### Action
