@@ -16,7 +16,7 @@ fn main() {
     if _args.len() <= 1 {
         println!("No target found");
         error::error_handling(ERRORCODES[0]);
-        return;
+        //return;
     } else {
         target = &_args[1];
         //println!("{}", target)
