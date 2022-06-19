@@ -43,6 +43,7 @@ Writing is a software made to write novels and screenplay without any heavy text
   - [Exporting your project](#exporting-your-project)
     - [Screenplay](#screenplay)
     - [Novel](#novel-1)
+  - [FAQ](#faq)
   - [Error Codes](#error-codes)
     - [100A](#100a)
       - [Causes](#causes)
@@ -57,6 +58,7 @@ Writing is a software made to write novels and screenplay without any heavy text
 * [Exporting your project](#Exporting-your-project)
     * [Screenplay](#Screenplay)
     * [Novel](#Novel)
+* [FAQ](#FAQ)
 
 </td><td valign=top>
 
@@ -144,6 +146,8 @@ EXT. PARK - NIGHT - FLASHBACK (1944) #110A#
 ## Exporting your project
 ### Screenplay
 ### Novel
+
+## FAQ
 
 ## Error Codes
 ### 100A
