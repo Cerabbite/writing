@@ -9,6 +9,7 @@
 ### Install
 ### Add to environment variable
 ## Running the program
+<!-- Add FAQ -->
 ```
 writing writing <replace this with your input file> <replace this with your output pdf>
 ```
