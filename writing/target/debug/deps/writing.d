@@ -8,4 +8,4 @@ src\error.rs:
 src\novel_parser.rs:
 src\setting.rs:
 
-# env-dep:CARGO_PKG_VERSION=0.2.0
+# env-dep:CARGO_PKG_VERSION=1.0.0

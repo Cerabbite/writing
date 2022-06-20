@@ -46,7 +46,7 @@ pub fn update(_args: Vec<String>) {
     .text()
     .unwrap();
 
-    let mut release_version = "0.2.1".to_string();//response.to_string();
+    let mut release_version = response.to_string();
     let mut current_version = VERSION.to_string();
 
     release_version.truncate(release_version.len() - 1);
@@ -91,7 +91,7 @@ pub fn update(_args: Vec<String>) {
     if r_one > c_one {
         println!("1s");
         update = true;
-    } else if r_two > c_two {
+    } else if r_two > c_two && r_one == c_one{
         println!("2s");
         update = true;
     } else if r_three > c_three && r_two == c_two {
