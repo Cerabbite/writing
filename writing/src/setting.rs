@@ -37,8 +37,7 @@ pub fn version(_args: Vec<String>) {
 }
 
 pub fn update(_args: Vec<String>) {
-    // Maybe use the version function to check if an update is available faster?
-    println!("{}", OS_NAME);
+    //println!("{}", OS_NAME);
 
     let response: String = reqwest::blocking::get(
         "https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION",
@@ -47,7 +46,15 @@ pub fn update(_args: Vec<String>) {
     .text()
     .unwrap();
 
-    let mut released_seperate = "5.1.3".split(".");//response.split(".");
+    let mut release_version = "0.2.1".to_string();//response.to_string();
+    let mut current_version = VERSION.to_string();
+
+    release_version.truncate(release_version.len() - 1);
+    current_version.truncate(current_version.len() - 1);
+
+
+
+    let mut released_seperate = release_version.split("."); //"5.1.3".split(".");
     let mut current_seperate = VERSION.split(".");
 
     let mut n: i8 = 0;
@@ -79,16 +86,30 @@ pub fn update(_args: Vec<String>) {
         n += 1;
     }
 
+    let mut update: bool = false;
+
+    if r_one > c_one {
+        println!("1s");
+        update = true;
+    } else if r_two > c_two {
+        println!("2s");
+        update = true;
+    } else if r_three > c_three && r_two == c_two {
+        println!("3s");
+        update = true;
+    }
     println!("release: {}-{}-{}", r_one, r_two, r_three);
     println!("current: {}-{}-{}", c_one, c_two, c_three);
 
-    /*if update != true {
-        println!("No update available")
+    if update != true {
+        println!("No update available");
         return;
+    } else {
+        println!("v{} is available.", release_version)
     }
     if OS_NAME == "windows" {
 
-    }*/
+    }
     error::not_implemented("update");
 }
 
