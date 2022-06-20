@@ -2,7 +2,7 @@
 
 use crate::ERRORCODES;
 
-const VERSION: &str = "0.1.0";//env!("CARGO_PKG_VERSION");
+const VERSION: &str = env!("CARGO_PKG_VERSION"); //"0.1.0";
 const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite";
 
 pub fn version(_args: Vec<String>) {
@@ -16,23 +16,23 @@ pub fn version(_args: Vec<String>) {
     .unwrap();
     let mut txt = response.split("\n");
     for i in txt {
-        println!("{:?}", i);
+        //println!("{:?}", i);
         if i.contains(VERSION) {
             //println!("Version");
             let mut release_date = i.split(" ");
             for s in release_date {
-                if (DateTime::createFromFormat('d-m-Y ', $s) !== false) {
-                  println!("{:?}", s)
+                let amm_dashes = s.chars().filter(|c| *c == '-').count();
+                if amm_dashes == 2 && s.len() == 10 {
+                    //println!("Release Date")
+                    let release_date = s;
+                    println!("writing v{} released on {}", VERSION, release_date);
+                    return;
                 }
             }
         }
     }
-    //println!("{:?}", release_date);
-    /*if release_date == "cannot find" {
-        println!("writing v{} this version is not yet public", VERSION);
-    } else {
-        println!("writing v{} released on {}", VERSION, release_date);
-    }*/
+    println!("writing v{} this version is not yet public", VERSION);
+    return;
 }
 
 pub fn update(_args: Vec<String>) {
