@@ -2,6 +2,7 @@
 
 use crate::ERRORCODES;
 use crate::OS_NAME;
+use std::io::{stdin,stdout,Write};
 
 const VERSION: &str = env!("CARGO_PKG_VERSION"); //"0.1.0";
 const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite";
@@ -87,6 +88,7 @@ pub fn update(_args: Vec<String>) {
     }
 
     let mut update: bool = false;
+    let mut want_update: bool = false;
 
     if r_one > c_one {
         println!("1s");
@@ -105,12 +107,18 @@ pub fn update(_args: Vec<String>) {
         println!("No update available");
         return;
     } else {
-        println!("v{} is available.", release_version)
+        println!("v{} is available.", release_version);
+        println!("Do you want to install v{}? (y/n)", release_version);
+        let mut inp = String::new();
+        if inp.to_uppercase() == "y" {
+            want_update = true;
+        }
     }
-    if OS_NAME == "windows" {
 
+    if OS_NAME != "windows" && want_update == true{
+        error::not_implemented("update-writing");
+        return;
     }
-    error::not_implemented("update");
 }
 
 pub fn license(_args: Vec<String>) {

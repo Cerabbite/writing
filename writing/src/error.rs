@@ -11,3 +11,8 @@ pub fn not_implemented(function: &str) {
     println!("'{}' is not yet implemented", function);
     error_handling(ERRORCODES[2]);
 }
+
+pub fn not_implemented_os(function: &str) {
+    println!("'{}' is not yet available for your OS", function);
+    error_handling(ERRORCODES[3]);
+}

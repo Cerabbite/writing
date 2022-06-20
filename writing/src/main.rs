@@ -6,7 +6,7 @@ mod error;
 use std::env;
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
-const ERRORCODES: [&str; 3] = ["100A", "100B", "404"];
+const ERRORCODES: [&str; 4] = ["100A", "100B", "404", "405"];
 const OS_NAME: &str = env::consts::OS;
 
 fn main() {
