@@ -1,6 +1,7 @@
 #[path="error.rs"] mod error;
 
 use crate::ERRORCODES;
+use crate::OS_NAME;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION"); //"0.1.0";
 const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite";
@@ -36,6 +37,30 @@ pub fn version(_args: Vec<String>) {
 }
 
 pub fn update(_args: Vec<String>) {
+    println!("{}", OS_NAME);
+
+    let response: String = reqwest::blocking::get(
+        "https://raw.githubusercontent.com/Cerabbite/writing/main/LATEST_VERSION",
+    )
+    .unwrap()
+    .text()
+    .unwrap();
+
+    let mut released_seperate = response.split(".");
+    let mut current_seperate = response.split(".");
+    
+
+    for i in seperate {
+    }
+
+
+    if update != true {
+        println!("No update available")
+        return;
+    }
+    if OS_NAME == "windows" {
+
+    }
     error::not_implemented("update");
 }
 
