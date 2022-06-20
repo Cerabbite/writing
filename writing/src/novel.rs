@@ -10,6 +10,7 @@ pub fn novel(_args: Vec<String>) {
 fn DOCX() {
   //println!("You are currently unable to export to DOCX.");
   // Create a .docx file and rename it to .zip to see the xml content and base everything of of that
+  // https://superuser.com/questions/278260/how-do-i-see-the-xml-of-my-docx-document for more information
   error::not_implemented("docx-export");
 }
 
