@@ -7,6 +7,7 @@ use std::fs;
 use std::string::split;
 use std::string::String;
 //https://stackoverflow.com/questions/21669722/what-is-the-simplest-way-to-convert-a-string-to-upper-case-in-rust
+//https://www.youtube.com/watch?v=Mcuqzx3rBWc
 
 pub fn parser(_args: Vec<String>) {
     //println!("Arguments: {:?}", _args);
