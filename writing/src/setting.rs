@@ -46,21 +46,48 @@ pub fn update(_args: Vec<String>) {
     .text()
     .unwrap();
 
-    let mut released_seperate = response.split(".");
-    let mut current_seperate = response.split(".");
-    
+    let mut released_seperate = "5.1.3".split(".");//response.split(".");
+    let mut current_seperate = VERSION.split(".");
 
-    for i in seperate {
+    let mut n: i8 = 0;
+    let mut r_one = 0;
+    let mut r_two = 0;
+    let mut r_three = 0;
+    for i in released_seperate {
+        if n == 0 {
+            r_one = i.parse::<i32>().unwrap();
+        } else if n == 1 {
+            r_two = i.parse::<i32>().unwrap();
+        } else if n == 2 {
+            r_three = i.parse::<i32>().unwrap();
+        }
+        n += 1;
+    }
+    n = 0;
+    let mut c_one = 0;
+    let mut c_two = 0;
+    let mut c_three = 0;
+    for i in current_seperate {
+        if n == 0 {
+            c_one = i.parse::<i32>().unwrap();
+        } else if n == 1 {
+            c_two = i.parse::<i32>().unwrap();
+        } else if n == 2 {
+            c_three = i.parse::<i32>().unwrap();
+        }
+        n += 1;
     }
 
+    println!("release: {}-{}-{}", r_one, r_two, r_three);
+    println!("current: {}-{}-{}", c_one, c_two, c_three);
 
-    if update != true {
+    /*if update != true {
         println!("No update available")
         return;
     }
     if OS_NAME == "windows" {
 
-    }
+    }*/
     error::not_implemented("update");
 }
 
