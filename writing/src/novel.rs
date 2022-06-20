@@ -20,6 +20,7 @@ fn DOCX() {
     Once everything is written create a .zip file from the folder and copy that one in to the output folder
     Rename the .zip file to .docx
   */
+  // This method does not seem to work, but ill keep it there for inspiration
   error::not_implemented("docx-export");
 }
 
