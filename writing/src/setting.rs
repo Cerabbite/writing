@@ -37,6 +37,7 @@ pub fn version(_args: Vec<String>) {
 }
 
 pub fn update(_args: Vec<String>) {
+    // Maybe use the version function to check if an update is available faster?
     println!("{}", OS_NAME);
 
     let response: String = reqwest::blocking::get(
