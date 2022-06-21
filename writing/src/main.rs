@@ -2,15 +2,17 @@ mod fountain_parser;
 mod novel_parser;
 mod setting;
 mod error;
+mod log;
 
 use std::env;
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
 const ERRORCODES: [&str; 4] = ["100A", "100B", "404", "405"];
 const OS_NAME: &str = env::consts::OS;
-const LOGFILE = "log.txt"
+const LOGFILE = "log.txt";
 
 fn main() {
+    log::CheckFile();
     let _args: Vec<String> = env::args().collect();
 
     let mut target: &str = "None";
