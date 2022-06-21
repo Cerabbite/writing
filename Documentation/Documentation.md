@@ -158,4 +158,8 @@ Target specified by user is not a valid target
 ### 404
 Feature is missing
 
+### 405
+Feature is not yet implemented on your OS
+
 ## Contributing to writing
+### Reporting bugs
