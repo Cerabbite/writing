@@ -8,6 +8,7 @@ use std::env;
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
 const ERRORCODES: [&str; 4] = ["100A", "100B", "404", "405"];
 const OS_NAME: &str = env::consts::OS;
+const LOGFILE = "log.txt"
 
 fn main() {
     let _args: Vec<String> = env::args().collect();
