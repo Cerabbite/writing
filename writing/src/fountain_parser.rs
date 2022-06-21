@@ -11,19 +11,21 @@ use std::string::String;
 
 pub fn parser(_args: Vec<String>) {
     //println!("Arguments: {:?}", _args);
-    //let contents: Vec<String> = fs::read_to_string(r"E:\GitHub\writing\writing\test\test.txt").split("\n");
+    let contents = fs::read_to_string(r"E:\GitHub\writing\writing\test\test.txt").split("\n");
 
     //let first_character = contents.chars().nth(0).unwrap();
 
     //println!("{:?}", contents[0]);
 
-    /*for i in contents {
+    for i in contents {
         if i.[..1] == "." and i.[..1] != "." {
+            println!("Forced Scene Heading");
             scene_heading();
         } else if i[..4].to_uppercase() == "INT." or i[..4] == "EXT." {
+            println!("Scene Heading");
             scene_heading();
         }
-    }*/
+    }
 
     error::not_implemented("fountain-parser");
 }
