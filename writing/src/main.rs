@@ -7,7 +7,7 @@ mod log;
 use std::env;
 use std::fs;
 use std::io::Write;
-use chrono::prelude::Local;
+use chrono::prelude::{Local, DateTime};
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
 const ERRORCODES: [&str; 4] = ["100A", "100B", "404", "405"];
@@ -16,8 +16,7 @@ const LOGFOLDER: &str = "Startup.txt";
 const STARTUPFILE: &str = "Startup.txt";
 
 fn main() {
-    let d = Local::now();
-    println!("{:?}", d);
+    let StartTime: DateTime = Local::now();
 
     let _args: Vec<String> = env::args().collect();
 
@@ -47,4 +46,7 @@ fn main() {
         println!("Please provide a valid target");
         error::error_handling(ERRORCODES[1]);
     }
+
+    let EndTime: DateTime = Local::now();
+    log::RUNTIME(StartTime, EndTime);
 }

@@ -1,6 +1,7 @@
 use crate::LOGFOLDER;
 use std::path::Path;
 use std::fs;
+use chrono::prelude::DateTime;
 
 //Function that checks if this is the first time the program is started
 //Function that checks if a log file for today has been created if not it creats one
@@ -31,10 +32,7 @@ pub fn debug(Debug: String) {
 
 }
 
-pub fn start() {
-
-}
-
-pub fn end() {
-    
+pub fn RUNTIME(StartTime: DateTime, EndTime: DateTime) {
+    println!("Start time: {:?}", StartTime)
+    println!("End time: {:?}", EndTime)
 }
