@@ -11,7 +11,7 @@ use std::string::String;
 
 pub fn parser(_args: Vec<String>) {
     //println!("Arguments: {:?}", _args);
-    let contents = fs::read_to_string(r"E:\GitHub\writing\writing\test\test.txt").split("\n");
+    /*let contents = fs::read_to_string(r"E:\GitHub\writing\writing\test\test.txt").split("\n");
 
     //let first_character = contents.chars().nth(0).unwrap();
 
@@ -25,7 +25,7 @@ pub fn parser(_args: Vec<String>) {
             println!("Scene Heading");
             scene_heading();
         }
-    }
+    }*/
 
     error::not_implemented("fountain-parser");
 }
