@@ -2,10 +2,28 @@
 
 use crate::ERRORCODES;
 use crate::OS_NAME;
+use crate::STARTUPFILE;
 use std::io::{stdin,stdout,Write};
 
 const VERSION: &str = env!("CARGO_PKG_VERSION"); //"0.1.0";
 const COPYRIGHT: &str = "Copyright (c) 2022 Cerabbite";
+
+/*pub startup() {
+    // Parsing startup file
+    let startup_content = fs::read_to_string(STARTUPFILE);
+
+    if startup_content[..1] == "0" {
+        // Add to environment path
+    }
+
+    // Updating the Startup file.
+    let mut times = startup_content[..1].parse::<i32>().unwrap()
+    times += 1;
+    let mut f = std::fs::OpenOptions::new().write(true).open(STARTUPFILE);
+    f.write_all();
+    f.flush();
+    Ok(());
+}*/
 
 pub fn version(_args: Vec<String>) {
     //println!("{:?}", _args);

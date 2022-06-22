@@ -30,3 +30,11 @@ pub fn error(Information: String) {
 pub fn debug(Debug: String) {
 
 }
+
+pub fn start() {
+
+}
+
+pub fn end() {
+    
+}
