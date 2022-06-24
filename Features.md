@@ -1,5 +1,5 @@
 ## v0.4.0
-- [ ] Light Weight GUI
+- [ ] Light Weight GUI (Tauri)
 - [ ] Watermark novel PDF
 - [ ] Watermark screenplay PDF
 
