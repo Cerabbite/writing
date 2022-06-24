@@ -13,3 +13,7 @@
 - [ ] Export screenplay to FDX
 - [ ] Update from command line
 - [x] Version
+- [ ] Config file
+- [ ] Custom font for Novel
+- [ ] Custom font size for Novel
+- [ ] Custom paper size for Novel
