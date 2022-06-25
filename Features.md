@@ -7,6 +7,7 @@
 - [ ] Version control screenplay -> titelv1.0.0 titelv1.1.0 this feature will show the difference between the 2 files
 - [ ] Spellings check novel
 - [ ] Spellings chekc screenplay
+- [ ] Write documentation with writing
 
 ## v0.3.0
 - [ ] Export novel to HTML
