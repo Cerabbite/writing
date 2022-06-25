@@ -1,6 +1,12 @@
 ## v0.4.0
 - [ ] Watermark novel PDF
 - [ ] Watermark screenplay PDF
+- [ ] Novel genre styling
+  - [ ] Thriller
+- [ ] Version control novel -> titelv1.0.0 titelv1.1.0 this feature will show the difference between the 2 files
+- [ ] Version control screenplay -> titelv1.0.0 titelv1.1.0 this feature will show the difference between the 2 files
+- [ ] Spellings check novel
+- [ ] Spellings chekc screenplay
 
 ## v0.3.0
 - [ ] Export novel to HTML
@@ -15,6 +21,7 @@
 - [ ] Watermark novel DOCX
 - [ ] Watermark novel RTF
 - [ ] Watermark screenplay TRELBY
+- [ ] Novel dialogue
 
 ## v0.2.0
 - [ ] Export novel to RTF
