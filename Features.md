@@ -23,7 +23,7 @@
 - [ ] Watermark screenplay TRELBY
 - [ ] Novel dialogue
 
-## v0.2.0
+## v0.2.0 (Expected launch date: 20-07-2022)
 - [ ] Export novel to RTF
 - [ ] Export novel to DOCX
 - [ ] Export screenplay to TRELBY
