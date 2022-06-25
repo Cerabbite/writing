@@ -11,7 +11,7 @@ pub fn CheckFile() {
   let first_time: bool = Path::new(LOGFOLDER).exists();
   if first_time == false {
       fs::create_dir_all(LOGFOLDER);
-  }
+}
 
   // If file does not exist create the file and add writing to environment variable
 }
