@@ -1,5 +1,4 @@
 ## v0.4.0
-- [ ] Light Weight GUI (Vulkan + ImGui)
 - [ ] Watermark novel PDF
 - [ ] Watermark screenplay PDF
 
