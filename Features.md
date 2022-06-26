@@ -1,5 +1,6 @@
 ## v0.5.0
 - [ ] Latex support
+- [ ] Markdown support
 
 ## v0.4.0
 - [ ] Watermark novel PDF
