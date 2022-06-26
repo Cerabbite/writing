@@ -5,6 +5,7 @@
 
 ## v0.6.0
 - [ ] More latex feature support
+
 ## v0.5.0
 - [ ] Latex support
 - [ ] Markdown support
