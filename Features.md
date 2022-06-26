@@ -1,6 +1,20 @@
+## v0.7.0
+- [ ] Write presentations (.PRDOC)
+- [ ] Export PRDOC to PDF
+- [ ] Export PRDOC to PPTX
+
+## v0.6.0
+- [ ] More latex feature support
 ## v0.5.0
 - [ ] Latex support
 - [ ] Markdown support
+- [ ] Export markdown to PDF
+- [ ] Export markdown to DOCX
+- [ ] Export latex to PDF
+- [ ] Export markdown to DOCX
+- [ ] WRDOC custom font
+- [ ] WRDOC custom font size
+- [ ] WRDOC custom page size
 
 ## v0.4.0
 - [ ] Watermark novel PDF
@@ -12,6 +26,8 @@
 - [ ] Spellings check novel
 - [ ] Spellings chekc screenplay
 - [ ] Write documentation with writing (.WRDOC)
+- [ ] WRDOC export to DOCX
+- [ ] WRDOC export to PDF
 
 ## v0.3.0
 - [ ] Export novel to HTML
