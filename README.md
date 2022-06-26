@@ -5,7 +5,7 @@
 # Why use writing?
 
 # Documentation
-## Instalation
+## Installation
 ### Install
 ### Add to environment variable
 ## Running the program
