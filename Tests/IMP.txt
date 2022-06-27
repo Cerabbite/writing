@@ -1,1 +1,0 @@
-https://github.com/bokuweb/docx-rs/blob/8ea72ed5c9d9ffccd5b29c048f413d3bf9e6c773/docx-core/src/lib.rs
