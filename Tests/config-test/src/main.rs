@@ -1,28 +1,21 @@
-use directories::ProjectDirs;
-use serde::Deserialize;
-use std::fs;
-
-#[derive(Deserialize, Debug)]
-struct Config {
-    name: String,
-    number: i32,
-}
+use config::Config;
+use std::collections::HashMap;
 
 fn main() {
-    if let Some(proj_dirs) = ProjectDirs::from("dev", "cerabbite", "writing-test") {
-        let config_dir = proj_dirs.config_dir();
-
-        let config_file = fs::read_to_string(
-            config_dir.join("writing-test.toml")
-        ).map(|file| {toml::from_str(&file)})
+    let settings = Config::builder()
+        // Add in `./Settings.toml`
+        .add_source(config::File::with_name("examples/simple/Settings"))
+        // Add in settings from the environment (with a prefix of APP)
+        // Eg.. `APP_DEBUG=1 ./target/app` would set the `debug` key
+        .add_source(config::Environment::with_prefix("APP"))
+        .build()
         .unwrap();
 
-        /*let config: Config = toml::from_str(&config_file).unwrap_or(Config {
-            name: "Cerabbite".to_string(),
-            number: 12,
-        });
-
-        dbg!(config);*/
-
-    }
+    // Print out our settings (as a HashMap)
+    println!(
+        "{:?}",
+        settings
+            .try_deserialize::<HashMap<String, String>>()
+            .unwrap()
+    );
 }
