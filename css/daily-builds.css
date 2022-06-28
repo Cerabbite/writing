@@ -5,19 +5,23 @@
 }
 
 #daily-builds td, #daily-builds th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    padding: 2px;
+    padding-left: 5px;
 }
 
 #daily-builds tr:nth-child(even){background-color: rgb(234,234,234);}
 
+
 #daily-builds tr:hover {background-color: #dddddd;}
 
 #daily-builds th {
+    padding: 8px;
+    padding-left: 5px;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #3b3b3b;
+    background-color: #000000;
     color: white;
 }
 
