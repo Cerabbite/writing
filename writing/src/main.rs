@@ -10,7 +10,7 @@ use std::io::Write;
 use chrono::prelude::{Local, DateTime};
 
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
-const ERRORCODES: [&str; 4] = ["100A", "100B", "404", "405"];
+const ERRORCODES: [&str] = ["100A", "100B", "404", "405"];
 const OS_NAME: &str = env::consts::OS;
 const LOGFOLDER: &str = "Startup.txt";
 const STARTUPFILE: &str = "Startup.txt";
