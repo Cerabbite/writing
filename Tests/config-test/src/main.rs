@@ -1,21 +1,40 @@
-use config::Config;
-use std::collections::HashMap;
+use std::fs::File;
+use std::io::prelude::*;
 
-fn main() {
-    let settings = Config::builder()
-        // Add in `./Settings.toml`
-        .add_source(config::File::with_name("examples/simple/Settings"))
-        // Add in settings from the environment (with a prefix of APP)
-        // Eg.. `APP_DEBUG=1 ./target/app` would set the `debug` key
-        .add_source(config::Environment::with_prefix("APP"))
-        .build()
-        .unwrap();
+const CONFIG_CONTENT: &[u8] = b"[writing]
+author: Cerabbite
+copyright: Copyright (c) 2022 Cerabbite
+license: MIT License
 
-    // Print out our settings (as a HashMap)
-    println!(
-        "{:?}",
-        settings
-            .try_deserialize::<HashMap<String, String>>()
-            .unwrap()
-    );
+[novel]
+page-size: A4;
+font: some-font.ttf
+font-size: 12
+[screenplay]
+page-size: A4";
+
+fn parser() {
+
 }
+
+// DO NOT DO THIS IN THE MAIN FUNCTION WHEN IMPLEMENTED!!
+fn main() -> std::io::Result<()> {
+    // Create path - source: https://stackoverflow.com/questions/59046312/how-can-i-create-a-file-and-its-parent-directories-using-a-single-method-in-rust
+    let path = std::path::Path::new("config/config.toml");
+    let prefix = path.parent().unwrap();
+    std::fs::create_dir_all(prefix).unwrap();
+
+    // Create file - source: https://doc.rust-lang.org/std/fs/struct.File.html
+    let mut file = File::create("config/writing.toml")?;
+    file.write_all(CONFIG_CONTENT)?;
+    Ok(())
+}
+
+/*use std::fs::File;
+use std::io::prelude::*;
+
+fn main() -> std::io::Result<()> {
+    let mut file = File::create("config/config.toml")?;
+    file.write_all(b"Hello, world!")?;
+    Ok(())
+}*/
