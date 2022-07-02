@@ -6,6 +6,7 @@ const CONFIG_CONTENT: &[u8] = b"[writing]
 author: Cerabbite
 copyright: Copyright (c) 2022 Cerabbite
 license: MIT License
+version: 2.0.0
 
 [novel]
 page-size: A4;
@@ -23,16 +24,20 @@ fn main() { //parser() {
     println!("With text:\n{}", contents);
 
     //let sections;
-    let mut start_section = False;
+    let mut start_section = false;
     let mut section = String::from("");
+    let mut section_part = "[ ]".chars();
+    let section_begin = section_part.nth(0).unwrap();
+    let section_end = section_part.nth(1).unwrap();
+    // Section checking loop
     for i in contents.chars() {
-        if i == "[" {
-            start_section = True;
-        } else if i == "]" && start_section == True {
-            start_section = False;
-            print("Found a section: {}", section);
+        if i == section_begin {
+            start_section = true;
+        } else if i == section_end && start_section == true {
+            start_section = false;
+            println!("Found a section: {}", section);
             section = String::from("");
-        } else if start_section == True {
+        } else if start_section == true {
             section.push(i);
         }
     }
