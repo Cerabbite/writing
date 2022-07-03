@@ -136,7 +136,7 @@ EXT. PARK - NIGHT - FLASHBACK (1944) #110A#
 ### Novel
 
 ## Error Codes
-### 100A
+### 100
 #### Causes
 - You did not specify a target
 
@@ -145,7 +145,7 @@ EXT. PARK - NIGHT - FLASHBACK (1944) #110A#
 writing target
 ```
 
-### 100B
+### 101
 ```
 Error message: Target specified by user is not a valid target
 ```
