@@ -32,7 +32,7 @@ pub fn debug(Debug: String) {
 
 }
 
-pub fn RUNTIME(StartTime: DateTime, EndTime: DateTime) {
+/*pub fn RUNTIME(StartTime: DateTime, EndTime: DateTime) {
     println!("Start time: {:?}", StartTime)
     println!("End time: {:?}", EndTime)
-}
+}*/
