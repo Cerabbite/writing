@@ -1,0 +1,38 @@
+.upper {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#nightly-builds {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#nightly-builds td, #nightly-builds th {
+    border-bottom: 1px solid #ddd;
+    padding: 2px;
+    padding-left: 5px;
+}
+
+#nightly-builds tr:nth-child(even){background-color: rgb(234,234,234);}
+
+
+#nightly-builds tr:hover {background-color: #dddddd;}
+
+#nightly-builds th {
+    padding: 8px;
+    padding-left: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #000000;
+    color: white;
+}
+
+a {
+    color:#3b3b3b;
+}
+
+p {
+    color:#3b3b3b;
+}
