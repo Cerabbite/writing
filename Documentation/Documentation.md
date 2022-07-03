@@ -1,3 +1,4 @@
+<!-- Change file format from .md to .rst (reStructuredText) -->
 # writing
 Writing is a software made to write novels and screenplay without any heavy text editor.
 
@@ -145,8 +146,11 @@ writing target
 ```
 
 ### 100B
-Target specified by user is not a valid target
-
+```
+Error message: Target specified by user is not a valid target
+```
+#### Causes
+#### Fixes
 #### List of valid targets
 <!-- NOTE: Set all valid targets in alphabetical order -->
 * screenplay
