@@ -1,0 +1,15 @@
+[writing]
+name = "writing"
+version ="0.2.0"
+license = "MIT-License"
+authors = ["Cerabbite"]
+description = ""
+homepage = ""
+repository = "https://github.com/Cerabbite/writing"
+
+[settings]
+error_report = "simple"
+
+[fountain]
+
+[novel]
