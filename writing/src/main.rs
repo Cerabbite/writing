@@ -12,7 +12,7 @@ use chrono::prelude::{Local, DateTime};
 //const TARGETS: [&str; 5] = ["screenplay", "novel", "version", "update", "help"];
 // Change error codes from str to int maybe in the future change it to floats so 100A becomes 100.1 and 100B becomes 100.2 but for now 100A becomes 100 and 100B become 101
 // Eror codes give error when changed to int or float so for now it will stay a str but 100A is still 100 and 100B is still 101
-const ERRORCODES: [&str] = ["100", "101", "404", "405"];
+const ERRORCODES: [&str] = ["100", "101", "404", "405", "400"];
 const OS_NAME: &str = env::consts::OS;
 const LOGFOLDER: &str = "Startup.txt";
 const STARTUPFILE: &str = "Startup.txt";
