@@ -28,11 +28,13 @@ pub fn not_implemented_os(function: &str) {
 }
 
 pub fn unkown_function(function: &str) {
-    // Error code 400    
+    // Error code 400
+    println!("'{}' is an unknown function", function);
+    //error_handling(ERRORCODES[NUM]))
 }
 
 pub fn unkown_character(character: &str) {
     println!("'{}' is not a valid character", character);
     // Error code: 200
-    //error_handling(ERRORCODES[4]);
+    //error_handling(ERRORCODES[NUM]);
 }
