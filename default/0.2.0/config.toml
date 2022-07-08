@@ -7,8 +7,12 @@ description = ""
 homepage = ""
 repository = "https://github.com/Cerabbite/writing"
 
-[settings]
-error_report = "simple"
+[general]
+font-color = "white"
+
+[errors]
+error-report = "simple"
+error-color = "red"
 
 [fountain]
 
