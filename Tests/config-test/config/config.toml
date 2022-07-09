@@ -5,3 +5,4 @@ copyright = "Copyright (c) 2022 Cerabbite"
 
 [error]
 log-errors = "Full"
+font-color = "red"
