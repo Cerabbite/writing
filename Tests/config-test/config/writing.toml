@@ -6,6 +6,9 @@ license: MIT License
 [error]
 
 [novel]
+page-size: A4;
+font: some-font.ttf
+font-size: 12
 
 [screenplay]
 page-size: A4
