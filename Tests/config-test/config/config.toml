@@ -3,6 +3,15 @@ name = "writing"
 author = "Cerabbite"
 copyright = "Copyright (c) 2022 Cerabbite"
 
-[error]
+[errors]
 log-errors = "Full"
+show-errors = "Minimal"
 font-color = "red"
+
+[screenplay]
+font = "courier"
+font-size = 12
+
+[novel]
+font = "garamond"
+font-size = 12
