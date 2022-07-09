@@ -2,6 +2,7 @@
 name = "writing"
 author = "Cerabbite"
 copyright = "Copyright (c) 2022 Cerabbite"
+license = "MIT-License"
 
 [errors]
 log-errors = "full"
