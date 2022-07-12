@@ -29,7 +29,7 @@ fn main() { //parser() {
     let mut section_part = "[ ]".chars();
     let section_begin = section_part.nth(0).unwrap();
     let section_end = section_part.nth(1).unwrap();
-    // Section checking loop
+    // Checking loop
     for i in contents.chars() {
         if i == section_begin {
             start_section = true;
