@@ -1,0 +1,31 @@
+[writing]
+name = "writing"
+author = "Cerabbite"
+copyright = "Copyright (c) 2022 Cerabbite"
+license = "MIT-License"
+
+[errors]
+log-errors = "full"
+log-removal = 365
+show-errors = "minimal"
+font-color = "red"
+
+[screenplay]
+font = "Courier"
+font-size = 12
+page-size = "A4"
+margin-top = 1
+margin-bottom = 1
+margin-left = 1.5
+margin-right = 1
+pagenumbers = True
+pagenumbers-style = "$."
+margin-top-pagenumbers = 0.5
+margin-right-pagenumbers = margin-right
+auto-capitalize = "all"
+generate-titlepage = True
+
+[novel]
+font = "Garamond"
+font-size = 12
+page-size = "A4"
