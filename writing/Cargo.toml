@@ -8,3 +8,6 @@ authors = ["Cerabbite"]
 
 [dependencies]
 clap = { version = "3.2.12", features = ["derive"] }
+serde = "1.0.139"
+serde_derive = "1.0.139"
+toml = "0.5.9"
