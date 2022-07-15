@@ -18,7 +18,7 @@ pub struct Config {
     pub release_date: String,
 }
 
-pub fn config() -> (String, String, String){
+pub fn config() -> Data{
     let filename = "config\\config.toml";
 
     let contents = match fs::read_to_string(filename) {
@@ -42,11 +42,17 @@ pub fn config() -> (String, String, String){
         }
     };
 
+    return data;
+
     //println!("{}", data.writing.name);
     //println!("{}", data.writing.version);
     //println!("{}", data.writing.release_date);
-    let name: String = data.writing.name;
-    let version: String = data.writing.version;
-    let release_date: String = data.writing.release_date;
-    return (name, version, release_date);
+}
+
+pub fn rt(rt: String) {
+    let data: Data = config();
+    if rt == "name" {
+        //return data.writing.name;
+        println!("return name - {:?}", data.writing.name)
+    }
 }

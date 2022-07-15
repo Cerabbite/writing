@@ -1,3 +1,5 @@
+use crate::config::config;
+
 use clap:: {
     Args,
     Parser,
@@ -5,7 +7,7 @@ use clap:: {
 };
 
 #[derive(Debug, Parser)]
-#[clap(author, version="v0.2.0b-nightly-UTC", about)]
+#[clap(author, version=&*config().writing.version, about)]
 pub struct writingArgs {
     /// A first argument
     pub first_arg: String,
