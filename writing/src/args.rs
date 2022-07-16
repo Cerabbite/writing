@@ -7,8 +7,7 @@ use clap:: {
 };
 
 #[derive(Debug, Parser)]
-#[clap(author, version=&*config().writing.version, about)]
+//#[clap(author)]
 pub struct writingArgs {
-    /// A first argument
-    pub first_arg: String,
+
 }
