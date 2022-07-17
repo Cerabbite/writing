@@ -1,11 +1,10 @@
 name: writing
 version: "0.2.0a-nightly-1657982403"
 author: Cerabbite
+copyright: Copyright (C) 2022 Cerabbite
 license: MIT-License
-about: About writing
 args:
     - test:
         short: t
         long: test
-        about: Test command
         takes_value: false

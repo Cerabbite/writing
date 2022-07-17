@@ -1,5 +1,4 @@
 mod config;
-mod args;
 
 //use args::writingArgs;
 /*use clap:: {
@@ -27,9 +26,7 @@ fn main() {
     //let matches = App::from(writing_yaml).get_matches();
 
     let yaml = load_yaml!("..\\config\\writing.yaml");
-    let matches = App::from(yaml).get_matches();
+    let matches = App::from_yaml(yaml).get_matches();
 
-    if let Some(i) = matches.value_of("test") {
-        println!("test")
-    }
+    println!("{:?}", matches);
 }
