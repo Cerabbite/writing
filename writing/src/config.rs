@@ -14,13 +14,17 @@ pub struct Data {
 #[derive(Deserialize)]
 pub struct Config {
     pub name: String,
+    pub author: String,
     pub version: String,
+    pub update: String,
+    pub auto_update: bool,
     pub release_date: String,
 }
 
 pub fn config() -> Data{
     let filename = "config\\config.toml";
 
+    // Improve error handling of both 'contents' and 'data'
     let contents = match fs::read_to_string(filename) {
         Ok(c) => c,
 
@@ -47,12 +51,4 @@ pub fn config() -> Data{
     //println!("{}", data.writing.name);
     //println!("{}", data.writing.version);
     //println!("{}", data.writing.release_date);
-}
-
-pub fn rt(rt: String) {
-    let data: Data = config();
-    if rt == "name" {
-        //return data.writing.name;
-        println!("return name - {:?}", data.writing.name)
-    }
 }

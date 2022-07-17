@@ -1,4 +1,7 @@
 [writing]
 name = "writing"
-version = "0.2.0a-nightly-UNIX"
+author = "Cerabbite"
+version = "0.2.0pa-nightly-UNIX"
+update = "nightly" # standard: quarter | options: alpha (0.0.0a or 0.0.0b), nightly (0.0.0-nightly), full (x.0.0), half (0.x.0), quarter (0.0.x), all (x.x.xa-nightly)
+auto_update = false # standard: false | options: true, false
 release_date = "xx/xx/2022"
