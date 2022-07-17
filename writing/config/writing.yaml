@@ -3,8 +3,15 @@ version: "0.2.0a-nightly-1657982403"
 author: Cerabbite
 copyright: Copyright (C) 2022 Cerabbite
 license: MIT-License
+about: Writing
 args:
     - test:
+        help: A test function
         short: t
         long: test
         takes_value: false
+    - second:
+        help: A second function
+        short: s
+        long: second
+        takes_value: true

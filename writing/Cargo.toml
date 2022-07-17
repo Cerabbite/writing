@@ -7,7 +7,7 @@ authors = ["Cerabbite"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 #"3.2.12" ["derive",
 [dependencies]
-clap = { version = "3.0.0-beta.2", features = ["yaml"] }
+clap = { version = "3.2.12", features = ["yaml"] }
 serde = "1.0.139"
 serde_derive = "1.0.139"
 toml = "0.5.9"
