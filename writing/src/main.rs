@@ -5,7 +5,7 @@ mod settings;
 
 fn main() {
     if config::config().writing.auto_update == true {
-        settings::update();
+        settings::update(true);
     }
     /*
     //https://rustrepo.com/repo/clap-rs-clap-rust-command-line#using-yaml

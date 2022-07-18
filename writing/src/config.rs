@@ -16,7 +16,7 @@ pub struct Config {
     pub name: String,
     pub author: String,
     pub version: String,
-    pub update: String,
+    pub update_type: String,
     pub auto_update: bool,
     pub release_date: String,
 }

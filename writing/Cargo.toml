@@ -11,3 +11,5 @@ clap = { version = "3.2.12", features = ["yaml"] }
 serde = "1.0.139"
 serde_derive = "1.0.139"
 toml = "0.5.9"
+termcolor = "1.1"
+colored = "2.0.0"
